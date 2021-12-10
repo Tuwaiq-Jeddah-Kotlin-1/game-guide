@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "335530443137",
+    "project_id": "game-guide-d3342",
+    "storage_bucket": "game-guide-d3342.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:335530443137:android:607782fea2e707c6656880",
+        "android_client_info": {
+          "package_name": "com.example.gameguide"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "335530443137-0o9hto5o8o9tkqkv0kkedtg0rug0vslt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBoDebiFzoxkXJoUmtenhL7GGgybfPH6A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "335530443137-0o9hto5o8o9tkqkv0kkedtg0rug0vslt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
