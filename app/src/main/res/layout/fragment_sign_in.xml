@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".SignIn">
+
+        <FrameLayout
+            android:id="@+id/signInFrameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="#095EA1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/ivSignInLogo"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/icon" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/tvSignIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:gravity="center"
+            android:text="@string/singIn_tv_SignIn"
+            android:textAlignment="center"
+            android:textSize="50sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signInFrameLayout" />
+
+
+        <EditText
+            android:id="@+id/etSignInEmail"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:drawableStart="@drawable/ic_baseline_email"
+            android:ems="10"
+            android:hint="@string/reset_et_email"
+            android:inputType="textEmailAddress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSignIn" />
+
+        <EditText
+            android:id="@+id/etSignInPassword"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:drawableStart="@drawable/ic_baseline_lock"
+            android:ems="10"
+            android:hint="@string/signIn_et_password"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etSignInEmail" />
+
+        <CheckBox
+            android:id="@+id/cbSignInRememberMe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/signIn_cb_remember_me"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etSignInPassword" />
+
+        <TextView
+            android:id="@+id/tvSignInForgetPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/signIn_tv_forget_password"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cbSignInRememberMe" />
+
+        <TextView
+            android:id="@+id/tvSignInRestPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="98dp"
+            android:text="@string/signIn_tv_reset_password"
+            android:textColor="#2196F3"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cbSignInRememberMe" />
+
+
+        <Button
+            android:id="@+id/btnSignIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:backgroundTint="@android:color/holo_blue_dark"
+            android:text="@string/signIn_btn_sign_in"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSignInForgetPassword" />
+
+        <TextView
+            android:id="@+id/tvSignInYouDont"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/signIn_tv_you_don_t_have_account"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnSignIn" />
+
+
+        <TextView
+            android:id="@+id/tvSignInLogInNow"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="87dp"
+            android:text="@string/signIn_tv_log_in_now"
+            android:textColor="#2196F3"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnSignIn" />
+
+        <ImageView
+            android:id="@+id/ivSignInVisible"
+            android:layout_width="27dp"
+            android:layout_height="45dp"
+            android:src="@drawable/ic_baseline_visibility"
+            app:layout_constraintBottom_toBottomOf="@+id/etSignInPassword"
+            app:layout_constraintStart_toEndOf="@+id/etSignInPassword"
+            app:layout_constraintTop_toTopOf="@+id/etSignInPassword" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
