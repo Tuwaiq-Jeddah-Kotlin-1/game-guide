@@ -30,4 +30,7 @@
     <string name="register_tv_back_to_sign_in_page"><u>back to sign in page</u></string>
     <string name="signIn_tv_reset_password"><u>reset password</u></string>
     <string name="homePage_welcome_home">welcome home</string>
+    <string name="menu_item_favourite">favourite</string>
+    <string name="menu_item_home">home</string>
+    <string name="menu_item_profile">profile</string>
 </resources>
