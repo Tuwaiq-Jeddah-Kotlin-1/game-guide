@@ -120,10 +120,7 @@ class Registration : Fragment() {
                         userData(binding.etRegistrationUserName.text.toString(), binding.etRegistrationEmail.text.toString(), binding.etRegistrationPhone.text.toString())
                         //firebase register user
                         Toast.makeText(context, "registration successful", Toast.LENGTH_LONG).show()
-
                         Log.e("OK", "registration successful")
-
-                        /*findNavController().navigate(R.id.action_registration_to_homepage)*/
                     } else {
                         Toast.makeText(context, task.exception!!.message.toString(), Toast.LENGTH_LONG).show()
                     }
@@ -163,15 +160,12 @@ class Registration : Fragment() {
                         findNavController().navigate(R.id.action_registration_to_homepage)
                     }
                     else -> {
-
                         Toast.makeText(context, "is not Successful fire store ", Toast.LENGTH_LONG).show()
-
                     }
 
 
                 }
             }
-
             withContext(Dispatchers.Main) {
                 //Toast.makeText(coroutineContext.javaClass, "Welcome ${user.fullName.toString()}", Toast.LENGTH_LONG).show()
 

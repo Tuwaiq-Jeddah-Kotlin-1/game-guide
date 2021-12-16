@@ -7,13 +7,15 @@
         <entry key="..\:/Users/Hp/AndroidStudioProjects/gameGuide/app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.2703125" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/gameGuide/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/gameGuide/app/src/main/res/layout/activity_main2.xml" value="0.2" />
+        <entry key="..\:/Users/Hp/AndroidStudioProjects/gameGuide/app/src/main/res/layout/bosh_change_profile.xml" value="0.4" />
+        <entry key="..\:/Users/Hp/AndroidStudioProjects/gameGuide/app/src/main/res/layout/bosh_edit_profile.xml" value="0.1" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/gameGuide/app/src/main/res/layout/fragment_favourite_page.xml" value="0.1" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/gameGuide/app/src/main/res/layout/fragment_forget_password.xml" value="0.23828125" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/gameGuide/app/src/main/res/layout/fragment_homepage.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/gameGuide/app/src/main/res/layout/fragment_log_in.xml" value="0.15087719298245614" />
-        <entry key="..\:/Users/Hp/AndroidStudioProjects/gameGuide/app/src/main/res/layout/fragment_profile.xml" value="0.1" />
+        <entry key="..\:/Users/Hp/AndroidStudioProjects/gameGuide/app/src/main/res/layout/fragment_profile.xml" value="0.264" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/gameGuide/app/src/main/res/layout/fragment_registration.xml" value="0.21492921492921493" />
-        <entry key="..\:/Users/Hp/AndroidStudioProjects/gameGuide/app/src/main/res/layout/fragment_sign_in.xml" value="0.38657407407407407" />
+        <entry key="..\:/Users/Hp/AndroidStudioProjects/gameGuide/app/src/main/res/layout/fragment_sign_in.xml" value="0.1" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/gameGuide/app/src/main/res/menu/bottom_navigation.xml" value="0.25416666666666665" />
       </map>
     </option>

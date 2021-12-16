@@ -5,9 +5,7 @@
     <string name="reset_tv_ResetPassword_in">Reset Password</string>
     <string name="singIn_tv_SignIn">Sign in</string>
     <string name="signIn_tv_log_in_now"><u>log In now!</u></string>
-    <string name="reset_tv_email">email</string>
     <string name="reset_et_email">email</string>
-    <string name="signIn_tv_password">password</string>
     <string name="signIn_et_password">password</string>
     <string name="signIn_cb_remember_me">remember me</string>
     <string name="signIn_tv_forget_password">forget password?</string>
@@ -16,15 +14,10 @@
     <string name="reset_btn_reset">Reset</string>
     <string name="reset_tv_back_to_sign_in_page"><u>back to sign in page</u></string>
     <string name="register_tv_registration">Registration</string>
-    <string name="register_tv_user_name">user name</string>
     <string name="register_et_user_name">user name</string>
-    <string name="register_tv_email">email</string>
     <string name="register_et_email">email</string>
-    <string name="register_tv_phone">phone</string>
     <string name="register_et_phone">phone</string>
-    <string name="register_tv_password">password</string>
     <string name="register_et_password">password</string>
-    <string name="register_tv_repassword">repassword</string>
     <string name="register_et_repassword">repassword</string>
     <string name="register_btn_registration">Registration</string>
     <string name="register_tv_back_to_sign_in_page"><u>back to sign in page</u></string>
@@ -33,4 +26,14 @@
     <string name="menu_item_favourite">favourite</string>
     <string name="menu_item_home">home</string>
     <string name="menu_item_profile">profile</string>
+    <string name="pro_tv_profile">profile</string>
+    <string name="prof_tv_username">user name</string>
+    <string name="prof_tv_phone">phone number</string>
+    <string name="prof_tv_email">email</string>
+    <string name="prof_btn_logOut">log out</string>
+    <string name="prof_tv_language">language</string>
+    <string name="prof_tv_appearance">appearance</string>
+    <string name="changeProf_et_username">username</string>
+    <string name="changeProf_et_phone">phone</string>
+    <string name="changeProf_btn_edit">confirm</string>
 </resources>
