@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav"
-    app:startDestination="@id/signIn">
+    app:startDestination="@id/homepage">
 
     <fragment
         android:id="@+id/signIn"
@@ -35,16 +35,9 @@
     </fragment>
     <fragment
         android:id="@+id/homepage"
-        android:name="com.example.gameguide.Homepage"
+        android:name="com.example.gameguide.homepage.Homepage"
         android:label="fragment_homepage"
-        tools:layout="@layout/fragment_homepage" >
-        <action
-            android:id="@+id/action_homepage_to_favouritePage"
-            app:destination="@id/favouritePage" />
-        <action
-            android:id="@+id/action_homepage_to_profileFragment"
-            app:destination="@id/profileFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_homepage" />
     <fragment
         android:id="@+id/registration"
         android:name="com.example.gameguide.Registration"
@@ -64,22 +57,10 @@
         android:id="@+id/favouritePage"
         android:name="com.example.gameguide.FavouritePage"
         android:label="fragment_favourite_page"
-        tools:layout="@layout/fragment_favourite_page" >
-        <action
-            android:id="@+id/action_favouritePage_to_homepage"
-            app:destination="@id/homepage"
-            app:popUpTo="@id/homepage"
-            app:popUpToInclusive="true" />
-    </fragment>
+        tools:layout="@layout/fragment_favourite_page" />
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.gameguide.ProfilePage"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" >
-        <action
-            android:id="@+id/action_profileFragment_to_homepage"
-            app:destination="@id/homepage"
-            app:popUpTo="@id/favouritePage"
-            app:popUpToInclusive="true" />
-    </fragment>
+        tools:layout="@layout/fragment_profile" />
 </navigation>

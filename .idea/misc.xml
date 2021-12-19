@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Hp/AndroidStudioProjects/gameGuide/app/src/main/res/drawable-v24/card_movie.xml" value="0.1" />
+        <entry key="..\:/Users/Hp/AndroidStudioProjects/gameGuide/app/src/main/res/drawable-v24/ic_date.xml" value="0.1" />
+        <entry key="..\:/Users/Hp/AndroidStudioProjects/gameGuide/app/src/main/res/drawable-v24/ic_star.xml" value="0.1" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/gameGuide/app/src/main/res/drawable/ic_baseline_email.xml" value="0.1" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/gameGuide/app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.2703125" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/gameGuide/app/src/main/res/layout/activity_main.xml" value="0.1" />
@@ -16,6 +19,7 @@
         <entry key="..\:/Users/Hp/AndroidStudioProjects/gameGuide/app/src/main/res/layout/fragment_profile.xml" value="0.264" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/gameGuide/app/src/main/res/layout/fragment_registration.xml" value="0.21492921492921493" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/gameGuide/app/src/main/res/layout/fragment_sign_in.xml" value="0.1" />
+        <entry key="..\:/Users/Hp/AndroidStudioProjects/gameGuide/app/src/main/res/layout/game_rv_item.xml" value="0.1" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/gameGuide/app/src/main/res/menu/bottom_navigation.xml" value="0.25416666666666665" />
       </map>
     </option>
