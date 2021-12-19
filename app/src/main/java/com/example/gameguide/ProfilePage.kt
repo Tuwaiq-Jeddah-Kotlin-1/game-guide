@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import com.example.gameguide.databinding.FragmentProfileBinding
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.firebase.auth.FirebaseAuth
@@ -40,51 +41,57 @@ class ProfilePage : Fragment() {
 
         getUserInfo()
 
-        /*binding.btnProfileEdit.setOnClickListener{
-            *//*dialogEditProfile()*//*
+        binding.btnProfileEdit.setOnClickListener{
+            dialogEditProfile()
         }
         binding.btnProfileLogOut.setOnClickListener {
 
-        }*/
+        }
     }
 
-    /*private fun dialogEditProfile() {
+    private fun dialogEditProfile() {
         val view: View = layoutInflater.inflate(R.layout.bosh_change_profile, null)
 
         val builder = BottomSheetDialog(requireView()?.context)
-        builder.setTitle("Forgot Password")
+        builder.setTitle("edit profile")
 
         val usernameEt = view.findViewById<EditText>(R.id.etChangeProfUsername)
-        val userPhotoEt = view.findViewById<EditText>(R.id.etChangeProfPhone)
+        val userPhoneEt = view.findViewById<EditText>(R.id.etChangeProfPhone)
         val continueBtn = view.findViewById<Button>(R.id.btnChangeProfConfirm)
 
+        usernameEt.setText(binding.tvProfileUserName.text.toString())
+        userPhoneEt.setText(binding.tvProfilePhone.text.toString())
 
         continueBtn.setOnClickListener {
-            val upDateUser = hashMapOf(
-                "fullName" to "${edName}",
-                "phoneNumber" to "${edPhoneNumber}"
-            )
-            val userRef = Firebase.firestore.collection("Users")
-            //-----------UID------------------------
-            val uId = FirebaseAuth.getInstance().currentUser?.uid
-            userRef.document("$uId").set(upDateUser, SetOptions.merge()).addOnCompleteListener {
-                it
-                when {
-                    it.isSuccessful -> {
-                        readUserData()
-                        Toast.makeText(context, "UpDate ", Toast.LENGTH_SHORT).show()
-                    }
-                    else -> {
-                        //dialog error
-                    }
-                }
-            }
+            if (usernameEt.text.isNotEmpty()&&userPhoneEt.text.isNotEmpty()){
+                updateData(usernameEt.text.toString(),userPhoneEt.text.toString())
+                builder.dismiss()
+            }else
+                Toast.makeText(context,"can't be null",Toast.LENGTH_SHORT).show()
         }
         builder.setContentView(view)
 
         builder.show()
-    }*/
+    }
 
+
+    private fun updateData (usernameEt: String, userPhotoEt: String){
+        val uId = FirebaseAuth.getInstance().currentUser?.uid
+
+        val userRef = Firebase.firestore.collection("Users")
+
+            .document(uId.toString()).update("userName",usernameEt.toString(),
+                "userPhone",userPhotoEt.toString())
+
+
+
+        binding.tvProfileUserName.text = usernameEt
+        binding.tvProfilePhone.text = userPhotoEt
+
+
+        userRef
+
+    }
 
     private fun getUserInfo() = CoroutineScope(Dispatchers.IO).launch {
 
