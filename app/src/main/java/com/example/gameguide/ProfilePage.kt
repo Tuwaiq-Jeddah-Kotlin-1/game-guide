@@ -52,7 +52,7 @@ class ProfilePage : Fragment() {
     private fun dialogEditProfile() {
         val view: View = layoutInflater.inflate(R.layout.bosh_change_profile, null)
 
-        val builder = BottomSheetDialog(requireView()?.context)
+        val builder = BottomSheetDialog(requireContext())//requireView()?.context
         builder.setTitle("edit profile")
 
         val usernameEt = view.findViewById<EditText>(R.id.etChangeProfUsername)
