@@ -37,7 +37,11 @@
         android:id="@+id/homepage"
         android:name="com.example.gameguide.homepage.Homepage"
         android:label="fragment_homepage"
-        tools:layout="@layout/fragment_homepage" />
+        tools:layout="@layout/fragment_homepage" >
+        <action
+            android:id="@+id/action_homepage_to_gameDetails"
+            app:destination="@id/gameDetails" />
+    </fragment>
     <fragment
         android:id="@+id/registration"
         android:name="com.example.gameguide.Registration"
@@ -63,4 +67,12 @@
         android:name="com.example.gameguide.ProfilePage"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/gameDetails"
+        android:name="com.example.gameguide.GameDetailsPage"
+        android:label="GameDetails" >
+        <argument
+            android:name="currentGame"
+            app:argType="com.example.gameguide.GameData" />
+    </fragment>
 </navigation>
