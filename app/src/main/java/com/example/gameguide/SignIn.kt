@@ -1,5 +1,7 @@
 package com.example.gameguide
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
@@ -21,6 +23,9 @@ class SignIn : Fragment() {
 
 
     private var mIsShowPass = false
+
+    private var isRemember = true
+    lateinit var sharedPrefence:SharedPreferences
     private lateinit var binding: FragmentSignInBinding
 
 
@@ -43,6 +48,8 @@ class SignIn : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        sharedPrefence = this.requireActivity().getSharedPreferences("prefence", Context.MODE_PRIVATE)
+        isRemember = sharedPrefence.getBoolean("CHECKBOX", false)
 
         binding.ivSignInVisible.setOnClickListener {
 
@@ -50,14 +57,22 @@ class SignIn : Fragment() {
                 showPassword(mIsShowPass)
         }
                 showPassword(mIsShowPass)
+
+
         binding.tvSignInLogInNow.setOnClickListener {
             view.findNavController().navigate(SignInDirections.actionSignInToRegistration())
         }
         binding.tvSignInRestPassword.setOnClickListener {
             view.findNavController().navigate(SignInDirections.actionSignInToForgetPassword())
         }
+        if (isRemember){
+            findNavController().navigate(R.id.action_signIn_to_homepage)
+
+        }
         binding.btnSignIn.setOnClickListener {
+
             login(binding.etSignInEmail.text.toString(), binding.etSignInPassword.text.toString())
+
         }
 
 
@@ -91,6 +106,18 @@ class SignIn : Fragment() {
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     //firebase register user
+                    val email = binding.etSignInEmail.text.toString()
+                    val password = binding.etSignInPassword.text.toString()
+                    val checked = binding.cbSignInRememberMe.isChecked
+
+                    val editor: SharedPreferences.Editor = sharedPrefence.edit()
+                    editor.putString("EMAIL", email)
+                    editor.putString("PASSWORD", password)
+                    editor.putBoolean("CHECKBOX", checked)
+                    editor.apply()
+
+                    Toast.makeText(context,"information saved!",Toast.LENGTH_LONG).show()
+
                     Log.e("OK", "registration is sucessfully done")
                     findNavController().navigate(R.id.action_signIn_to_homepage)
                 } else {

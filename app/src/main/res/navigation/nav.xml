@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav"
-    app:startDestination="@id/homepage">
+    app:startDestination="@id/signIn">
 
     <fragment
         android:id="@+id/signIn"
@@ -66,7 +66,12 @@
         android:id="@+id/profileFragment"
         android:name="com.example.gameguide.ProfilePage"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_signIn"
+            app:destination="@id/signIn"
+            app:popUpTo="@id/nav" />
+    </fragment>
     <fragment
         android:id="@+id/gameDetails"
         android:name="com.example.gameguide.GameDetailsPage"
