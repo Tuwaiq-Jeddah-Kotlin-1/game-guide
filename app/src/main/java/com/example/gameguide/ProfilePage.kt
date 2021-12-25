@@ -11,6 +11,9 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO
+import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES
 import androidx.navigation.fragment.findNavController
 import com.example.gameguide.databinding.FragmentProfileBinding
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -23,6 +26,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
+private lateinit var sharedPreference:SharedPreferences
 
 class ProfilePage : Fragment() {
 
@@ -42,13 +46,41 @@ class ProfilePage : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
+        loadData()
         getUserInfo()
 
         binding.btnProfileEdit.setOnClickListener{
             dialogEditProfile()
         }
+
+        binding.btnProfMode.setOnClickListener {
+            /*sharedPreference = this.requireActivity().getSharedPreferences("sharedPrefs",Context.MODE_PRIVATE)*/
+            /*editor.apply{
+                 putBoolean("BOOLEAN_KEY",binding.sProfileMode.isChecked)
+             }.apply()*/
+            //val sharedprefEdit : SharedPreferences.Editor = sharedPreferences.edit()
+
+            sharedPreference = this.requireActivity().getSharedPreferences("preferences", Context.MODE_PRIVATE)
+            val editor: SharedPreferences.Editor = sharedPreference.edit()
+            var darkMode = sharedPreference.getBoolean("DARK_MODE",false)
+
+            if(darkMode) {
+                AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO)
+                editor.putBoolean("DARK_MODE",false)
+                editor.apply()
+                binding.btnProfMode.text = "Enable dark mode"
+            } else {
+                AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES)
+                editor.putBoolean("DARK_MODE",true)
+                editor.apply()
+                binding.btnProfMode.text = "Disable dark mode"
+            }
+        }
+
+
+
         binding.btnProfileLogOut.setOnClickListener {
-            val sharedPreference = this.requireActivity().getSharedPreferences("prefence", Context.MODE_PRIVATE)
+            sharedPreference = this.requireActivity().getSharedPreferences("prefence", Context.MODE_PRIVATE)
 
             val email = sharedPreference.getString("EMAIL","")
             binding.tvProfileEmail.text = email
@@ -61,6 +93,23 @@ class ProfilePage : Fragment() {
 
 
         }
+    }
+
+    private fun loadData() {
+        sharedPreference = this.requireActivity().getSharedPreferences("preferences", Context.MODE_PRIVATE)
+
+        val darkMode = sharedPreference.getBoolean("DARK_MODE",false)
+        if(darkMode){
+            AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES)
+            binding.btnProfMode.text="disable dark mode"
+        }else{
+            AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO)
+            binding.btnProfMode.text="enable dark mode"
+        }
+        /*sharedPreference = this.requireActivity().getSharedPreferences("prefence", Context.MODE_PRIVATE)
+        val savedBoolean = sharedPreference.getBoolean("BOOLEAN_KEY",false)
+
+        binding.sProfileMode.isChecked = savedBoolean*/
     }
 
     private fun dialogEditProfile() {

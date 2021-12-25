@@ -81,7 +81,7 @@
             android:id="@+id/btnProfileEdit"
             android:layout_width="43dp"
             android:layout_height="40dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:src="@drawable/ic_baseline_edit"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.872"
@@ -92,11 +92,11 @@
             android:id="@+id/rgProfileLanguage"
             android:layout_width="189dp"
             android:layout_height="35dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ivProfileMinimize">
+            app:layout_constraintTop_toBottomOf="@+id/divider2">
 
             <RadioButton
                 android:id="@+id/rbProfEnglish"
@@ -116,64 +116,50 @@
 
         </RadioGroup>
 
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/sProfileMode"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="56dp"
-            android:text="Switch"
-            android:textOff="dark mode"
-            android:textOn="light mode"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/tvProfileMode"
-            app:layout_constraintTop_toBottomOf="@+id/rgProfileLanguage" />
-
         <Button
             android:id="@+id/btnProfileLogOut"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="13dp"
+            android:layout_marginTop="4dp"
             android:text="@string/prof_btn_logOut"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvProfileMode" />
+            app:layout_constraintTop_toBottomOf="@+id/btnProfMode" />
 
         <TextView
             android:id="@+id/tvProfileLanguage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="79dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="32dp"
             android:text="@string/prof_tv_language"
             android:textSize="20dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ivProfileMinimize" />
+            app:layout_constraintTop_toBottomOf="@+id/divider2" />
 
-        <TextView
-            android:id="@+id/tvProfileMode"
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="409dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="1dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnProfileEdit" />
+
+        <Button
+            android:id="@+id/btnProfMode"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="79dp"
-            android:layout_marginTop="30dp"
-            android:text="@string/prof_tv_appearance"
-            android:textSize="20dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/button_background"
+            android:text="enable dark mode"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvProfileLanguage" />
-
-        <ImageView
-            android:id="@+id/ivProfileMinimize"
-            android:layout_width="229dp"
-            android:layout_height="47dp"
-            android:layout_marginTop="16dp"
-            android:src="@drawable/ic_baseline_minimize"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvProfileEmail" />
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
