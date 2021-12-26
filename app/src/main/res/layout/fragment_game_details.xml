@@ -21,7 +21,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_launcher_foreground" />
+            app:srcCompat="@drawable/ic_launcher_foreground"
+            android:contentDescription="@string/gd_game_image" />
 
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -33,7 +34,9 @@
             android:clickable="true"
             app:layout_constraintEnd_toStartOf="@+id/fabGdShare"
             app:layout_constraintTop_toBottomOf="@+id/ivGdPoster"
-            app:srcCompat="@drawable/ic_baseline_favorite_border_24" />
+            app:srcCompat="@drawable/ic_baseline_favorite_border_24"
+            android:focusable="true"
+            android:contentDescription="@string/gd_game_favourite" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fabGdShare"
@@ -44,7 +47,9 @@
             android:clickable="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ivGdPoster"
-            app:srcCompat="@android:drawable/ic_menu_share" />
+            app:srcCompat="@android:drawable/ic_menu_share"
+            android:focusable="true"
+            android:contentDescription="@string/gd_game_share" />
 
         <TextView
             android:id="@+id/tvGdTitle"
@@ -52,7 +57,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="36dp"
-            android:text="TextView"
+            android:text="@string/gd_title"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ivGdPoster" />
 
@@ -61,69 +66,65 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
-            android:text="TextView"
-            app:layout_constraintStart_toEndOf="@+id/imageView4"
-            app:layout_constraintTop_toBottomOf="@+id/textView15" />
+            android:text="@string/gd_rating"
+            app:layout_constraintStart_toEndOf="@+id/ivGdRate"
+            app:layout_constraintTop_toBottomOf="@+id/tvRateGd" />
 
         <TextView
             android:id="@+id/tvGdRcount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
-            android:layout_marginEnd="153dp"
-            android:text="TextView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView18" />
+            android:text="@string/gd_count"
+            app:layout_constraintStart_toEndOf="@+id/ivGdRcount"
+            app:layout_constraintTop_toBottomOf="@+id/tvRcountGd" />
 
         <TextView
             android:id="@+id/tvGdMeta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
-            android:text="TextView"
-            app:layout_constraintStart_toEndOf="@+id/imageView7"
-            app:layout_constraintTop_toBottomOf="@+id/textView19" />
+            android:text="@string/gd_meta_rate"
+            app:layout_constraintStart_toEndOf="@+id/ivGdMeta"
+            app:layout_constraintTop_toBottomOf="@+id/tvMetaGd" />
 
         <TextView
             android:id="@+id/tvGdDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
-            android:text="TextView"
-            app:layout_constraintStart_toEndOf="@+id/imageView3"
-            app:layout_constraintTop_toBottomOf="@+id/textView20" />
+            android:text="@string/gd_date"
+            app:layout_constraintStart_toEndOf="@+id/ivGdDate"
+            app:layout_constraintTop_toBottomOf="@+id/tvDateGd" />
 
         <TextView
             android:id="@+id/tvGdPt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
-            android:layout_marginEnd="147dp"
-            android:text="TextView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView21" />
+            android:text="@string/gd_time"
+            app:layout_constraintStart_toEndOf="@+id/ivGdPt"
+            app:layout_constraintTop_toBottomOf="@+id/tvPtGd" />
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/ivGdDate"
             android:layout_width="24dp"
             android:layout_height="19dp"
-            android:layout_marginStart="60dp"
             android:layout_marginTop="6dp"
-            app:layout_constraintEnd_toStartOf="@+id/tvGdDate"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView20"
-            app:srcCompat="@drawable/ic_date" />
+            app:layout_constraintStart_toStartOf="@+id/tvDateGd"
+            app:layout_constraintTop_toBottomOf="@+id/tvDateGd"
+            app:srcCompat="@drawable/ic_date"
+            android:contentDescription="@string/gd_date_image" />
 
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/ivGdRate"
             android:layout_width="24dp"
             android:layout_height="19dp"
-            android:layout_marginStart="60dp"
             android:layout_marginTop="6dp"
-            app:layout_constraintEnd_toStartOf="@+id/tvGdRate"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView15"
-            app:srcCompat="@drawable/ic_star" />
+            app:layout_constraintStart_toStartOf="@+id/tvRateGd"
+            app:layout_constraintTop_toBottomOf="@+id/tvRateGd"
+            app:srcCompat="@drawable/ic_star"
+            android:contentDescription="@string/gd_star_image" />
 
         <View
             android:id="@+id/divider"
@@ -136,87 +137,86 @@
             app:layout_constraintTop_toBottomOf="@+id/tvGdTitle" />
 
         <TextView
-            android:id="@+id/textView15"
+            android:id="@+id/tvRateGd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
             android:layout_marginTop="13dp"
-            android:text="ratings"
+            android:text="@string/gd_Rating"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider" />
 
         <TextView
-            android:id="@+id/textView18"
+            android:id="@+id/tvRcountGd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="13dp"
             android:layout_marginEnd="159dp"
-            android:text="rating count"
+            android:text="@string/gd_rating_count"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider" />
 
         <ImageView
-            android:id="@+id/imageView6"
+            android:id="@+id/ivGdRcount"
             android:layout_width="23dp"
             android:layout_height="19dp"
-            android:layout_marginStart="36dp"
             android:layout_marginTop="6dp"
-            app:layout_constraintStart_toEndOf="@+id/tvGdRate"
-            app:layout_constraintTop_toBottomOf="@+id/textView18"
+            android:contentDescription="@string/gd_count_image"
+            app:layout_constraintStart_toStartOf="@+id/tvRcountGd"
+            app:layout_constraintTop_toBottomOf="@+id/tvRcountGd"
             app:srcCompat="@drawable/ic_baseline_3p" />
 
         <TextView
-            android:id="@+id/textView19"
+            android:id="@+id/tvMetaGd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
             android:layout_marginTop="21dp"
-            android:text="metacritic rating"
+            android:text="@string/gd_metacritic_rating"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvGdRate" />
 
         <ImageView
-            android:id="@+id/imageView7"
+            android:id="@+id/ivGdMeta"
             android:layout_width="24dp"
             android:layout_height="19dp"
-            android:layout_marginStart="60dp"
             android:layout_marginTop="6dp"
-            app:layout_constraintEnd_toStartOf="@+id/tvGdMeta"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView19"
-            app:srcCompat="@drawable/ic_metacritic" />
+            app:layout_constraintStart_toStartOf="@+id/tvMetaGd"
+            app:layout_constraintTop_toBottomOf="@+id/tvMetaGd"
+            app:srcCompat="@drawable/ic_metacritic"
+            android:contentDescription="@string/gd_metacritic_image" />
 
         <TextView
-            android:id="@+id/textView20"
+            android:id="@+id/tvDateGd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
             android:layout_marginTop="23dp"
-            android:text="release date"
+            android:text="@string/gd_release_date"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvGdMeta" />
 
         <ImageView
-            android:id="@+id/imageView8"
+            android:id="@+id/ivGdPt"
             android:layout_width="24dp"
             android:layout_height="19dp"
-            android:layout_marginStart="40dp"
             android:layout_marginTop="6dp"
-            app:layout_constraintStart_toEndOf="@+id/tvGdDate"
-            app:layout_constraintTop_toBottomOf="@+id/textView21"
-            app:srcCompat="@drawable/ic_baseline_access_time" />
+            app:layout_constraintStart_toStartOf="@+id/tvPtGd"
+            app:layout_constraintTop_toBottomOf="@+id/tvPtGd"
+            app:srcCompat="@drawable/ic_baseline_access_time"
+            android:contentDescription="@string/gd_time_image" />
 
         <TextView
-            android:id="@+id/textView21"
+            android:id="@+id/tvPtGd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="23dp"
             android:layout_marginEnd="170dp"
-            android:text="play time"
+            android:text="@string/gd_play_time"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvGdMeta" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
+

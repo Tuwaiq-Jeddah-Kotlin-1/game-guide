@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/signIn"
         android:name="com.example.gameguide.SignIn"
-        android:label="game guide"
+        android:label="@string/nav_game_guide"
         tools:layout="@layout/fragment_sign_in" >
         <action
             android:id="@+id/action_signIn_to_registration"
@@ -25,7 +25,7 @@
     <fragment
         android:id="@+id/forgetPassword"
         android:name="com.example.gameguide.ForgetPassword"
-        android:label="rest password"
+        android:label="@string/nav_reset"
         tools:layout="@layout/fragment_forget_password" >
         <action
             android:id="@+id/action_forgetPassword_to_signIn"
@@ -36,7 +36,7 @@
     <fragment
         android:id="@+id/homepage"
         android:name="com.example.gameguide.homepage.Homepage"
-        android:label="fragment_homepage"
+        android:label="@string/nav_homepage"
         tools:layout="@layout/fragment_homepage" >
         <action
             android:id="@+id/action_homepage_to_gameDetails"
@@ -45,7 +45,7 @@
     <fragment
         android:id="@+id/registration"
         android:name="com.example.gameguide.Registration"
-        android:label="fragment_registration"
+        android:label="@string/nav_reg"
         tools:layout="@layout/fragment_registration" >
         <action
             android:id="@+id/action_registration_to_signIn"
@@ -60,12 +60,12 @@
     <fragment
         android:id="@+id/favouritePage"
         android:name="com.example.gameguide.FavouritePage"
-        android:label="fragment_favourite_page"
+        android:label="@string/nav_favourite"
         tools:layout="@layout/fragment_favourite_page" />
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.gameguide.ProfilePage"
-        android:label="fragment_profile"
+        android:label="@string/nav_profile"
         tools:layout="@layout/fragment_profile" >
         <action
             android:id="@+id/action_profileFragment_to_signIn"
@@ -75,7 +75,7 @@
     <fragment
         android:id="@+id/gameDetails"
         android:name="com.example.gameguide.GameDetailsPage"
-        android:label="GameDetails" >
+        android:label="@string/nav_game_details" >
         <argument
             android:name="currentGame"
             app:argType="com.example.gameguide.GameData" />

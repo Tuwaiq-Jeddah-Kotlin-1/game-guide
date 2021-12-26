@@ -60,6 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="@string/prof_tv_phone"
+            android:layoutDirection="ltr"
             android:textSize="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
@@ -88,39 +89,12 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvProfileEmail" />
 
-        <RadioGroup
-            android:id="@+id/rgProfileLanguage"
-            android:layout_width="189dp"
-            android:layout_height="35dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="16dp"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/divider2">
-
-            <RadioButton
-                android:id="@+id/rbProfEnglish"
-                android:layout_width="102dp"
-                android:layout_height="match_parent"
-                android:checked="true"
-                android:text="English "
-                android:textSize="15dp" />
-
-            <RadioButton
-                android:id="@+id/rbProfArabic"
-                android:layout_width="86dp"
-                android:layout_height="match_parent"
-                android:checked="false"
-                android:text="عربي "
-                android:textSize="15dp" />
-
-        </RadioGroup>
 
         <Button
             android:id="@+id/btnProfileLogOut"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="8dp"
             android:text="@string/prof_btn_logOut"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -154,10 +128,31 @@
             android:id="@+id/btnProfMode"
             android:layout_width="wrap_content"
             android:layout_height="42dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="11dp"
+            android:layout_marginEnd="32dp"
             android:background="@drawable/button_background"
-            android:text="enable dark mode"
+            android:text="@string/prof_enable_dark_mode"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnProfLanguage" />
+
+        <Button
+            android:id="@+id/btnProfLanguage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:text="@string/prof_change_language"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider2" />
+
+        <TextView
+            android:id="@+id/tvprofAppearance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="79dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/prof_appearance"
+            android:textSize="20dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvProfileLanguage" />
 

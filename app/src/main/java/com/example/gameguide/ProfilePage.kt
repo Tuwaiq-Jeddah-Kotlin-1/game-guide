@@ -1,8 +1,10 @@
 package com.example.gameguide
 
+import android.app.Activity
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.os.LocaleList
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,9 +13,11 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO
 import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES
+import androidx.core.app.ActivityCompat.recreate
 import androidx.navigation.fragment.findNavController
 import com.example.gameguide.databinding.FragmentProfileBinding
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -25,6 +29,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.util.*
 
 private lateinit var sharedPreference:SharedPreferences
 
@@ -46,6 +51,7 @@ class ProfilePage : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
+        //loadLocale()
         loadData()
         getUserInfo()
 
@@ -53,7 +59,29 @@ class ProfilePage : Fragment() {
             dialogEditProfile()
         }
 
-        binding.btnProfMode.setOnClickListener {
+        binding.btnProfLanguage.setOnClickListener {
+            val languages = arrayOf("English", "عربى")
+            val langSelectorBuilder = AlertDialog.Builder(requireContext())
+            langSelectorBuilder.setTitle("Choose language:")
+            langSelectorBuilder.setSingleChoiceItems(languages, -1) { dialog, selection ->
+                when(selection) {
+                    0 -> {
+                        setLocale("en")
+                    }
+                    1 -> {
+                        setLocale("ar")
+                    }
+                }
+
+                dialog.dismiss()
+            }
+            langSelectorBuilder.create().show()
+        }
+
+
+
+
+    binding.btnProfMode.setOnClickListener {
             /*sharedPreference = this.requireActivity().getSharedPreferences("sharedPrefs",Context.MODE_PRIVATE)*/
             /*editor.apply{
                  putBoolean("BOOLEAN_KEY",binding.sProfileMode.isChecked)
@@ -62,21 +90,20 @@ class ProfilePage : Fragment() {
 
             sharedPreference = this.requireActivity().getSharedPreferences("preferences", Context.MODE_PRIVATE)
             val editor: SharedPreferences.Editor = sharedPreference.edit()
-            var darkMode = sharedPreference.getBoolean("DARK_MODE",false)
+            val darkMode = sharedPreference.getBoolean("DARK_MODE",false)
 
             if(darkMode) {
                 AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO)
                 editor.putBoolean("DARK_MODE",false)
                 editor.apply()
-                binding.btnProfMode.text = "Enable dark mode"
+                binding.btnProfMode.text = getString(R.string.proff_enable_dark_mode)
             } else {
                 AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES)
                 editor.putBoolean("DARK_MODE",true)
                 editor.apply()
-                binding.btnProfMode.text = "Disable dark mode"
+                binding.btnProfMode.text = getString(R.string.proff_disable_dark_mode)
             }
         }
-
 
 
         binding.btnProfileLogOut.setOnClickListener {
@@ -95,66 +122,29 @@ class ProfilePage : Fragment() {
         }
     }
 
+
+
     private fun loadData() {
         sharedPreference = this.requireActivity().getSharedPreferences("preferences", Context.MODE_PRIVATE)
 
         val darkMode = sharedPreference.getBoolean("DARK_MODE",false)
         if(darkMode){
             AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES)
-            binding.btnProfMode.text="disable dark mode"
+            binding.btnProfMode.text= getString(R.string.proff_enable_dark_mode)
         }else{
             AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO)
-            binding.btnProfMode.text="enable dark mode"
+            binding.btnProfMode.text= getString(R.string.proff_disable_dark_mode)
         }
         /*sharedPreference = this.requireActivity().getSharedPreferences("prefence", Context.MODE_PRIVATE)
         val savedBoolean = sharedPreference.getBoolean("BOOLEAN_KEY",false)
 
         binding.sProfileMode.isChecked = savedBoolean*/
     }
-
-    private fun dialogEditProfile() {
-        val view: View = layoutInflater.inflate(R.layout.bosh_change_profile, null)
-
-        val builder = BottomSheetDialog(requireContext())//requireView()?.context
-        builder.setTitle("edit profile")
-
-        val usernameEt = view.findViewById<EditText>(R.id.etChangeProfUsername)
-        val userPhoneEt = view.findViewById<EditText>(R.id.etChangeProfPhone)
-        val continueBtn = view.findViewById<Button>(R.id.btnChangeProfConfirm)
-
-        usernameEt.setText(binding.tvProfileUserName.text.toString())
-        userPhoneEt.setText(binding.tvProfilePhone.text.toString())
-
-        continueBtn.setOnClickListener {
-            if (usernameEt.text.isNotEmpty()&&userPhoneEt.text.isNotEmpty()){
-                updateData(usernameEt.text.toString(),userPhoneEt.text.toString())
-                builder.dismiss()
-            }else
-                Toast.makeText(context,"can't be null",Toast.LENGTH_SHORT).show()
-        }
-        builder.setContentView(view)
-
-        builder.show()
-    }
-
-
-    private fun updateData (usernameEt: String, userPhotoEt: String){
-        val uId = FirebaseAuth.getInstance().currentUser?.uid
-
-        val userRef = Firebase.firestore.collection("Users")
-
-            .document(uId.toString()).update("userName",usernameEt.toString(),
-                "userPhone",userPhotoEt.toString())
-
-
-
-        binding.tvProfileUserName.text = usernameEt
-        binding.tvProfilePhone.text = userPhotoEt
-
-
-        userRef
-
-    }
+    /* private fun loadLocale() {
+        sharedPreference = this.requireActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE)
+        val localeToSet = sharedPreference.getString("LOCALE_TO_SET", "")!!
+        setLocale(localeToSet)
+    }*/
 
     private fun getUserInfo() = CoroutineScope(Dispatchers.IO).launch {
 
@@ -187,4 +177,65 @@ class ProfilePage : Fragment() {
             }
         }
     }
-}
+
+    private fun dialogEditProfile() {
+        val view: View = layoutInflater.inflate(R.layout.bosh_change_profile, null)
+
+        val builder = BottomSheetDialog(requireContext())//requireView()?.context
+        builder.setTitle("edit profile")
+
+        val usernameEt = view.findViewById<EditText>(R.id.etChangeProfUsername)
+        val userPhoneEt = view.findViewById<EditText>(R.id.etChangeProfPhone)
+        val continueBtn = view.findViewById<Button>(R.id.btnChangeProfConfirm)
+
+        usernameEt.setText(binding.tvProfileUserName.text.toString())
+        userPhoneEt.setText(binding.tvProfilePhone.text.toString())
+
+        continueBtn.setOnClickListener {
+            if (usernameEt.text.isNotEmpty()&&userPhoneEt.text.isNotEmpty()){
+                updateData(usernameEt.text.toString(),userPhoneEt.text.toString())
+                builder.dismiss()
+            }else
+                Toast.makeText(context,"can't be null",Toast.LENGTH_SHORT).show()
+        }
+        builder.setContentView(view)
+
+        builder.show()
+    }
+
+    private fun updateData (usernameEt: String, userPhotoEt: String){
+        val uId = FirebaseAuth.getInstance().currentUser?.uid
+
+        val userRef = Firebase.firestore.collection("Users")
+
+            .document(uId.toString()).update("userName",usernameEt.toString(),
+                "userPhone",userPhotoEt.toString())
+
+
+
+        binding.tvProfileUserName.text = usernameEt
+        binding.tvProfilePhone.text = userPhotoEt
+
+
+        userRef
+
+    }
+
+    private fun setLocale(setLang: String) {
+        val localeListToSet = LocaleList(Locale(setLang))
+        LocaleList.setDefault(localeListToSet)
+
+        LocaleList.setDefault(localeListToSet)
+        resources.configuration.setLocales(localeListToSet)
+        resources.updateConfiguration(resources.configuration, resources.displayMetrics)
+
+        sharedPreference = this.requireActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE)
+        val editor: SharedPreferences.Editor = sharedPreference.edit()
+        editor.putString("LOCALE_TO_SET", setLang)
+        editor.apply()
+
+        recreate(context as Activity)
+    }
+
+
+    }
