@@ -7,6 +7,13 @@
     <data>
 
     </data>
+    <!-- <ScrollView
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         >
+
+
+     </ScrollView>-->
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -16,12 +23,80 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvGame"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <TextView
+            android:id="@+id/tvHomePnum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="68dp"
+            android:layout_marginEnd="68dp"
+            android:backgroundTint="#00BCD4"
+            android:text="1"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ivHomeNext"
+            app:layout_constraintStart_toEndOf="@+id/ivHomePrev"
+            app:layout_constraintTop_toTopOf="@+id/guideline2"
+            app:layout_constraintVertical_bias="0.555" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="64dp" />
+
+        <ImageButton
+            android:id="@+id/ivHomePrev"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/teal_700"
+            app:layout_constraintStart_toEndOf="@+id/ivHome10Prev"
+            app:layout_constraintTop_toBottomOf="@+id/rvGame"
+            app:srcCompat="@drawable/ic_baseline_chevron_left" />
+
+        <ImageButton
+            android:id="@+id/ivHomeNext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
+            android:backgroundTint="@color/teal_700"
+            app:layout_constraintEnd_toStartOf="@+id/ivHome10Next"
+            app:layout_constraintTop_toBottomOf="@+id/rvGame"
+            app:srcCompat="@drawable/ic_baseline_chevron_right" />
+
+        <ImageButton
+            android:id="@+id/ivHome10Prev"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/teal_700"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rvGame"
+            app:srcCompat="@drawable/ic_baseline_first_page" />
+
+        <ImageButton
+            android:id="@+id/ivHome10Next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="@color/teal_700"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rvGame"
+            app:srcCompat="@drawable/ic_baseline_last_page" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>
