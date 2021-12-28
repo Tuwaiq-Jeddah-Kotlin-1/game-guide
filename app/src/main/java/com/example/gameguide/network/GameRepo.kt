@@ -11,7 +11,7 @@ class GameRepo {
     suspend fun fetchInterestingList(pageNumber: String): Json4Kotlin_Base = withContext(Dispatchers.IO){
         api.fetchContent(pageNumber)
     }
-    /*suspend fun searchPhotos(searchKeyWord: String): Json4Kotlin_Base = withContext(Dispatchers.IO){
-        api.searchQuery(searchKeyWord)
-    }*/
+    suspend fun searchGames(searchKeyWord: String/*,pageNumber:String*/): Json4Kotlin_Base = withContext(Dispatchers.IO){
+        api.searchQuery(searchKeyWord/*,pageNumber*/)
+    }
 }

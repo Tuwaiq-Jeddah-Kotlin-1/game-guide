@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#6E6C6C"
+        tools:context=".SearchGameDetails">
+
+
+    <ImageView
+        android:id="@+id/ivSgdPoster"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_launcher_foreground"
+        android:contentDescription="@string/gd_game_image" />
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabSgdFav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="28dp"
+        android:clickable="true"
+        app:layout_constraintEnd_toStartOf="@+id/fabSgdShare"
+        app:layout_constraintTop_toBottomOf="@+id/ivSgdPoster"
+        app:srcCompat="@drawable/ic_baseline_favorite_border_24"
+        android:focusable="true"
+        android:contentDescription="@string/gd_game_favourite" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabSgdShare"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="28dp"
+        android:clickable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivSgdPoster"
+        app:srcCompat="@android:drawable/ic_menu_share"
+        android:focusable="true"
+        android:contentDescription="@string/gd_game_share" />
+
+    <TextView
+        android:id="@+id/tvSgdTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="36dp"
+        android:text="@string/gd_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivSgdPoster" />
+
+    <TextView
+        android:id="@+id/tvSgdRate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="@string/gd_rating"
+        app:layout_constraintStart_toEndOf="@+id/ivSgdRate"
+        app:layout_constraintTop_toBottomOf="@+id/tvRateSgd" />
+
+    <TextView
+        android:id="@+id/tvSgdRcount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="@string/gd_count"
+        app:layout_constraintStart_toEndOf="@+id/ivSgdRcount"
+        app:layout_constraintTop_toBottomOf="@+id/tvRcountSgd" />
+
+    <TextView
+        android:id="@+id/tvSgdMeta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="@string/gd_meta_rate"
+        app:layout_constraintStart_toEndOf="@+id/ivSgdMeta"
+        app:layout_constraintTop_toBottomOf="@+id/tvMetaSgd" />
+
+    <TextView
+        android:id="@+id/tvSgdDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="@string/gd_date"
+        app:layout_constraintStart_toEndOf="@+id/ivSgdDate"
+        app:layout_constraintTop_toBottomOf="@+id/tvDateSgd" />
+
+    <TextView
+        android:id="@+id/tvSgdPt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="@string/gd_time"
+        app:layout_constraintStart_toEndOf="@+id/ivSgdPt"
+        app:layout_constraintTop_toBottomOf="@+id/tvPtSgd" />
+
+    <ImageView
+        android:id="@+id/ivSgdDate"
+        android:layout_width="24dp"
+        android:layout_height="19dp"
+        android:layout_marginTop="6dp"
+        app:layout_constraintStart_toStartOf="@+id/tvDateSgd"
+        app:layout_constraintTop_toBottomOf="@+id/tvDateSgd"
+        app:srcCompat="@drawable/ic_date"
+        android:contentDescription="@string/gd_date_image" />
+
+    <ImageView
+        android:id="@+id/ivSgdRate"
+        android:layout_width="24dp"
+        android:layout_height="19dp"
+        android:layout_marginTop="6dp"
+        app:layout_constraintStart_toStartOf="@+id/tvRateSgd"
+        app:layout_constraintTop_toBottomOf="@+id/tvRateSgd"
+        app:srcCompat="@drawable/ic_star"
+        android:contentDescription="@string/gd_star_image" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="409dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="41dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSgdTitle" />
+
+    <TextView
+        android:id="@+id/tvRateSgd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="13dp"
+        android:text="@string/gd_Rating"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+    <TextView
+        android:id="@+id/tvRcountSgd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="159dp"
+        android:text="@string/gd_rating_count"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+    <ImageView
+        android:id="@+id/ivSgdRcount"
+        android:layout_width="23dp"
+        android:layout_height="19dp"
+        android:layout_marginTop="6dp"
+        android:contentDescription="@string/gd_count_image"
+        app:layout_constraintStart_toStartOf="@+id/tvRcountSgd"
+        app:layout_constraintTop_toBottomOf="@+id/tvRcountSgd"
+        app:srcCompat="@drawable/ic_baseline_3p" />
+
+    <TextView
+        android:id="@+id/tvMetaSgd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="21dp"
+        android:text="@string/gd_metacritic_rating"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSgdRate" />
+
+    <ImageView
+        android:id="@+id/ivSgdMeta"
+        android:layout_width="24dp"
+        android:layout_height="19dp"
+        android:layout_marginTop="6dp"
+        app:layout_constraintStart_toStartOf="@+id/tvMetaSgd"
+        app:layout_constraintTop_toBottomOf="@+id/tvMetaSgd"
+        app:srcCompat="@drawable/ic_metacritic"
+        android:contentDescription="@string/gd_metacritic_image" />
+
+    <TextView
+        android:id="@+id/tvDateSgd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="23dp"
+        android:text="@string/gd_release_date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSgdMeta" />
+
+    <ImageView
+        android:id="@+id/ivSgdPt"
+        android:layout_width="24dp"
+        android:layout_height="19dp"
+        android:layout_marginTop="6dp"
+        app:layout_constraintStart_toStartOf="@+id/tvPtSgd"
+        app:layout_constraintTop_toBottomOf="@+id/tvPtSgd"
+        app:srcCompat="@drawable/ic_baseline_access_time"
+        android:contentDescription="@string/gd_time_image" />
+
+    <TextView
+        android:id="@+id/tvPtSgd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="170dp"
+        android:text="@string/gd_play_time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSgdMeta" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

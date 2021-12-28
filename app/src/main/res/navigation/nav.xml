@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav"
-    app:startDestination="@id/signIn">
+    app:startDestination="@id/searchPage">
 
     <fragment
         android:id="@+id/signIn"
@@ -78,6 +78,23 @@
         android:label="@string/nav_game_details" >
         <argument
             android:name="currentGame"
+            app:argType="com.example.gameguide.GameData" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchPage"
+        android:name="com.example.gameguide.searchpage.SearchPage"
+        android:label="fragment_search_page"
+        tools:layout="@layout/fragment_search_page" >
+        <action
+            android:id="@+id/action_searchPage_to_searchGameDetails"
+            app:destination="@id/searchGameDetails" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchGameDetails"
+        android:name="com.example.gameguide.SearchGameDetails"
+        android:label="searchGameDetails" >
+        <argument
+            android:name="currentSearchGame"
             app:argType="com.example.gameguide.GameData" />
     </fragment>
 </navigation>

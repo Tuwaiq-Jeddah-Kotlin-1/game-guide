@@ -1,4 +1,4 @@
-package com.example.gameguide.homepage
+package com.example.gameguide.searchpage
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -10,8 +10,11 @@ import com.example.gameguide.GameData
 import com.example.gameguide.R
 import com.example.gameguide.data.Results
 import com.example.gameguide.databinding.GameRvItemBinding
+/*import com.example.gameguide.homepage.CustomHolder
+import com.example.gameguide.searchpage.SearchPage.CustomHolder*/
 
-class GameAdapter(private val gameData: List<Results>) : RecyclerView.Adapter<CustomHolder>() {
+class SearchGameAdapter(private val gameData: List<Results>) : RecyclerView.Adapter<CustomHolder>() {
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomHolder {
         val bind = DataBindingUtil.inflate<GameRvItemBinding>(LayoutInflater.from(parent.context), R.layout.game_rv_item,parent,false)
@@ -35,15 +38,15 @@ class GameAdapter(private val gameData: List<Results>) : RecyclerView.Adapter<Cu
 class CustomHolder(private val binding: GameRvItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(game: Results) {
-         binding.tvTitle.setText(game.name)
+        binding.tvTitle.setText(game.name)
         val title = binding.tvTitle.text.toString()
 
-         binding.ivPoster.load(game.background_image)
+        binding.ivPoster.load(game.background_image)
 
-         binding.tvRate.setText(game.rating.toString())
+        binding.tvRate.setText(game.rating.toString())
         val rate = binding.tvRate.text.toString()
 
-         binding.tvDate.setText(game.released)
+        binding.tvDate.setText(game.released)
         val date = binding.tvDate.text.toString()
 
         val metacritic = game.metacritic
@@ -54,10 +57,8 @@ class CustomHolder(private val binding: GameRvItemBinding) : RecyclerView.ViewHo
             val gamee = GameData(title,rate,metacritic,
                 date, game.background_image, playtime.toString(),ratingsCount )
             /*findNavController().navigate(actionHomepageToGameDetails(game))*/
-            val action = HomepageDirections.actionHomepageToGameDetails(gamee)
+            val action = SearchPageDirections.actionSearchPageToSearchGameDetails(gamee)
             binding.root.findNavController().navigate(action)
         }
     }
-
 }
-
