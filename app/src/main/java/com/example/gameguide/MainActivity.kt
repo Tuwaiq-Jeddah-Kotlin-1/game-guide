@@ -8,6 +8,7 @@ import android.view.View
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import com.example.gameguide.notification.NotificationRepo
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.util.*
 
@@ -19,6 +20,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        NotificationRepo().myNotification(this)
         val sharedPreference = this.getSharedPreferences("Settings", Context.MODE_PRIVATE)
         val localeToSet = sharedPreference.getString("LOCALE_TO_SET", "en")!!
         if (localeToSet == "ar"){
