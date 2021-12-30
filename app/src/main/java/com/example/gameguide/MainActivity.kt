@@ -5,31 +5,40 @@ import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.gameguide.notification.NotificationRepo
+import com.example.gameguide.settingUtil.SettingUtil
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var navController: NavController
+    private lateinit var setting: SettingUtil
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        NotificationRepo().myNotification(this)
+        loadData()
+        setting = SettingUtil(this)
         val sharedPreference = this.getSharedPreferences("Settings", Context.MODE_PRIVATE)
         val localeToSet = sharedPreference.getString("LOCALE_TO_SET", "en")!!
-        if (localeToSet == "ar"){
+        setting.setLocate(localeToSet)
+        setContentView(R.layout.activity_main)
+
+
+        NotificationRepo().myNotification(this)
+
+        /*if (localeToSet == "ar"){
             setLocate("ar")
         }
         else{
             setLocate("en")
         }
-
+*/
 
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.fragmentContainerView) as NavHostFragment
@@ -74,8 +83,17 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+    private fun loadData() {
+        var sharedPreference = getSharedPreferences("Settings", Context.MODE_PRIVATE)
 
-    private fun setLocate(s: String) {
+        val darkMode = sharedPreference.getBoolean("DARK_MODE", false)
+        if (darkMode) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
+    }
+   /* private fun setLocate(s: String) {
 
 
         val locale = Locale(s)
@@ -89,7 +107,7 @@ class MainActivity : AppCompatActivity() {
         //---------------------------------------------------------------
         this?.resources?.updateConfiguration(config, this.resources.displayMetrics)
 
-    }
+    }*/
 }
 
 

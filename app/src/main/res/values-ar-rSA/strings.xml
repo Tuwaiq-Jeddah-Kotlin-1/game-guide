@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">game Guide</string>
+
     <string name="reset_tv_ResetPassword_in">إعادة تعيين كلمة المرور</string>
     <string name="singIn_tv_SignIn">تسجيل الدخول</string>
     <string name="reset_et_email">البريد الإلكتروني</string>
@@ -67,4 +67,5 @@
     <string name="proff_enable_dark_mode">تمكين الوضع الليلي</string>
     <string name="proff_disable_dark_mode">تعطيل الوضع الليلي</string>
     <string name="prof_appearance">المظهر</string>
+    <string name="app_name" translatable="false">Game Guide</string>
 </resources>

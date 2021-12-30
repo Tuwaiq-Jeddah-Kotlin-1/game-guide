@@ -1,14 +1,19 @@
-package com.example.gameguide
+package com.example.gameguide.homepage
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.navArgs
 import coil.load
+import com.example.gameguide.dataClasses.FavouriteGame
 import com.example.gameguide.databinding.FragmentGameDetailsBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.fragment_game_details.*
 
 class GameDetailsPage : Fragment() {
@@ -50,7 +55,29 @@ private val args: GameDetailsPageArgs by navArgs()
             startActivity(Intent.createChooser(intent,"share to : "))
         }
 
+        binding.fabGdFav.setOnClickListener {
+            favourite()
+        }
 
 
+
+    }
+    private fun favourite(){
+
+        val uId = FirebaseAuth.getInstance().currentUser?.uid
+        try {
+            //coroutine
+            val db = FirebaseFirestore.getInstance()
+            val fav = FavouriteGame(args.currentGame.title,args.currentGame.rating)
+            db.collection("Users").document("$uId").collection("favorite").document(args.currentGame.title).set(fav)
+            Toast.makeText(context, "here", Toast.LENGTH_LONG).show()
+
+
+        } catch (e: Exception) {
+
+                Toast.makeText(context, e.message, Toast.LENGTH_LONG).show()
+                Log.e("FUNCTION createUserFirestore", "${e.message}")
+
+        }
     }
 }

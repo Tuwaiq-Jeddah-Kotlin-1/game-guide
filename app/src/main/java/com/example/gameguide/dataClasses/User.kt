@@ -1,4 +1,4 @@
-package com.example.gameguide
+package com.example.gameguide.dataClasses
 
 data class User(
     var UID : String = "",

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/signIn"
-        android:name="com.example.gameguide.SignIn"
+        android:name="com.example.gameguide.enternce.SignIn"
         android:label="@string/nav_game_guide"
         tools:layout="@layout/fragment_sign_in" >
         <action
@@ -24,7 +24,7 @@
     </fragment>
     <fragment
         android:id="@+id/forgetPassword"
-        android:name="com.example.gameguide.ForgetPassword"
+        android:name="com.example.gameguide.enternce.ForgetPassword"
         android:label="@string/nav_reset"
         tools:layout="@layout/fragment_forget_password" >
         <action
@@ -44,7 +44,7 @@
     </fragment>
     <fragment
         android:id="@+id/registration"
-        android:name="com.example.gameguide.Registration"
+        android:name="com.example.gameguide.enternce.Registration"
         android:label="@string/nav_reg"
         tools:layout="@layout/fragment_registration" >
         <action
@@ -59,12 +59,12 @@
     </fragment>
     <fragment
         android:id="@+id/favouritePage"
-        android:name="com.example.gameguide.FavouritePage"
+        android:name="com.example.gameguide.favourite.FavouritePage"
         android:label="@string/nav_favourite"
         tools:layout="@layout/fragment_favourite_page" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.gameguide.ProfilePage"
+        android:name="com.example.gameguide.profile.ProfilePage"
         android:label="@string/nav_profile"
         tools:layout="@layout/fragment_profile" >
         <action
@@ -74,7 +74,7 @@
     </fragment>
     <fragment
         android:id="@+id/gameDetails"
-        android:name="com.example.gameguide.GameDetailsPage"
+        android:name="com.example.gameguide.homepage.GameDetailsPage"
         android:label="@string/nav_game_details" >
         <argument
             android:name="currentGame"
@@ -91,7 +91,7 @@
     </fragment>
     <fragment
         android:id="@+id/searchGameDetails"
-        android:name="com.example.gameguide.SearchGameDetails"
+        android:name="com.example.gameguide.searchpage.SearchGameDetails"
         android:label="searchGameDetails" >
         <argument
             android:name="currentSearchGame"

@@ -38,15 +38,15 @@ class SearchGameAdapter(private val gameData: List<Results>) : RecyclerView.Adap
 class CustomHolder(private val binding: GameRvItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(game: Results) {
-        binding.tvTitle.setText(game.name)
+        binding.tvTitle.text = game.name
         val title = binding.tvTitle.text.toString()
 
         binding.ivPoster.load(game.background_image)
 
-        binding.tvRate.setText(game.rating.toString())
+        binding.tvRate.text = game.rating.toString()
         val rate = binding.tvRate.text.toString()
 
-        binding.tvDate.setText(game.released)
+        binding.tvDate.text = game.released
         val date = binding.tvDate.text.toString()
 
         val metacritic = game.metacritic

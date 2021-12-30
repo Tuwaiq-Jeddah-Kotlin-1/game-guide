@@ -1,4 +1,4 @@
-package com.example.gameguide
+package com.example.gameguide.searchpage
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
 import coil.load
-import com.example.gameguide.databinding.FragmentGameDetailsBinding
 import com.example.gameguide.databinding.FragmentSearchGameDetailsBinding
 import kotlinx.android.synthetic.main.fragment_game_details.*
 

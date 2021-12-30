@@ -1,10 +1,9 @@
-package com.example.gameguide
+package com.example.gameguide.profile
 
 import android.app.Activity
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.os.LocaleList
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -19,7 +18,9 @@ import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO
 import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES
 import androidx.core.app.ActivityCompat.recreate
 import androidx.navigation.fragment.findNavController
+import com.example.gameguide.R
 import com.example.gameguide.databinding.FragmentProfileBinding
+import com.example.gameguide.settingUtil.SettingUtil
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -29,13 +30,13 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.util.*
 
-private lateinit var sharedPreference:SharedPreferences
 
 class ProfilePage : Fragment() {
+    private lateinit var sharedPreference:SharedPreferences
 
     private lateinit var binding: FragmentProfileBinding
+    private lateinit var setting: SettingUtil
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -54,6 +55,9 @@ class ProfilePage : Fragment() {
         //loadLocale()
         loadData()
         getUserInfo()
+        setting = SettingUtil(requireContext())
+
+
 
         binding.btnProfileEdit.setOnClickListener{
             dialogEditProfile()
@@ -66,13 +70,13 @@ class ProfilePage : Fragment() {
             langSelectorBuilder.setSingleChoiceItems(languages, -1) { dialog, selection ->
                 when(selection) {
                     0 -> {
-                        setLocale("en")
+                        setLocate("en")
                     }
                     1 -> {
-                        setLocale("ar")
+                        setLocate("ar")
                     }
                 }
-
+                recreate(context as Activity)
                 dialog.dismiss()
             }
             langSelectorBuilder.create().show()
@@ -81,14 +85,14 @@ class ProfilePage : Fragment() {
 
 
 
-    binding.btnProfMode.setOnClickListener {
+        binding.btnProfMode.setOnClickListener {
             /*sharedPreference = this.requireActivity().getSharedPreferences("sharedPrefs",Context.MODE_PRIVATE)*/
             /*editor.apply{
                  putBoolean("BOOLEAN_KEY",binding.sProfileMode.isChecked)
              }.apply()*/
             //val sharedprefEdit : SharedPreferences.Editor = sharedPreferences.edit()
 
-            sharedPreference = this.requireActivity().getSharedPreferences("preferences", Context.MODE_PRIVATE)
+            sharedPreference = this.requireActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE)
             val editor: SharedPreferences.Editor = sharedPreference.edit()
             val darkMode = sharedPreference.getBoolean("DARK_MODE",false)
 
@@ -125,7 +129,7 @@ class ProfilePage : Fragment() {
 
 
     private fun loadData() {
-        sharedPreference = this.requireActivity().getSharedPreferences("preferences", Context.MODE_PRIVATE)
+        sharedPreference = this.requireActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE)
 
         val darkMode = sharedPreference.getBoolean("DARK_MODE",false)
         if(darkMode){
@@ -221,21 +225,37 @@ class ProfilePage : Fragment() {
 
     }
 
-    private fun setLocale(setLang: String) {
-        val localeListToSet = LocaleList(Locale(setLang))
-        LocaleList.setDefault(localeListToSet)
-
-        LocaleList.setDefault(localeListToSet)
-        resources.configuration.setLocales(localeListToSet)
-        resources.updateConfiguration(resources.configuration, resources.displayMetrics)
-
+    private fun setLocate(s: String) {
+        setting.setLocate(s)
         sharedPreference = this.requireActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE)
         val editor: SharedPreferences.Editor = sharedPreference.edit()
-        editor.putString("LOCALE_TO_SET", setLang)
+        editor.putString("LOCALE_TO_SET", s)
         editor.apply()
-
-        recreate(context as Activity)
     }
 
 
-    }
+
+
+
+}
+
+
+
+/*private fun setLocale(setLang: String) {
+    val localeListToSet = LocaleList(Locale(setLang))
+    LocaleList.setDefault(localeListToSet)
+
+    LocaleList.setDefault(localeListToSet)
+    resources.configuration.setLocales(localeListToSet)
+    resources.updateConfiguration(resources.configuration, resources.displayMetrics)
+
+    sharedPreference = this.requireActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE)
+    val editor: SharedPreferences.Editor = sharedPreference.edit()
+    editor.putString("LOCALE_TO_SET", setLang)
+    editor.apply()
+
+    recreate(context as Activity)
+}*/
+
+
+

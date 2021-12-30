@@ -1,4 +1,4 @@
-package com.example.gameguide
+package com.example.gameguide.enternce
 
 import android.os.Bundle
 import android.text.method.HideReturnsTransformationMethod
@@ -11,8 +11,9 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import com.example.gameguide.R
+import com.example.gameguide.dataClasses.User
 import com.example.gameguide.databinding.FragmentRegistrationBinding
-import com.example.gameguide.databinding.FragmentSignInBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase

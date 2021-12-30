@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name" translatable="false">game Guide</string>
+    <string name="app_name">Game Guide</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="reset_tv_ResetPassword_in">Reset Password</string>
     <string name="singIn_tv_SignIn">Sign in</string>
     <string name="signIn_tv_log_in_now"><u>reg now!</u></string>
@@ -21,7 +21,7 @@
     <string name="register_btn_registration">Registration</string>
     <string name="register_tv_back_to_sign_in_page"><u>back to sign in page</u></string>
     <string name="signIn_tv_reset_password"><u>reset password</u></string>
-    <string name="homePage_welcome_home" translatable="false">welcome home</string>
+    <string name="homePage_welcome_home">welcome home</string>
     <string name="menu_item_favourite">favourite</string>
     <string name="menu_item_home">home</string>
     <string name="menu_item_profile">profile</string>
@@ -61,7 +61,7 @@
     <string name="nav_favourite">favourite</string>
     <string name="nav_profile">profile</string>
     <string name="nav_game_details">Game Details</string>
-    <string name="nav_game_guide" translatable="false">game guide</string>
+    <string name="nav_game_guide">game guide</string>
     <string name="reset_et_email">email</string>
     <string name="prof_change_language">change language</string>
     <string name="proff_enable_dark_mode">Enable dark mode</string>

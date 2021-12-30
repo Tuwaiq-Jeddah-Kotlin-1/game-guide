@@ -7,7 +7,7 @@ import androidx.work.workDataOf
 import com.example.gameguide.MainActivity
 import java.util.concurrent.TimeUnit
 
-class NotificationRepo() {
+class NotificationRepo {
     private val list = listOf("hello gamers check us out!!", "check latest games details").random()
 
     fun myNotification(mainActivity: MainActivity){

@@ -1,4 +1,4 @@
-package com.example.gameguide
+package com.example.gameguide.enternce
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -11,9 +11,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import com.example.gameguide.R
 import com.example.gameguide.databinding.FragmentSignInBinding
 import com.google.firebase.auth.FirebaseAuth
 
