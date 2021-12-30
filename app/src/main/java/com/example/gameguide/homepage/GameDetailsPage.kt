@@ -45,7 +45,7 @@ private val args: GameDetailsPageArgs by navArgs()
         binding.fabGdShare.setOnClickListener {
             val title: String = tvGdTitle.text.toString()
             val rating: String = tvGdRate.text.toString()
-            val message : String =  "game name:$title\n game rating:$rating\n\n download game guide to see latest game updates"
+            val message : String =  "game name: $title\n game rating: $rating\n\n download Game Guide to see latest game updates"
 
             val intent = Intent()
             intent.action = Intent.ACTION_SEND
