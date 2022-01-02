@@ -38,6 +38,8 @@ class ProfilePage : Fragment() {
     private lateinit var binding: FragmentProfileBinding
     private lateinit var setting: SettingUtil
 
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -56,6 +58,15 @@ class ProfilePage : Fragment() {
         loadData()
         getUserInfo()
         setting = SettingUtil(requireContext())
+
+        sharedPreference = this.requireActivity().getSharedPreferences("userInfo", Context.MODE_PRIVATE)
+
+        val name = sharedPreference.getString("NAME","")
+        val phone = sharedPreference.getString("PHONE","")
+        val email = sharedPreference.getString("EMAIL","")
+        binding.tvProfileUserName.text= name.toString()
+        binding.tvProfilePhone.text= phone.toString()
+        binding.tvProfileEmail.text= email.toString()
 
 
 
@@ -152,6 +163,9 @@ class ProfilePage : Fragment() {
 
     private fun getUserInfo() = CoroutineScope(Dispatchers.IO).launch {
 
+        sharedPreference = this@ProfilePage.requireActivity().getSharedPreferences("userInfo", Context.MODE_PRIVATE)
+        val editor: SharedPreferences.Editor = sharedPreference.edit()
+
         val uId = FirebaseAuth.getInstance().currentUser?.uid
         try {
             //coroutine
@@ -165,9 +179,11 @@ class ProfilePage : Fragment() {
                         val userPhone = it.result!!.getString("userPhone")
                         val userEmail = it.result!!.getString("userEmail")
 
-                        binding.tvProfileUserName.text= name.toString()
-                        binding.tvProfilePhone.text= userPhone.toString()
-                        binding.tvProfileEmail.text= userEmail.toString()
+                        editor.putString("NAME",name)
+                        editor.putString("PHONE",userPhone)
+                        editor.putString("EMAIL",userEmail)
+                        editor.apply()
+
 
                     } else {
                         Log.e("error", "error in displaying")
@@ -208,6 +224,9 @@ class ProfilePage : Fragment() {
     }
 
     private fun updateData (usernameEt: String, userPhotoEt: String){
+        sharedPreference = this.requireActivity().getSharedPreferences("userInfo", Context.MODE_PRIVATE)
+        val editor: SharedPreferences.Editor = sharedPreference.edit()
+
         val uId = FirebaseAuth.getInstance().currentUser?.uid
 
         val userRef = Firebase.firestore.collection("Users")
@@ -215,7 +234,9 @@ class ProfilePage : Fragment() {
             .document(uId.toString()).update("userName",usernameEt.toString(),
                 "userPhone",userPhotoEt.toString())
 
-
+        editor.putString("NAME",usernameEt)
+        editor.putString("PHONE",userPhotoEt)
+        editor.apply()
 
         binding.tvProfileUserName.text = usernameEt
         binding.tvProfilePhone.text = userPhotoEt

@@ -20,6 +20,7 @@ class GameDetailsPage : Fragment() {
 
 private lateinit var binding: FragmentGameDetailsBinding
 private val args: GameDetailsPageArgs by navArgs()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -68,7 +69,7 @@ private val args: GameDetailsPageArgs by navArgs()
         try {
             //coroutine
             val db = FirebaseFirestore.getInstance()
-            val fav = FavouriteGame(args.currentGame.title,args.currentGame.rating)
+            val fav = FavouriteGame(args.currentGame.title,args.currentGame.rating,args.currentGame.metacritic,args.currentGame.released,args.currentGame.Background,args.currentGame.playtime,args.currentGame.ratingsCount)
             db.collection("Users").document("$uId").collection("favorite").document(args.currentGame.title).set(fav)
             Toast.makeText(context, "here", Toast.LENGTH_LONG).show()
 

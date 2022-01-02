@@ -61,7 +61,11 @@
         android:id="@+id/favouritePage"
         android:name="com.example.gameguide.favourite.FavouritePage"
         android:label="@string/nav_favourite"
-        tools:layout="@layout/fragment_favourite_page" />
+        tools:layout="@layout/fragment_favourite_page" >
+        <action
+            android:id="@+id/action_favouritePage_to_gameDetails"
+            app:destination="@id/gameDetails" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.gameguide.profile.ProfilePage"
@@ -86,8 +90,8 @@
         android:label="fragment_search_page"
         tools:layout="@layout/fragment_search_page" >
         <action
-            android:id="@+id/action_searchPage_to_searchGameDetails"
-            app:destination="@id/searchGameDetails" />
+            android:id="@+id/action_searchPage_to_gameDetails"
+            app:destination="@id/gameDetails" />
     </fragment>
     <fragment
         android:id="@+id/searchGameDetails"

@@ -76,7 +76,7 @@ class Homepage : Fragment() {
            }
         }
         binding.ivHome10Prev.setOnClickListener {
-           if(i<=minPage+10){
+           if(i<minPage+10){
                i = 1
            }else{
                i -= 10

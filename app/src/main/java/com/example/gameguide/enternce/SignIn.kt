@@ -16,6 +16,11 @@ import androidx.navigation.fragment.findNavController
 import com.example.gameguide.R
 import com.example.gameguide.databinding.FragmentSignInBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 
 class SignIn : Fragment() {
@@ -25,7 +30,7 @@ class SignIn : Fragment() {
     private var mIsShowPass = false
 
     private var isRemember = true
-    lateinit var sharedPrefence:SharedPreferences
+    private lateinit var sharedPreference:SharedPreferences
     private lateinit var binding: FragmentSignInBinding
 
 
@@ -48,8 +53,8 @@ class SignIn : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        sharedPrefence = this.requireActivity().getSharedPreferences("prefence", Context.MODE_PRIVATE)
-        isRemember = sharedPrefence.getBoolean("CHECKBOX", false)
+        sharedPreference = this.requireActivity().getSharedPreferences("prefence", Context.MODE_PRIVATE)
+        isRemember = sharedPreference.getBoolean("CHECKBOX", false)
 
         binding.ivSignInVisible.setOnClickListener {
 
@@ -110,11 +115,12 @@ class SignIn : Fragment() {
                     val password = binding.etSignInPassword.text.toString()
                     val checked = binding.cbSignInRememberMe.isChecked
 
-                    val editor: SharedPreferences.Editor = sharedPrefence.edit()
+                    val editor: SharedPreferences.Editor = sharedPreference.edit()
                     editor.putString("EMAIL", email)
                     editor.putString("PASSWORD", password)
                     editor.putBoolean("CHECKBOX", checked)
                     editor.apply()
+                    getUserInfo()
 
                     Toast.makeText(context,"information saved!",Toast.LENGTH_LONG).show()
 
@@ -129,6 +135,43 @@ class SignIn : Fragment() {
             }
             }else{
             Toast.makeText(context, "email field or password is empty", Toast.LENGTH_LONG).show()
+        }
+    }
+
+    private fun getUserInfo() = CoroutineScope(Dispatchers.IO).launch {
+
+        sharedPreference = this@SignIn.requireActivity().getSharedPreferences("userInfo", Context.MODE_PRIVATE)
+        val editor: SharedPreferences.Editor = sharedPreference.edit()
+
+        val uId = FirebaseAuth.getInstance().currentUser?.uid
+        try {
+            //coroutine
+            val db = FirebaseFirestore.getInstance()
+            db.collection("Users").document("$uId")
+                .get().addOnCompleteListener {
+
+                    if (it.result?.exists()!!) {
+                        //+++++++++++++++++++++++++++++++++++++++++
+                        val name = it.result!!.getString("userName")
+                        val userPhone = it.result!!.getString("userPhone")
+                        val userEmail = it.result!!.getString("userEmail")
+
+                        editor.putString("NAME",name)
+                        editor.putString("PHONE",userPhone)
+                        editor.putString("EMAIL",userEmail)
+                        editor.apply()
+
+
+                    } else {
+                        Log.e("error", "error in displaying")
+                    }
+                }
+
+        } catch (e: Exception) {
+            withContext(Dispatchers.Main) {
+                // Toast.makeText(coroutineContext,0,0, e.message, Toast.LENGTH_LONG).show()
+                Log.e("FUNCTION createUserFirestore", "${e.message}")
+            }
         }
     }
 }
