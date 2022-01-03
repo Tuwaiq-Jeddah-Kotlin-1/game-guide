@@ -40,7 +40,6 @@ class CustomHolder(private val binding: GameRvItemBinding) : RecyclerView.ViewHo
         val title = binding.tvTitle.text.toString()
 
         binding.ivPoster.load(game.background)
-        Toast.makeText(binding.root.context,game.background,Toast.LENGTH_LONG).show()
 
 
         binding.tvRate.text = game.rating.toString()
