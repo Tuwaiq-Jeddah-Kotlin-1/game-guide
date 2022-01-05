@@ -2,6 +2,7 @@ package com.example.gameguide.homepage
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Color
 import android.graphics.PorterDuff
 import android.graphics.drawable.Drawable
 import android.os.Bundle
@@ -53,8 +54,15 @@ private val isFavorite: Boolean = true
             tvGdDate.text = args.currentGame.released
             tvGdPt.text = args.currentGame.playtime
             ivGdPoster.load(args.currentGame.Background)
-        }
 
+        }
+        val col = args.currentGame.domin
+
+        /*if(arjobjphob == "playstation")
+            bbtb.rbrbw.setimage(R.Drawable.sony )
+        elseif()*/
+
+        binding.clDetails.setBackgroundColor(Color.parseColor("#$col"))
 
         binding.fabGdShare.setOnClickListener {
             val title: String = tvGdTitle.text.toString()

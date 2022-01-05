@@ -6,11 +6,15 @@
     <data>
 
     </data>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".enternce.SignIn">
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".enternce.SignIn">
+        android:layout_height="wrap_content">
 
         <FrameLayout
             android:id="@+id/signInFrameLayout"
@@ -46,12 +50,13 @@
         <EditText
             android:id="@+id/etSignInEmail"
             android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="65dp"
+            android:background="@drawable/edit_shape"
             android:drawableStart="@drawable/ic_baseline_email"
             android:ems="10"
+            android:gravity="center|center_horizontal"
             android:hint="@string/reset_et_email"
-            android:gravity="center_horizontal"
             android:inputType="textEmailAddress"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
@@ -61,11 +66,12 @@
         <EditText
             android:id="@+id/etSignInPassword"
             android:layout_width="250dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginTop="32dp"
+            android:background="@drawable/edit_shape"
             android:drawableStart="@drawable/ic_baseline_lock"
-            android:gravity="center_horizontal"
             android:ems="10"
+            android:gravity="center|center_horizontal"
             android:hint="@string/signIn_et_password"
             android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="parent"
@@ -87,16 +93,16 @@
             android:id="@+id/tvSignInForgetPassword"
             android:layout_width="wrap_content"
             android:layout_height="24dp"
-            android:layout_marginStart="100dp"
             android:layout_marginTop="10dp"
             android:text="@string/signIn_tv_forget_password"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/cbSignInRememberMe"
             app:layout_constraintTop_toBottomOf="@+id/cbSignInRememberMe" />
 
         <TextView
             android:id="@+id/tvSignInRestPassword"
             android:layout_width="wrap_content"
             android:layout_height="24dp"
+            android:layout_marginStart="3dp"
             android:layout_marginTop="10dp"
             android:text="@string/signIn_tv_reset_password"
             android:textColor="#2196F3"
@@ -109,8 +115,9 @@
             android:id="@+id/btnSignIn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:backgroundTint="@android:color/holo_blue_dark"
+            android:layout_marginTop="16dp"
+            app:backgroundTint="@android:color/holo_blue_dark"
+            android:background="@drawable/button_background"
             android:text="@string/signIn_btn_sign_in"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
@@ -132,12 +139,12 @@
             android:id="@+id/tvSignInLogInNow"
             android:layout_width="wrap_content"
             android:layout_height="24dp"
+            android:layout_marginStart="3dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="87dp"
             android:text="@string/signIn_tv_log_in_now"
             android:textColor="#2196F3"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvSignInYouDont"
             app:layout_constraintTop_toBottomOf="@+id/btnSignIn" />
 
         <ImageView
@@ -151,4 +158,5 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
 </layout>

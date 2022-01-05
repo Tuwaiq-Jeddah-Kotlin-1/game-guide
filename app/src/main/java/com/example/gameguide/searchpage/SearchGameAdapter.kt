@@ -46,16 +46,19 @@ class CustomHolder(private val binding: GameRvItemBinding) : RecyclerView.ViewHo
         binding.tvRate.text = game.rating.toString()
         val rate = binding.tvRate.text.toString()
 
-        binding.tvDate.text = game.released
-        val date = binding.tvDate.text.toString()
+        //binding.tvDate.text = game.released
+        //val date = binding.tvDate.text.toString()
+        val date = game.released
 
         val metacritic = game.metacritic
         val playtime = game.playtime
         val ratingsCount = game.ratings_count
 
         binding.root.setOnClickListener{
-            val gamee = GameData(title,rate,metacritic,
-                date, game.background_image, playtime.toString(),ratingsCount )
+            val gamee = GameData(
+                title, rate, metacritic,
+                date, game.background_image, playtime.toString(), ratingsCount, "domin", "pPlatform"
+            )
             /*findNavController().navigate(actionHomepageToGameDetails(game))*/
             val action = SearchPageDirections.actionSearchPageToGameDetails(gamee)
             binding.root.findNavController().navigate(action)

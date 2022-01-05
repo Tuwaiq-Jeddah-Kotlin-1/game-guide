@@ -47,7 +47,7 @@ class Homepage : Fragment() {
         val maxPage = 33076
 
         binding.ivHomeNext.setOnClickListener {
-            if (i<=maxPage-10) {
+            if (i<maxPage-10) {
                 i++
                 loadMovieImages("$i")
                 binding.tvHomePnum.text = i.toString()

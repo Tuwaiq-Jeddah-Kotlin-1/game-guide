@@ -2,7 +2,6 @@ package com.example.gameguide.favourite
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
@@ -45,16 +44,18 @@ class CustomHolder(private val binding: GameRvItemBinding) : RecyclerView.ViewHo
         binding.tvRate.text = game.rating.toString()
         val rate = binding.tvRate.text.toString()
 
-        binding.tvDate.text = game.released
-        val date = binding.tvDate.text.toString()
+        /*binding.tvDate.text = game.released*/
+        //val date = binding.tvDate.text.toString()
+        val date = game.released
 
         val metacritic = game.metacritic
         val playtime = game.playtime
         val ratingsCount = game.ratingsCount
 
         binding.root.setOnClickListener{
-            val gamee = GameData(title,rate,metacritic,
-                date, game.background, playtime.toString(),ratingsCount )
+            val gamee = GameData(
+                title, rate, metacritic,
+                date, game.background, playtime.toString(), ratingsCount, "dom", "pPlatform")
             /*findNavController().navigate(actionHomepageToGameDetails(game))*/
             val action = FavouritePageDirections.actionFavouritePageToGameDetails(gamee)
             binding.root.findNavController().navigate(action)

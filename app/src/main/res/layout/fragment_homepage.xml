@@ -30,12 +30,12 @@
         <TextView
             android:id="@+id/tvHomePnum"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginStart="68dp"
             android:layout_marginEnd="68dp"
             android:backgroundTint="#00BCD4"
-            android:text="1"
             android:layoutDirection="ltr"
+            android:text="1"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/ivHomeNext"
@@ -52,54 +52,55 @@
 
         <ImageButton
             android:id="@+id/ivHomePrev"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="8dp"
+            android:background="@drawable/button_background"
             android:backgroundTint="@color/teal_700"
+            android:layoutDirection="ltr"
             app:layout_constraintStart_toEndOf="@+id/ivHome10Prev"
             app:layout_constraintTop_toBottomOf="@+id/rvGame"
-            app:srcCompat="@drawable/ic_baseline_chevron_left"
-            android:layoutDirection="ltr"
-            />
+            app:srcCompat="@drawable/ic_baseline_chevron_left" />
 
         <ImageButton
             android:id="@+id/ivHomeNext"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="24dp"
+            android:background="@drawable/button_background"
             android:backgroundTint="@color/teal_700"
+            android:layoutDirection="ltr"
             app:layout_constraintEnd_toStartOf="@+id/ivHome10Next"
             app:layout_constraintTop_toBottomOf="@+id/rvGame"
-            app:srcCompat="@drawable/ic_baseline_chevron_right"
-            android:layoutDirection="ltr"
-            />
+            app:srcCompat="@drawable/ic_baseline_chevron_right" />
 
         <ImageButton
             android:id="@+id/ivHome10Prev"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
+            android:background="@drawable/button_background"
             android:backgroundTint="@color/teal_700"
+            android:layoutDirection="ltr"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/rvGame"
-            app:srcCompat="@drawable/ic_baseline_first_page"
-            android:layoutDirection="ltr"
-            />
+            app:srcCompat="@drawable/ic_baseline_first_page" />
 
         <ImageButton
             android:id="@+id/ivHome10Next"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
+            android:background="@drawable/button_background"
             android:backgroundTint="@color/teal_700"
+            android:layoutDirection="ltr"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/rvGame"
-            app:srcCompat="@drawable/ic_baseline_last_page"
-            android:layoutDirection="ltr" />
+            app:srcCompat="@drawable/ic_baseline_last_page" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
