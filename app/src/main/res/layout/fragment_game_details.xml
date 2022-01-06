@@ -10,7 +10,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".homepage.GameDetailsPage"
+        tools:context=".gameDetails.GameDetailsPage"
         android:fillViewport="true">
 
 
@@ -19,6 +19,61 @@
             android:layout_width="match_parent"
             android:layout_height="fill_parent"
             android:background="#6E6C6C">
+
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="34dp"
+                android:layout_height="37dp"
+                android:layout_marginStart="6dp"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivGdPoster"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="34dp"
+                android:layout_height="37dp"
+                android:visibility="gone"
+                app:layout_constraintStart_toEndOf="@+id/imageView7"
+                app:layout_constraintTop_toBottomOf="@+id/ivGdPoster"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <ImageView
+                android:id="@+id/imageView9"
+                android:layout_width="34dp"
+                android:layout_height="37dp"
+                android:visibility="gone"
+                app:layout_constraintStart_toEndOf="@+id/imageView8"
+                app:layout_constraintTop_toBottomOf="@+id/ivGdPoster"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <ImageView
+                android:id="@+id/imageView10"
+                android:layout_width="34dp"
+                android:layout_height="37dp"
+                android:visibility="gone"
+                app:layout_constraintStart_toEndOf="@+id/imageView9"
+                app:layout_constraintTop_toBottomOf="@+id/ivGdPoster"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <ImageView
+                android:id="@+id/imageView11"
+                android:layout_width="34dp"
+                android:layout_height="37dp"
+                android:visibility="gone"
+                app:layout_constraintStart_toEndOf="@+id/imageView12"
+                app:layout_constraintTop_toBottomOf="@+id/ivGdPoster"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <ImageView
+                android:id="@+id/imageView12"
+                android:layout_width="34dp"
+                android:layout_height="37dp"
+                android:visibility="gone"
+                app:layout_constraintStart_toEndOf="@+id/imageView10"
+                app:layout_constraintTop_toBottomOf="@+id/ivGdPoster"
+                tools:srcCompat="@tools:sample/avatars" />
 
             <ImageView
                 android:id="@+id/ivGdPoster"

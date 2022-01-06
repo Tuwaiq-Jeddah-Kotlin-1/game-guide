@@ -74,7 +74,7 @@ class CustomHolder(private val binding: GameRvItemBinding) : RecyclerView.ViewHo
             }
         }
 
-        var pPlatform = game.parent_platforms[0].platform.name
+        val pPlatform = game.parent_platforms!!
 
 
         /* binding.tvDate.text = game.released

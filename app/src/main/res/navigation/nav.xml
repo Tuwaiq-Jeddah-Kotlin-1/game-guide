@@ -78,7 +78,7 @@
     </fragment>
     <fragment
         android:id="@+id/gameDetails"
-        android:name="com.example.gameguide.homepage.GameDetailsPage"
+        android:name="com.example.gameguide.gameDetails.GameDetailsPage"
         android:label="@string/nav_game_details" >
         <argument
             android:name="currentGame"

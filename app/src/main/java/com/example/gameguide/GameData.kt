@@ -1,7 +1,9 @@
 package com.example.gameguide
 
 import android.os.Parcelable
+import com.example.gameguide.data.Parent_platforms
 import kotlinx.android.parcel.Parcelize
+import kotlinx.android.parcel.RawValue
 
 @Parcelize
 data class GameData(
@@ -12,8 +14,10 @@ data class GameData(
     val Background: String,
     val playtime: String,
     val ratingsCount: Int,
-    val domin: String/*,
+    val domin: String,/*,
                  val genres:List<Genres>,
-                 val platform:List<Platforms>,*/,
-    val pPlatform: String
+                 val platform:List<Platforms>,*/
+
+    val pPlatform:@RawValue  List<Parent_platforms>?
+
 ):Parcelable

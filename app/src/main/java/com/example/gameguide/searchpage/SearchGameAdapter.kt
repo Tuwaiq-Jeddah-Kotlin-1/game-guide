@@ -57,7 +57,7 @@ class CustomHolder(private val binding: GameRvItemBinding) : RecyclerView.ViewHo
         binding.root.setOnClickListener{
             val gamee = GameData(
                 title, rate, metacritic,
-                date, game.background_image, playtime.toString(), ratingsCount, "domin", "pPlatform"
+                date, game.background_image, playtime.toString(), ratingsCount, "domin", null
             )
             /*findNavController().navigate(actionHomepageToGameDetails(game))*/
             val action = SearchPageDirections.actionSearchPageToGameDetails(gamee)
