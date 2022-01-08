@@ -1,3 +1,4 @@
+/*
 package com.example.gameguide.searchpage
 
 import android.content.Intent
@@ -6,9 +7,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import coil.load
 import com.example.gameguide.databinding.FragmentSearchGameDetailsBinding
+import com.example.gameguide.homepage.HomeVM
 import kotlinx.android.synthetic.main.fragment_game_details.*
 
 
@@ -16,6 +19,9 @@ class SearchGameDetails : Fragment() {
 
     private lateinit var binding: FragmentSearchGameDetailsBinding
     private val args: SearchGameDetailsArgs by navArgs()
+    private val vm by lazy {
+        ViewModelProvider(this).get(HomeVM::class.java)
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -50,4 +56,4 @@ class SearchGameDetails : Fragment() {
 
 
     }
-}
+}*/

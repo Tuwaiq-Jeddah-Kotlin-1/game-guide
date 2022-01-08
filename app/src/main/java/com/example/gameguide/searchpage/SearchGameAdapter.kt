@@ -55,13 +55,17 @@ class CustomHolder(private val binding: GameRvItemBinding) : RecyclerView.ViewHo
         val ratingsCount = game.ratings_count
 
         binding.root.setOnClickListener{
+/*
             val gamee = GameData(
                 title, rate, metacritic,
                 date, game.background_image, playtime.toString(), ratingsCount, "domin", null
             )
-            /*findNavController().navigate(actionHomepageToGameDetails(game))*/
+            */
+/*findNavController().navigate(actionHomepageToGameDetails(game))*//*
+
             val action = SearchPageDirections.actionSearchPageToGameDetails(gamee)
             binding.root.findNavController().navigate(action)
+*/
         }
     }
 }

@@ -36,14 +36,16 @@ class GameAdapter(private val gameData: List<Results>) : RecyclerView.Adapter<Cu
 class CustomHolder(private val binding: GameRvItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(game: Results) {
+
+        val id = game.id
         binding.tvTitle.text = game.name
-        val title = binding.tvTitle.text.toString()
+        //val title = binding.tvTitle.text.toString()
 
          //binding.ivPoster.load(game.background_image)
          binding.ivPoster.load(game.short_screenshots[1].image)
 
         binding.tvRate.text = game.rating.toString()
-        val rate = binding.tvRate.text.toString()
+       // val rate = binding.tvRate.text.toString()
 
 
 
@@ -74,22 +76,21 @@ class CustomHolder(private val binding: GameRvItemBinding) : RecyclerView.ViewHo
             }
         }
 
-        val pPlatform = game.parent_platforms!!
+        //val pPlatform = game.parent_platforms!!
 
 
         /* binding.tvDate.text = game.released
          val date = binding.tvDate.text.toString()*/
 
-        val date = game.released
-        val metacritic = game.metacritic
-        val playtime = game.playtime
-        val ratingsCount = game.ratings_count
-        val col = game.dominant_color
+        //val date = game.released
+        //val metacritic = game.metacritic
+        //val playtime = game.playtime
+        //val ratingsCount = game.ratings_count
+        //val col = game.dominant_color
 
 
         binding.root.setOnClickListener{
-            val gamee = GameData(title,rate,metacritic,
-                date, game.background_image, playtime.toString(),ratingsCount, col, pPlatform)
+            val gamee = GameData(id)
             /*findNavController().navigate(actionHomepageToGameDetails(game))*/
             val action = HomepageDirections.actionHomepageToGameDetails(gamee)
             binding.root.findNavController().navigate(action)
