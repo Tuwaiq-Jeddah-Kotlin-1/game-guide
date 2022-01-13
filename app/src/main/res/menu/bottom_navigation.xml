@@ -10,7 +10,7 @@
         android:id="@+id/favouritePage"
          android:icon="@drawable/ic_baseline_favorite"/>
 
-    <item android:title="search"
+    <item android:title="@string/menu_search"
         android:id="@+id/searchPage"
          android:icon="@drawable/ic_baseline_search"/>
 

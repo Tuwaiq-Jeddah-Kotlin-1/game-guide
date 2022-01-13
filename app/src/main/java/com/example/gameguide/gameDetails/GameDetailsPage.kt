@@ -21,9 +21,6 @@ import com.example.gameguide.databinding.FragmentGameDetailsBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.fragment_game_details.*
-import android.R.array
-
-
 
 
 class GameDetailsPage : Fragment() {
@@ -92,10 +89,22 @@ private val isFavorite: Boolean = true
                 }
 
                 tvGdDate.text = GD.released
-                if(GD.playtime >= 1)
-                    tvGdPt.text = "${GD.playtime.toString()} hour/s"
-                else
-                    tvGdPt.text = "N/A"
+                when {
+                    GD.playtime >= 1 -> {
+
+                        (GD.playtime.toString() + "" + getString(R.string.GD_Hour)+"").also { tvGdPt.text = it }
+                    }
+                    GD.playtime == 2 -> {
+                        (GD.playtime.toString() + "" + getString(R.string.GD_Hours2)+"").also { tvGdPt.text = it }
+                    }
+                    GD.playtime in 3..9 -> {
+                        (GD.playtime.toString() + "" + getString(R.string.GD_Hours39)+"").also { tvGdPt.text = it }
+                    }
+                    GD.playtime >= 10 -> {
+                        (GD.playtime.toString() + "" + getString(R.string.GD_Hours)+"").also { tvGdPt.text = it }
+                    }
+                    else -> tvGdPt.text = "N/A"
+                }
 
 
                 tvGdTitle.text = GD.name
@@ -130,21 +139,21 @@ private val isFavorite: Boolean = true
 
                     when (n) {
                         "exceptional" -> {
-                            tvRatings.text = "exceptional"
+                            tvRatings.text = getString(R.string.GD_exceptional)
                             ivRating.setImageResource(R.drawable.target)
                         }
                         "recommended" -> {
-                            tvRatings.text = "recommended"
+                            tvRatings.text = getString(R.string.GD_recommended)
                             ivRating.setImageResource(R.drawable.like)
 
                         }
                         "meh" -> {
-                            tvRatings.text = "meh"
+                            tvRatings.text = getString(R.string.GD_meh)
                             ivRating.setImageResource(R.drawable.meh)
 
                         }
                         "skip" -> {
-                            tvRatings.text = "skip"
+                            tvRatings.text = getString(R.string.GD_skip)
                             ivRating.setImageResource(R.drawable.forbidden)
 
                         }else ->{
@@ -183,7 +192,6 @@ private val isFavorite: Boolean = true
                             n1 += "${GD.ratings[i].title}, ${GD.ratings[i].count}.\n"
                         }
                     }
-                    tv1rate.text = n1
 
                     /*if (GD.ratings[i].title == "recommended") {
                         when {
@@ -372,7 +380,7 @@ private val isFavorite: Boolean = true
                     }
                 }
 
-                tvgeners.text = f2+s2
+                tvGeners.text = f2+s2
 
                 tvDate.text = GD.released
 
@@ -402,12 +410,12 @@ private val isFavorite: Boolean = true
                         s4 += ", ${GD.publishers[i + 1].name}"
                     }
                 }
-                tvPuplisher.text = f4+s4
+                tvPublishers.text = f4+s4
 
                 if(GD.esrb_rating?.name?.isNotEmpty() == true){
                     tvAgeRating.text = GD.esrb_rating.name
                 }else{
-                    tvDIsAge.visibility = View.GONE
+                    tvDisAge.visibility = View.GONE
                     tvAgeRating.visibility = View.GONE
                 }
 
@@ -468,7 +476,7 @@ private val isFavorite: Boolean = true
         try {
             //coroutine
 
-            val fav = FavouriteGame(id.id,id.name,id.background_image,tvRatings.text.toString(),tvPlatform.text.toString(),id.metacritic,id.added,tvgeners.text.toString(),id.released,id.visibility)
+            val fav = FavouriteGame(id.id,id.name,id.background_image,tvRatings.text.toString(),tvPlatform.text.toString(),id.metacritic,id.added,tvGeners.text.toString(),id.released,id.visibility)
             val docRef = db.collection("Users").document("$uId").collection("favorite").document(id.name)
             ref.document(id.name).get().addOnCompleteListener {
                 if (it.result!!.exists()){

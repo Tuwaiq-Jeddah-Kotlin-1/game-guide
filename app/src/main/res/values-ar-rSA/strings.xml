@@ -23,8 +23,8 @@
     <string name="signIn_tv_reset_password"><u>اعادة تعيين كلمة المرور</u></string>
     <string name="menu_item_favourite">" المفضلة"</string>
     <string name="menu_item_home">الرئيسية</string>
-    <string name="menu_item_profile">ملف التعريف الشخصي</string>
-    <string name="pro_tv_profile">ملف التعريف الشخصي</string>
+    <string name="menu_item_profile">"ملف التعريف "</string>
+    <string name="pro_tv_profile">"ملف التعريف "</string>
     <string name="prof_tv_username">"اسم المستخدم"</string>
     <string name="prof_tv_phone">رقم الهاتف</string>
     <string name="prof_tv_email">البريد الإلكتروني</string>
@@ -60,12 +60,32 @@
     <string name="nav_profile">ملف التعريف</string>
     <string name="nav_favourite">المفضلة</string>
     <string name="nav_game_details">تفاصيل اللعبة</string>
-    <string name="nav_game_guide">game guide</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="homePage_welcome_home" translatable="false">welcome home</string>
+    <string name="nav_game_guide">تسجيل الدخول</string>
     <string name="prof_change_language">تغيير اللغة</string>
     <string name="proff_enable_dark_mode">تمكين الوضع الليلي</string>
     <string name="proff_disable_dark_mode">تعطيل الوضع الليلي</string>
     <string name="prof_appearance">المظهر</string>
     <string name="app_name" translatable="false">Game Guide</string>
+    <string name="GD_tv_website">الموقع</string>
+    <string name="GD_tv_about">نبذة</string>
+    <string name="GD_tv_platforms">المنصات</string>
+    <string name="GD_tv_geners">التصنيفات</string>
+    <string name="GD_tv_date">التاريخ</string>
+    <string name="GD_tv_developers">المطورين</string>
+    <string name="GD_tv_publishers">الناشرين</string>
+    <string name="GD_tv_age_rating">تصنيف العمر</string>
+    <string name="GD_tv_tags">العلامات</string>
+    <string name="GD_exceptional">استثنائي</string>
+    <string name="GD_recommended">موصى به</string>
+    <string name="GD_meh">لا بآس</string>
+    <string name="GD_skip">تخطي</string>
+    <string name="rvItem_tv_geners">التصنيفات</string>
+    <string name="rvItem_released_date">تاريخ الاصدار</string>
+    <string name="pro_tv_log_out">تسجيل خروج</string>
+    <string name="pro_tv_setting">الاعدادات</string>
+    <string name="GD_Hour">ساعة</string>
+    <string name="GD_Hours">ساعات</string>
+    <string name="menu_search">البحث</string>
+    <string name="GD_Hours2">ساعتين</string>
+    <string name="GD_Hours39">ساعات</string>
 </resources>

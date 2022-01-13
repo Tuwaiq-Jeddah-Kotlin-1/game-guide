@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">Game Guide</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="reset_tv_ResetPassword_in">Reset Password</string>
     <string name="singIn_tv_SignIn">Sign in</string>
     <string name="signIn_tv_log_in_now"><u>reg now!</u></string>
@@ -21,7 +20,6 @@
     <string name="register_btn_registration">Registration</string>
     <string name="register_tv_back_to_sign_in_page"><u>back to sign in page</u></string>
     <string name="signIn_tv_reset_password"><u>reset password</u></string>
-    <string name="homePage_welcome_home">welcome home</string>
     <string name="menu_item_favourite">favourite</string>
     <string name="menu_item_home">home</string>
     <string name="menu_item_profile">profile</string>
@@ -61,10 +59,32 @@
     <string name="nav_favourite">favourite</string>
     <string name="nav_profile">profile</string>
     <string name="nav_game_details">Game Details</string>
-    <string name="nav_game_guide">game guide</string>
+    <string name="nav_game_guide">sign in</string>
     <string name="reset_et_email">email</string>
     <string name="prof_change_language">change language</string>
     <string name="proff_enable_dark_mode">Enable dark mode</string>
     <string name="proff_disable_dark_mode">Disable dark mode</string>
     <string name="prof_appearance">Appearance</string>
+    <string name="GD_tv_website">website</string>
+    <string name="GD_tv_about">about</string>
+    <string name="GD_tv_platforms">platforms</string>
+    <string name="GD_tv_geners">geners</string>
+    <string name="GD_tv_date">date</string>
+    <string name="GD_tv_developers">developers</string>
+    <string name="GD_tv_publishers">publishers</string>
+    <string name="GD_tv_age_rating">age rating</string>
+    <string name="GD_tv_tags">tags</string>
+    <string name="GD_exceptional">exceptional</string>
+    <string name="GD_recommended">recommended</string>
+    <string name="GD_meh">meh</string>
+    <string name="GD_skip">skip</string>
+    <string name="rvItem_tv_geners">Geners</string>
+    <string name="rvItem_released_date">Released date</string>
+    <string name="pro_tv_log_out">log Out</string>
+    <string name="pro_tv_setting">setting</string>
+    <string name="GD_Hour">hour</string>
+    <string name="menu_search">search</string>
+    <string name="GD_Hours">hours</string>
+    <string name="GD_Hours2">hours</string>
+    <string name="GD_Hours39">hours</string>
 </resources>

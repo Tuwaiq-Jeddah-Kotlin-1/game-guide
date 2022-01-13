@@ -16,7 +16,8 @@
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/card_game"
-        android:padding="3dp">
+        android:padding="3dp"
+        android:layoutDirection="ltr">
 
         <TextView
             android:id="@+id/tvTitle"
@@ -47,12 +48,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="1dp"
-                android:clipToOutline="true"
                 android:scaleType="fitXY"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_launcher_foreground" />
+                app:srcCompat="@drawable/ic_launcher_foreground"
+                android:contentDescription="poster" />
 
         </androidx.cardview.widget.CardView>
 
@@ -152,11 +153,11 @@
 
             <TextView
                 android:id="@+id/tvItemGenere"
-                android:layout_width="50dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="32dp"
-                android:text="genera"
+                android:text="@string/rvItem_tv_geners"
                 android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -182,7 +183,7 @@
                 android:layout_gravity="end"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:text="text"
+                android:text="Released"
                 android:textAlignment="textEnd"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -191,12 +192,12 @@
             </TextView>
 
             <TextView
-                android:id="@+id/tvItemChart"
+                android:id="@+id/tvReleasedDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:text="realeasd date"
+                android:text="@string/rvItem_released_date"
                 android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/divider3">

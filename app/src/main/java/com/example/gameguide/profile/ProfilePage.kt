@@ -121,7 +121,7 @@ class ProfilePage : Fragment() {
         }
 
 
-        binding.btnProfileLogOut.setOnClickListener {
+        binding.tvProLogOut.setOnClickListener {
             sharedPreference = this.requireActivity().getSharedPreferences("prefence", Context.MODE_PRIVATE)
 
             val email = sharedPreference.getString("EMAIL","")

@@ -72,13 +72,13 @@
                         android:layout_height="40dp"
                         android:layout_marginTop="16dp"
                         android:background="@drawable/edit_shape"
-                        android:drawableStart="@drawable/ic_baseline_person"
                         android:gravity="center|center_horizontal"
                         android:text="@string/prof_tv_username"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tvProfile" />
+                        app:layout_constraintTop_toBottomOf="@+id/tvProfile"
+                        app:drawableStartCompat="@drawable/ic_baseline_person" />
 
 
                     <TextView
@@ -87,14 +87,13 @@
                         android:layout_height="40dp"
                         android:layout_marginTop="8dp"
                         android:background="@drawable/edit_shape"
-                        android:drawableStart="@drawable/ic_baseline_phone"
                         android:gravity="center|center_horizontal"
-                        android:layoutDirection="ltr"
                         android:text="@string/prof_tv_phone"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tvProfileUserName" />
+                        app:layout_constraintTop_toBottomOf="@+id/tvProfileUserName"
+                        app:drawableStartCompat="@drawable/ic_baseline_phone" />
 
                     <TextView
                         android:id="@+id/tvProfileEmail"
@@ -102,12 +101,12 @@
                         android:layout_height="40dp"
                         android:layout_marginTop="8dp"
                         android:background="@drawable/edit_shape"
-                        android:drawableStart="@drawable/ic_baseline_email"
                         android:gravity="center|center_horizontal"
                         android:text="@string/prof_tv_email"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tvProfilePhone" />
+                        app:layout_constraintTop_toBottomOf="@+id/tvProfilePhone"
+                        app:drawableStartCompat="@drawable/ic_baseline_email" />
 
                     <ImageView
                         android:id="@+id/btnProfileEdit"
@@ -150,7 +149,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:gravity="center"
-                        android:text="setting"
+                        android:text="@string/pro_tv_setting"
                         android:textAlignment="center"
                         android:textSize="35dp"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -163,32 +162,31 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="24dp"
-                        android:drawableStart="@drawable/ic_baseline_translate_24"
                         android:text="@string/prof_tv_language"
                         android:textSize="20dp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tvProfile2" />
+                        app:layout_constraintTop_toBottomOf="@+id/tvProfile2"
+                        app:drawableStartCompat="@drawable/ic_baseline_translate_24" />
 
                     <Button
                         android:id="@+id/btnProfMode"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="32dp"
                         android:background="@drawable/button_background"
                         android:text="@string/prof_enable_dark_mode"
                         app:layout_constraintBottom_toBottomOf="@+id/tvprofAppearance"
-                        app:layout_constraintStart_toEndOf="@+id/tvprofAppearance"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/tvprofAppearance" />
 
                     <Button
                         android:id="@+id/btnProfLanguage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="1dp"
+                        android:layout_marginEnd="1dp"
                         android:background="@drawable/button_background"
                         android:text="@string/prof_change_language"
                         app:layout_constraintBottom_toBottomOf="@+id/tvProfileLanguage"
-                        app:layout_constraintStart_toStartOf="@+id/btnProfMode"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/tvProfileLanguage" />
 
                     <TextView
@@ -196,23 +194,25 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="32dp"
-                        android:drawableStart="@drawable/ic_baseline_brightness_medium_24"
                         android:text="@string/prof_appearance"
                         android:textSize="20dp"
                         app:layout_constraintStart_toStartOf="@+id/tvProfileLanguage"
-                        app:layout_constraintTop_toBottomOf="@+id/tvProfileLanguage" />
+                        app:layout_constraintTop_toBottomOf="@+id/tvProfileLanguage"
+                        app:drawableStartCompat="@drawable/ic_baseline_brightness_medium_24" />
 
                     <TextView
-                        android:id="@+id/btnProfileLogOut"
+                        android:id="@+id/tvProLogOut"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="132dp"
                         android:layout_marginTop="32dp"
                         android:layout_marginEnd="149dp"
-                        android:drawableStart="@drawable/ic_baseline_exit_to_app_24"
-                        android:text="log Out"
+                        android:layout_marginBottom="16dp"
+                        android:text="@string/pro_tv_log_out"
                         android:textColor="#D30D0D"
                         android:textSize="25dp"
+                        app:drawableStartCompat="@drawable/ic_baseline_exit_to_app_24"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/tvprofAppearance" />
