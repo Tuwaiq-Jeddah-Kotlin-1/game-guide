@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/signIn">
+
+    <fragment
+        android:id="@+id/signIn"
+        android:name="com.example.gameguide.enternce.SignIn"
+        android:label="@string/nav_game_guide"
+        tools:layout="@layout/fragment_sign_in" >
+        <action
+            android:id="@+id/action_signIn_to_registration"
+            app:destination="@id/registration"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_signIn_to_homepage"
+            app:destination="@id/homepage"
+            app:popUpTo="@id/nav" />
+        <action
+            android:id="@+id/action_signIn_to_forgetPassword"
+            app:destination="@id/forgetPassword" />
+    </fragment>
+    <fragment
+        android:id="@+id/forgetPassword"
+        android:name="com.example.gameguide.enternce.ForgetPassword"
+        android:label="@string/nav_reset"
+        tools:layout="@layout/fragment_forget_password" >
+        <action
+            android:id="@+id/action_forgetPassword_to_signIn"
+            app:destination="@id/signIn"
+            app:popUpTo="@id/signIn"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/homepage"
+        android:name="com.example.gameguide.homepage.Homepage"
+        android:label="@string/nav_homepage"
+        tools:layout="@layout/fragment_homepage" >
+        <action
+            android:id="@+id/action_homepage_to_gameDetails"
+            app:destination="@id/gameDetails" />
+    </fragment>
+    <fragment
+        android:id="@+id/registration"
+        android:name="com.example.gameguide.enternce.Registration"
+        android:label="@string/nav_reg"
+        tools:layout="@layout/fragment_registration" >
+        <action
+            android:id="@+id/action_registration_to_signIn"
+            app:destination="@id/signIn"
+            app:popUpTo="@id/signIn"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_registration_to_homepage"
+            app:destination="@id/homepage"
+            app:popUpTo="@id/nav" />
+    </fragment>
+    <fragment
+        android:id="@+id/favouritePage"
+        android:name="com.example.gameguide.favourite.FavouritePage"
+        android:label="@string/nav_favourite"
+        tools:layout="@layout/fragment_favourite_page" >
+        <action
+            android:id="@+id/action_favouritePage_to_gameDetails"
+            app:destination="@id/gameDetails" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.gameguide.profile.ProfilePage"
+        android:label="@string/nav_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_signIn"
+            app:destination="@id/signIn"
+            app:popUpTo="@id/nav" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameDetails"
+        android:name="com.example.gameguide.gameDetails.GameDetailsPage"
+        android:label="@string/nav_game_details" >
+        <argument
+            android:name="currentGame"
+            app:argType="com.example.gameguide.GameData" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/searchPage"
+        android:name="com.example.gameguide.searchpage.SearchPage"
+        android:label="fragment_search_page"
+        tools:layout="@layout/fragment_search_page" >
+        <action
+            android:id="@+id/action_searchPage_to_gameDetails"
+            app:destination="@id/gameDetails" />
+    </fragment>
+</navigation>

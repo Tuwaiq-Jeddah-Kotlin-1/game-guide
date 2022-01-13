@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.GameGuide" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimary">#009688</item>
+        <item name="colorPrimaryVariant">?attr/colorPrimaryVariant</item>
         <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -11,6 +11,23 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+
         <!-- Customize your theme here. -->
+
+        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
     </style>
+    <style name="AppBottomSheetDialogTheme"
+        parent="Theme.Design.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppModalStyle</item>
+    </style>
+    <style name="AppModalStyle"
+        parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/bosh</item>
+    </style>
+    <!--
+    <style name="BottomNavigationTheme" parent="Theme.AppCompat.Light">
+    <item name="colorPrimary">@color/purple_200</item>
+
+    </style>-->
+
 </resources>

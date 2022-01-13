@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+    </data>
+    <!-- <ScrollView
+         android:layout_width="match_parent"
+         android:layout_height="match_parent">
+     </ScrollView>-->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".homepage.Homepage"
+        ><!--
+        android:background="@color/white"-->
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/homeCard"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:cardBackgroundColor="@color/blue"
+            app:cardCornerRadius="15dp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvGame"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </androidx.cardview.widget.CardView>
+
+
+        <TextView
+            android:id="@+id/tvHomePnum"
+            android:layout_width="29dp"
+            android:layout_height="26dp"
+            android:layout_marginStart="68dp"
+            android:layout_marginEnd="68dp"
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/button_background"
+            android:backgroundTint="@color/teal_700"
+            android:gravity="center"
+            android:layoutDirection="ltr"
+            android:text="1"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ivHomeNext"
+            app:layout_constraintStart_toEndOf="@+id/ivHomePrev"
+            app:layout_constraintTop_toTopOf="@+id/guideline2"
+            app:layout_constraintVertical_bias="0.555" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="64dp" />
+
+        <ImageButton
+            android:id="@+id/ivHomePrev"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/button_background"
+            android:backgroundTint="@color/teal_700"
+            android:layoutDirection="ltr"
+            app:layout_constraintStart_toEndOf="@+id/ivHome10Prev"
+            app:layout_constraintTop_toBottomOf="@+id/homeCard"
+            app:srcCompat="@drawable/ic_baseline_chevron_left" />
+
+        <ImageButton
+            android:id="@+id/ivHomeNext"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/button_background"
+            android:backgroundTint="@color/teal_700"
+            android:layoutDirection="ltr"
+            app:layout_constraintEnd_toStartOf="@+id/ivHome10Next"
+            app:layout_constraintTop_toBottomOf="@+id/homeCard"
+            app:srcCompat="@drawable/ic_baseline_chevron_right" />
+
+        <ImageButton
+            android:id="@+id/ivHome10Prev"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/button_background"
+            android:backgroundTint="@color/teal_700"
+            android:layoutDirection="ltr"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeCard"
+            app:srcCompat="@drawable/ic_baseline_arrow_back" />
+
+        <ImageButton
+            android:id="@+id/ivHome10Next"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/button_background"
+            android:backgroundTint="@color/teal_700"
+            android:layoutDirection="ltr"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeCard"
+            app:srcCompat="@drawable/ic_baseline_arrow_forward" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
