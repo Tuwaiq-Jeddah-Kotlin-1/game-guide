@@ -83,7 +83,8 @@
                     android:inputType="textPersonName"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvRegistration" />
+                    app:layout_constraintTop_toBottomOf="@+id/tvRegistration"
+                    android:autofillHints="username" />
 
 
                 <EditText
@@ -99,7 +100,8 @@
                     android:inputType="textEmailAddress"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/etRegistrationUserName" />
+                    app:layout_constraintTop_toBottomOf="@+id/etRegistrationUserName"
+                    android:autofillHints="emailAddress" />
 
                 <EditText
                     android:id="@+id/etRegistrationPhone"
@@ -114,7 +116,8 @@
                     android:inputType="phone"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/etRegistrationEmail" />
+                    app:layout_constraintTop_toBottomOf="@+id/etRegistrationEmail"
+                    android:autofillHints="phone"/>
 
                 <EditText
                     android:id="@+id/etRegistrationPassword"
@@ -129,7 +132,8 @@
                     android:inputType="textPassword"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/etRegistrationPhone" />
+                    app:layout_constraintTop_toBottomOf="@+id/etRegistrationPhone"
+                    android:autofillHints="password"/>
 
                 <EditText
                     android:id="@+id/etRegistrationRePassword"
@@ -144,7 +148,8 @@
                     android:inputType="textPassword"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/etRegistrationPassword" />
+                    app:layout_constraintTop_toBottomOf="@+id/etRegistrationPassword"
+                    android:autofillHints="password"/>
 
                 <Button
                     android:id="@+id/btnRegistration"

@@ -2,10 +2,9 @@ package com.example.gameguide
 
 import android.content.Context
 import android.content.SharedPreferences
-import android.content.res.Configuration
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -13,7 +12,6 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.gameguide.notification.NotificationRepo
 import com.example.gameguide.settingUtil.SettingUtil
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -40,32 +38,14 @@ class MainActivity : AppCompatActivity() {
             loadData()
         }
 
-
         NotificationRepo().myNotification(this)
-
-        /*if (localeToSet == "ar"){
-            setLocate("ar")
-        }
-        else{
-            setLocate("en")
-        }
-*/
 
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.fragmentContainerView) as NavHostFragment
         navController = navHostFragment.navController
 
-
-
-
-        /*navController = findNavController(R.id.fragmentContainerView)*/
-
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation_view)
-
         bottomNavigationView.setupWithNavController(navController)
-
-        /*navController.popBackStack(R.id.homepage, false)*/
-
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
@@ -83,35 +63,11 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-
-        /*setupActionBarWithNavController(navController)
     }
-
-    override fun onSupportNavigateUp(): Boolean {
-        return  navController.navigateUp() ||  super.onSupportNavigateUp()
-    }*/
-
-    }
-
 
     private fun loadData() {
         setContentView(R.layout.activity_main)
     }
-   /* private fun setLocate(s: String) {
-
-
-        val locale = Locale(s)
-
-        Locale.setDefault(locale)
-
-        val config = Configuration()
-
-        config.locale = locale
-
-        //---------------------------------------------------------------
-        this?.resources?.updateConfiguration(config, this.resources.displayMetrics)
-
-    }*/
 }
 
 

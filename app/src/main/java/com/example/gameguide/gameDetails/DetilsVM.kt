@@ -6,7 +6,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.gameguide.data.GDdata.GameDetailsdata
-import com.example.gameguide.data.Json4Kotlin_Base
 import com.example.gameguide.network.GameRepo
 import kotlinx.coroutines.launch
 

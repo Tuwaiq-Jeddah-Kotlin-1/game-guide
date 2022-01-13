@@ -36,7 +36,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/ivChangeProfNotch" />
+            app:layout_constraintTop_toTopOf="@+id/ivChangeProfNotch"
+            android:autofillHints="username"/>
 
         <EditText
             android:id="@+id/etChangeProfPhone"
@@ -50,7 +51,8 @@
             android:text="@string/changeProf_et_phone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etChangeProfUsername" />
+            app:layout_constraintTop_toBottomOf="@+id/etChangeProfUsername"
+            android:autofillHints="phone"/>
 
         <Button
             android:id="@+id/btnChangeProfConfirm"

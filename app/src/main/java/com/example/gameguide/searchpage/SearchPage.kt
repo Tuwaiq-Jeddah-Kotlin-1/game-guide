@@ -16,38 +16,25 @@ import com.example.gameguide.databinding.FragmentSearchPageBinding
 
 class SearchPage : Fragment() {
     private lateinit var binding: FragmentSearchPageBinding
-    private lateinit var sharedPreferences: SharedPreferences
     private val vm by lazy {
         ViewModelProvider(this)[SearchVM::class.java]
     }
-    private val SHARED_KEY = "lastSearch"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-
         binding = FragmentSearchPageBinding.inflate(inflater, container, false)
-
         return binding.root
     }
-
-
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         setHasOptionsMenu(true)
-
-
-        sharedPreferences = this.requireActivity().getSharedPreferences("gameSharePreference", Context.MODE_PRIVATE)
-
         binding.rvSgame.layoutManager = StaggeredGridLayoutManager(
             1,
             StaggeredGridLayoutManager.VERTICAL
-        )//GridLayoutManager(this, 2)
-
+        )
         loadgames()
     }
 
@@ -55,7 +42,6 @@ class SearchPage : Fragment() {
         vm.searchGames(query/*,"3"*/).observe(viewLifecycleOwner, {
             if (query.isNullOrEmpty()) {
                 binding.rvSgame.adapter = SearchGameAdapter(it.results)
-
             } else {
                 binding.rvSgame.swapAdapter(SearchGameAdapter(it.results), false)
             }
@@ -69,33 +55,20 @@ class SearchPage : Fragment() {
         val TAG = "searchView"
         val searchView = searchIcon.actionView as SearchView
 
-
         searchView.apply {
             setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String?): Boolean {
                     Log.d(TAG, "Query text submit: $query")
-                    /*val sharedPref = sharedPreferences.getString(SHARED_KEY, "This was your first search ")
-
-                    sharedPreferences
-                        .edit()
-                        .putString(SHARED_KEY, "Your last search was: $query")
-                        .apply()*/
-
-
-                    //Toast.makeText(context, sharedPref, Toast.LENGTH_LONG).show()
                     loadgames(query?.trim())
                     return true
                 }
 
                 override fun onQueryTextChange(newText: String?): Boolean {
-                    //new
                     Log.d(TAG, "QueryTextChange:  $$newText")
                     return false
                 }
-
             })
         }
         return super.onCreateOptionsMenu(menu,inflater)
     }
-
 }

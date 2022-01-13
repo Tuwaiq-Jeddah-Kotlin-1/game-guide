@@ -44,22 +44,16 @@ class ProfilePage : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-
         binding = FragmentProfileBinding.inflate(inflater, container, false)
-
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
-        //loadLocale()
         loadData()
         getUserInfo()
         setting = SettingUtil(requireContext())
-
         sharedPreference = this.requireActivity().getSharedPreferences("userInfo", Context.MODE_PRIVATE)
 
         val name = sharedPreference.getString("NAME","")
@@ -68,7 +62,6 @@ class ProfilePage : Fragment() {
         binding.tvProfileUserName.text= name.toString()
         binding.tvProfilePhone.text= phone.toString()
         binding.tvProfileEmail.text= email.toString()
-
 
 
         binding.btnProfileEdit.setOnClickListener{
@@ -88,27 +81,21 @@ class ProfilePage : Fragment() {
                         setLocate("ar")
                     }
                 }
-
             }.setPositiveButton("ok") { dialog, selection ->
                 recreate(context as Activity)
                 dialog.dismiss()
             }.setNeutralButton("cancel") { dialog, selection ->
+
             }
             langSelectorBuilder.create().show()
         }
 
 
-
-
         binding.btnProfMode.setOnClickListener {
-            /*sharedPreference = this.requireActivity().getSharedPreferences("sharedPrefs",Context.MODE_PRIVATE)*/
-            /*editor.apply{
-                 putBoolean("BOOLEAN_KEY",binding.sProfileMode.isChecked)
-             }.apply()*/
-            //val sharedprefEdit : SharedPreferences.Editor = sharedPreferences.edit()
 
             sharedPreference = this.requireActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE)
-            val editor: SharedPreferences.Editor = sharedPreference.edit()
+            editor= sharedPreference.edit()
+
             val darkMode = sharedPreference.getBoolean("DARK_MODE",false)
 
             if(darkMode) {
@@ -124,17 +111,14 @@ class ProfilePage : Fragment() {
             }
         }
 
-
         binding.tvProLogOut.setOnClickListener {
             val langSelectorBuilder = AlertDialog.Builder(requireContext())
             langSelectorBuilder.setTitle(getString(R.string.pro_warningLog))
             .setPositiveButton("yes") { dialog, _ ->
                 sharedPreference = this.requireActivity().getSharedPreferences("prefence", Context.MODE_PRIVATE)
 
-                val email = sharedPreference.getString("EMAIL","")
-                binding.tvProfileEmail.text = email
-                /*val password = sharedPrefence.getString("EMAIL","")*/
-
+                val emailOut = sharedPreference.getString("EMAIL","")
+                binding.tvProfileEmail.text = emailOut
 
                 editor = sharedPreference.edit()
                 editor.clear()
@@ -145,9 +129,6 @@ class ProfilePage : Fragment() {
 
             }
             langSelectorBuilder.create().show()
-
-
-
         }
     }
 
@@ -164,28 +145,17 @@ class ProfilePage : Fragment() {
             AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO)
             binding.btnProfMode.text= getString(R.string.proff_disable_dark_mode)
         }
-        /*sharedPreference = this.requireActivity().getSharedPreferences("prefence", Context.MODE_PRIVATE)
-        val savedBoolean = sharedPreference.getBoolean("BOOLEAN_KEY",false)
-
-        binding.sProfileMode.isChecked = savedBoolean*/
     }
-    /* private fun loadLocale() {
-        sharedPreference = this.requireActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE)
-        val localeToSet = sharedPreference.getString("LOCALE_TO_SET", "")!!
-        setLocale(localeToSet)
-    }*/
 
     private fun getUserInfo() = CoroutineScope(Dispatchers.IO).launch {
-
         sharedPreference = this@ProfilePage.requireActivity().getSharedPreferences("userInfo", Context.MODE_PRIVATE)
-        val editor: SharedPreferences.Editor = sharedPreference.edit()
+        editor= sharedPreference.edit()
 
         val uId = FirebaseAuth.getInstance().currentUser?.uid
         try {
             //coroutine
             val db = FirebaseFirestore.getInstance()
-            db.collection("Users").document("$uId")
-                .get().addOnCompleteListener {
+            db.collection("Users").document("$uId").get().addOnCompleteListener {
 
                     if (it.result?.exists()!!) {
                         //+++++++++++++++++++++++++++++++++++++++++
@@ -197,13 +167,10 @@ class ProfilePage : Fragment() {
                         editor.putString("PHONE",userPhone)
                         editor.putString("EMAIL",userEmail)
                         editor.apply()
-
-
                     } else {
                         Log.e("error", "error in displaying")
                     }
                 }
-
         } catch (e: Exception) {
             withContext(Dispatchers.Main) {
                 // Toast.makeText(coroutineContext,0,0, e.message, Toast.LENGTH_LONG).show()
@@ -239,14 +206,11 @@ class ProfilePage : Fragment() {
 
     private fun updateData (usernameEt: String, userPhotoEt: String){
         sharedPreference = this.requireActivity().getSharedPreferences("userInfo", Context.MODE_PRIVATE)
-        val editor: SharedPreferences.Editor = sharedPreference.edit()
+        editor = sharedPreference.edit()
 
         val uId = FirebaseAuth.getInstance().currentUser?.uid
-
-        val userRef = Firebase.firestore.collection("Users")
-
-            .document(uId.toString()).update("userName",usernameEt.toString(),
-                "userPhone",userPhotoEt.toString())
+        val userRef = Firebase.firestore.collection("Users").document(uId.toString()).update("userName",usernameEt,
+                "userPhone",userPhotoEt)
 
         editor.putString("NAME",usernameEt)
         editor.putString("PHONE",userPhotoEt)
@@ -255,42 +219,17 @@ class ProfilePage : Fragment() {
         binding.tvProfileUserName.text = usernameEt
         binding.tvProfilePhone.text = userPhotoEt
 
-
         userRef
-
     }
 
     private fun setLocate(s: String) {
         setting.setLocate(s)
         sharedPreference = this.requireActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE)
-        val editor: SharedPreferences.Editor = sharedPreference.edit()
+        editor = sharedPreference.edit()
         editor.putString("LOCALE_TO_SET", s)
         editor.apply()
     }
-
-
-
-
-
 }
-
-
-
-/*private fun setLocale(setLang: String) {
-    val localeListToSet = LocaleList(Locale(setLang))
-    LocaleList.setDefault(localeListToSet)
-
-    LocaleList.setDefault(localeListToSet)
-    resources.configuration.setLocales(localeListToSet)
-    resources.updateConfiguration(resources.configuration, resources.displayMetrics)
-
-    sharedPreference = this.requireActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE)
-    val editor: SharedPreferences.Editor = sharedPreference.edit()
-    editor.putString("LOCALE_TO_SET", setLang)
-    editor.apply()
-
-    recreate(context as Activity)
-}*/
 
 
 

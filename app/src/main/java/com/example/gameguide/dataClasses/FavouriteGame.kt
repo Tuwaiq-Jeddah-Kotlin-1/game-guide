@@ -1,11 +1,7 @@
 package com.example.gameguide.dataClasses
 
 import android.os.Parcelable
-import com.example.gameguide.data.GDdata.Genre
-import com.example.gameguide.data.GDdata.ParentPlatform
-import com.example.gameguide.data.GDdata.Rating
 import kotlinx.android.parcel.Parcelize
-import kotlinx.android.parcel.RawValue
 
 @Parcelize
 data class FavouriteGame(

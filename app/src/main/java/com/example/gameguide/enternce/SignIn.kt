@@ -25,26 +25,17 @@ import kotlinx.coroutines.withContext
 
 class SignIn : Fragment() {
 
-
-
     private var mIsShowPass = false
-
     private var isRemember = true
     private lateinit var sharedPreference:SharedPreferences
+    private lateinit var editor: SharedPreferences.Editor
     private lateinit var binding: FragmentSignInBinding
 
-
-
-
-
-    companion object {
-        fun newInstance() = SignIn()
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentSignInBinding.inflate(inflater, container, false)
 
         return binding.root
@@ -67,21 +58,18 @@ class SignIn : Fragment() {
         binding.tvSignInLogInNow.setOnClickListener {
             view.findNavController().navigate(SignInDirections.actionSignInToRegistration())
         }
+
         binding.tvSignInRestPassword.setOnClickListener {
             view.findNavController().navigate(SignInDirections.actionSignInToForgetPassword())
         }
+
         if (isRemember){
             findNavController().navigate(R.id.action_signIn_to_homepage)
-
         }
+
         binding.btnSignIn.setOnClickListener {
-
             login(binding.etSignInEmail.text.toString(), binding.etSignInPassword.text.toString())
-
         }
-
-
-
     }
 
     private fun showPassword(isShow: Boolean) {
@@ -99,27 +87,26 @@ class SignIn : Fragment() {
 
     }
 
-
         private fun login(sEmail: String, sPassword: String) {
 
-        val email: String = sEmail.toString().trim { it <= ' ' }
-        val password: String = sPassword.toString().trim { it <= ' ' }
+        val logEmail: String = sEmail.trim { it <= ' ' }
+        val logPassword: String = sPassword.trim { it <= ' ' }
 
-        if (email.isNotEmpty() && password.isNotEmpty()){
-        FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
+        if (logEmail.isNotEmpty() && logPassword.isNotEmpty()){
             //sing in
-            .addOnCompleteListener { task ->
+            FirebaseAuth.getInstance().signInWithEmailAndPassword(logEmail, logPassword).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     //firebase register user
                     val email = binding.etSignInEmail.text.toString()
                     val password = binding.etSignInPassword.text.toString()
                     val checked = binding.cbSignInRememberMe.isChecked
 
-                    val editor: SharedPreferences.Editor = sharedPreference.edit()
+                    editor = sharedPreference.edit()
                     editor.putString("EMAIL", email)
                     editor.putString("PASSWORD", password)
                     editor.putBoolean("CHECKBOX", checked)
                     editor.apply()
+
                     getUserInfo()
 
                     Toast.makeText(context,"information saved!",Toast.LENGTH_LONG).show()
@@ -127,8 +114,7 @@ class SignIn : Fragment() {
                     Log.e("OK", "registration is sucessfully done")
                     findNavController().navigate(R.id.action_signIn_to_homepage)
                 } else {
-                    Toast.makeText(context, task.exception!!.message.toString(), Toast.LENGTH_LONG)
-                        .show()
+                    Toast.makeText(context, task.exception!!.message.toString(), Toast.LENGTH_LONG).show()
                 }
             }.addOnCompleteListener {
 
@@ -141,17 +127,14 @@ class SignIn : Fragment() {
     private fun getUserInfo() = CoroutineScope(Dispatchers.IO).launch {
 
         sharedPreference = this@SignIn.requireActivity().getSharedPreferences("userInfo", Context.MODE_PRIVATE)
-        val editor: SharedPreferences.Editor = sharedPreference.edit()
+        editor = sharedPreference.edit()
 
         val uId = FirebaseAuth.getInstance().currentUser?.uid
         try {
-            //coroutine
             val db = FirebaseFirestore.getInstance()
-            db.collection("Users").document("$uId")
-                .get().addOnCompleteListener {
-
+            db.collection("Users").document("$uId").get().addOnCompleteListener {
                     if (it.result?.exists()!!) {
-                        //+++++++++++++++++++++++++++++++++++++++++
+
                         val name = it.result!!.getString("userName")
                         val userPhone = it.result!!.getString("userPhone")
                         val userEmail = it.result!!.getString("userEmail")
@@ -161,12 +144,10 @@ class SignIn : Fragment() {
                         editor.putString("EMAIL",userEmail)
                         editor.apply()
 
-
                     } else {
                         Log.e("error", "error in displaying")
                     }
                 }
-
         } catch (e: Exception) {
             withContext(Dispatchers.Main) {
                 // Toast.makeText(coroutineContext,0,0, e.message, Toast.LENGTH_LONG).show()

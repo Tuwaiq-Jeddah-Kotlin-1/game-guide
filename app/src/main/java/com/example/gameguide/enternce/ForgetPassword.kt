@@ -23,9 +23,8 @@ class ForgetPassword : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentForgetPasswordBinding.inflate(inflater, container, false)
-
         return binding.root
     }
 
@@ -35,25 +34,21 @@ class ForgetPassword : Fragment() {
         binding.tvResetBackToSignIn.setOnClickListener{
             view.findNavController().navigate(ForgetPasswordDirections.actionForgetPasswordToSignIn())
         }
+
         binding.btnResetPassword.setOnClickListener{
             restPass(binding.etResetPasswordEmail.text.toString())
         }
-
-
     }
     private fun restPass(fEmail: String) {
-
-        val email: String = fEmail.toString().trim { it <= ' ' }
+        val email: String = fEmail.trim { it <= ' ' }
 
         if (email.isEmpty()){
             Toast.makeText(context, "email field is empty", Toast.LENGTH_LONG).show()
 
-    }else{
-            FirebaseAuth.getInstance().sendPasswordResetEmail(email)
-
-                .addOnCompleteListener { task ->
+        }else{
+            FirebaseAuth.getInstance().sendPasswordResetEmail(email).addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        Log.e("OK", "registration is sucessfully done")
+                        Log.e("OK", "registration is successfully done")
                         findNavController().navigate(R.id.action_forgetPassword_to_signIn)
                     } else {
                         Toast.makeText(context, task.exception!!.message.toString(), Toast.LENGTH_LONG).show()

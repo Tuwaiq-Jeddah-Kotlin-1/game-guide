@@ -22,17 +22,14 @@ class FavouritePage : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         binding = FragmentFavouritePageBinding.inflate(inflater, container, false)
-
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
 
         binding.rvFgame.layoutManager = LinearLayoutManager(context)
         binding.rvFgame.setHasFixedSize(true)
@@ -45,7 +42,7 @@ class FavouritePage : Fragment() {
 
 
     private fun getFavGames(){
-        var uid = FirebaseAuth.getInstance().currentUser?.uid
+        val uid = FirebaseAuth.getInstance().currentUser?.uid
         fireStore.collection("Users").document(uid.toString()).collection("favorite").addSnapshotListener(object :EventListener<QuerySnapshot> {
             override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?) {
                 if (error != null){

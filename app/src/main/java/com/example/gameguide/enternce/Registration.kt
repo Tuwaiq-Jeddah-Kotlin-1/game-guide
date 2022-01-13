@@ -33,9 +33,8 @@ class Registration : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentRegistrationBinding.inflate(inflater, container, false)
-
         return binding.root
     }
 
@@ -53,8 +52,6 @@ class Registration : Fragment() {
             showRePassword(mIsShowPass)
         }
         showRePassword(mIsShowPass)
-
-
 
         binding.tvRegistrationBackSign.setOnClickListener{
             view.findNavController().navigate(RegistrationDirections.actionRegistrationToSignIn())
@@ -101,43 +98,40 @@ class Registration : Fragment() {
         eEmail: String,
         ePhone: String,
         ePassword: String,
-        eRePassword: String,
-    ) {
+        eRePassword: String)
+    {
         val userName: String = eUsername.trim { it <= ' ' }
         val email: String = eEmail.trim { it <= ' ' }
         val phone: String = ePhone.trim { it <= ' ' }
         val password: String = ePassword.trim { it <= ' ' }
         val rePassword: String = eRePassword.trim { it <= ' ' }
 
-
-
-        if (fieldValidation(userName,email,phone,password,rePassword)) {
-            Toast.makeText(context, "some of the fields are empty", Toast.LENGTH_LONG).show()
-
-        } else if (checkPasswordNotMatch(password, rePassword)) {
-            Toast.makeText(context, "the password and repassword do not match", Toast.LENGTH_LONG).show()
-
-        } else if (invalidPhone(phone)) {
-            Toast.makeText(context, "phone number less than 10 digits", Toast.LENGTH_LONG).show()
-
-        } else {
-            Toast.makeText(context, " email $email, $password", Toast.LENGTH_LONG).show()
-
-            FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
+        when {
+            fieldValidation(userName,email,phone,password,rePassword) -> {
+                Toast.makeText(context, "some of the fields are empty", Toast.LENGTH_LONG).show()
+            }
+            checkPasswordNotMatch(password, rePassword) -> {
+                Toast.makeText(context, "the password and repassword do not match", Toast.LENGTH_LONG).show()
+            }
+            invalidPhone(phone) -> {
+                Toast.makeText(context, "phone number less than 10 digits", Toast.LENGTH_LONG).show()
+            }
+            else -> {
                 //register
-                .addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        userData(userName, email, phone)
-                        //firebase register user
-                        Toast.makeText(context, "registration successful", Toast.LENGTH_LONG).show()
-                        Log.e("OK", "registration successful")
-                    } else {
-                        Toast.makeText(context, task.exception!!.message.toString(), Toast.LENGTH_LONG).show()
+                FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password).addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            userData(userName, email, phone)
+                            Toast.makeText(context, "registration successful", Toast.LENGTH_LONG).show()
+                            Log.e("OK", "registration successful")
+                        } else {
+                            Toast.makeText(context, task.exception!!.message.toString(), Toast.LENGTH_LONG).show()
+                        }
+                    }.addOnCompleteListener {
                     }
-                }.addOnCompleteListener {
-                }
+            }
         }
     }
+
     private fun userData(username:String, email:String, phone:String){
         val userId = FirebaseAuth.getInstance().currentUser?.uid
         val userData = User()
@@ -151,12 +145,11 @@ class Registration : Fragment() {
     private fun userFireStore(user: User) = CoroutineScope(Dispatchers.IO).launch {
         try {
             val userRef = Firebase.firestore.collection("Users")
-            //-----------UID------------------------
             val userId = FirebaseAuth.getInstance().currentUser?.uid
+
             userRef.document("$userId").set(user).addOnCompleteListener { it
                 when {
                     it.isSuccessful -> {
-                        /*upLoadImage("${userId}")*/
                         Toast.makeText(context , "is Successful fire store", Toast.LENGTH_LONG).show()
                         Log.e("OK", "registration successful fire store")
                         findNavController().navigate(R.id.action_registration_to_homepage)
@@ -172,7 +165,7 @@ class Registration : Fragment() {
         } catch (e: Exception) {
             withContext(Dispatchers.Main) {
                 // Toast.makeText(coroutineContext,0,0, e.message, Toast.LENGTH_LONG).show()
-                Log.e("FUNCTION createUserFirestore", "${e.message}")
+                Log.e("userFireStore", "${e.message}")
             }
         }
     }

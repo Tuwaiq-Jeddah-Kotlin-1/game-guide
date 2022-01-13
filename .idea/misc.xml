@@ -48,6 +48,7 @@
         <entry key="app/src/main/res/drawable/lower_75.xml" value="0.13072916666666667" />
         <entry key="app/src/main/res/drawable/pic_drawable.xml" value="0.12685185185185185" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.31142601752491994" />
+        <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.14010416666666667" />
         <entry key="app/src/main/res/layout/bosh_change_profile.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_favourite_page.xml" value="0.30884050961056636" />
         <entry key="app/src/main/res/layout/fragment_forget_password.xml" value="0.25" />
