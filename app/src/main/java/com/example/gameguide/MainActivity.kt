@@ -1,6 +1,7 @@
 package com.example.gameguide
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -16,18 +17,28 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var sharedPreference: SharedPreferences
+
     private lateinit var navController: NavController
     private lateinit var setting: SettingUtil
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-        loadData()
         setting = SettingUtil(this)
-        val sharedPreference = this.getSharedPreferences("Settings", Context.MODE_PRIVATE)
+        sharedPreference = this.getSharedPreferences("Settings", Context.MODE_PRIVATE)
         val localeToSet = sharedPreference.getString("LOCALE_TO_SET", "en")!!
         setting.setLocate(localeToSet)
-        setContentView(R.layout.activity_main)
+        sharedPreference = getSharedPreferences("Settings", Context.MODE_PRIVATE)
+
+        val darkMode = sharedPreference.getBoolean("DARK_MODE", false)
+        if (darkMode) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            loadData()
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            loadData()
+        }
 
 
         NotificationRepo().myNotification(this)
@@ -84,14 +95,7 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun loadData() {
-        var sharedPreference = getSharedPreferences("Settings", Context.MODE_PRIVATE)
-
-        val darkMode = sharedPreference.getBoolean("DARK_MODE", false)
-        if (darkMode) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-        } else {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-        }
+        setContentView(R.layout.activity_main)
     }
    /* private fun setLocate(s: String) {
 

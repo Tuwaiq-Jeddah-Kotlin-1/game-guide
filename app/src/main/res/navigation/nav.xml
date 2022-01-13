@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav"
-    app:startDestination="@id/homepage">
+    app:startDestination="@id/signIn">
 
     <fragment
         android:id="@+id/signIn"
@@ -94,9 +94,4 @@
             android:id="@+id/action_searchPage_to_gameDetails"
             app:destination="@id/gameDetails" />
     </fragment>
-    <fragment
-        android:id="@+id/splashScreen"
-        android:name="com.example.gameguide.SplashScreen"
-        android:label="fragment_splash_screen"
-        tools:layout="@layout/fragment_splash_screen" />
 </navigation>
