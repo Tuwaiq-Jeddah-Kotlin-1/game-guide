@@ -74,21 +74,22 @@ class SearchPage : Fragment() {
             setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String?): Boolean {
                     Log.d(TAG, "Query text submit: $query")
-                    val sharedPref = sharedPreferences.getString(SHARED_KEY, "This was your first search ")
+                    /*val sharedPref = sharedPreferences.getString(SHARED_KEY, "This was your first search ")
 
                     sharedPreferences
                         .edit()
                         .putString(SHARED_KEY, "Your last search was: $query")
-                        .apply()
+                        .apply()*/
 
 
-                    Toast.makeText(context, sharedPref, Toast.LENGTH_LONG).show()
+                    //Toast.makeText(context, sharedPref, Toast.LENGTH_LONG).show()
                     loadgames(query?.trim())
                     return true
                 }
 
                 override fun onQueryTextChange(newText: String?): Boolean {
-                    Log.d(TAG, "QueryTextChange: $newText")
+                    //new
+                    Log.d(TAG, "QueryTextChange:  $$newText")
                     return false
                 }
 

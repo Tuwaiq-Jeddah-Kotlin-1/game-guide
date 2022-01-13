@@ -43,7 +43,7 @@
     <string name="gd_rating_count">rating count</string>
     <string name="gd_metacritic_rating">metacritic rating</string>
     <string name="gd_release_date">release date</string>
-    <string name="gd_play_time">play time</string>
+    <string name="gd_play_time">average play time: </string>
     <string name="gd_game_image">game image</string>
     <string name="gd_game_favourite">game favourite</string>
     <string name="gd_game_share">game share</string>

@@ -40,5 +40,7 @@ data class Results (
 	 val clip : String,
 	 val tags : List<Tags>,
 	 val esrb_rating : Esrb_rating,
-	 val short_screenshots : List<Short_screenshots>
+	 val short_screenshots : List<Short_screenshots>,
+	 var visibility: Boolean = false
+
 )

@@ -14,7 +14,7 @@ data class GameDetailsdata(
     val description_raw: String,
     val developers: List<Developer>,
     val dominant_color: String,
-    val esrb_rating: EsrbRating,
+    val esrb_rating: EsrbRating?,
     val game_series_count: Int,
     val genres: List<Genre>,
     val id: Int,
@@ -54,5 +54,6 @@ data class GameDetailsdata(
     val updated: String,
     val user_game: Any,
     val website: String,
-    val youtube_count: Int
+    val youtube_count: Int,
+    var visibility:Boolean = false
 )

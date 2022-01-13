@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav"
-    app:startDestination="@id/searchPage">
+    app:startDestination="@id/homepage">
 
     <fragment
         android:id="@+id/signIn"
@@ -92,13 +92,5 @@
         <action
             android:id="@+id/action_searchPage_to_gameDetails"
             app:destination="@id/gameDetails" />
-    </fragment>
-    <fragment
-        android:id="@+id/searchGameDetails"
-        android:name="com.example.gameguide.searchpage.SearchGameDetails"
-        android:label="searchGameDetails" >
-        <argument
-            android:name="currentSearchGame"
-            app:argType="com.example.gameguide.GameData" />
     </fragment>
 </navigation>
