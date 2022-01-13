@@ -84,6 +84,7 @@
             android:name="currentGame"
             app:argType="com.example.gameguide.GameData" />
     </fragment>
+
     <fragment
         android:id="@+id/searchPage"
         android:name="com.example.gameguide.searchpage.SearchPage"
