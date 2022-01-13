@@ -84,8 +84,11 @@
     <string name="pro_tv_log_out">تسجيل خروج</string>
     <string name="pro_tv_setting">الاعدادات</string>
     <string name="GD_Hour">ساعة</string>
-    <string name="GD_Hours">ساعات</string>
+    <string name="GD_Hours">ساعة</string>
     <string name="menu_search">البحث</string>
     <string name="GD_Hours2">ساعتين</string>
-    <string name="GD_Hours39">ساعات</string>
+    <string name="GD_Hours310">ساعات</string>
+    <string name="pro_chooseLang">اختر اللغة</string>
+    <string name="pro_warningLog">هل انت متاكد من تسجل الخروج؟!</string>
+
 </resources>

@@ -82,9 +82,12 @@
     <string name="rvItem_released_date">Released date</string>
     <string name="pro_tv_log_out">log Out</string>
     <string name="pro_tv_setting">setting</string>
-    <string name="GD_Hour">hour</string>
+    <string name="GD_Hour">1 hour</string>
     <string name="menu_search">search</string>
-    <string name="GD_Hours">hours</string>
     <string name="GD_Hours2">hours</string>
-    <string name="GD_Hours39">hours</string>
+    <string name="GD_Hours310">hours</string>
+    <string name="GD_Hours">hours</string>
+    <string name="pro_chooseLang">Choose language:</string>
+    <string name="pro_warningLog">are you sure you want to log out?!</string>
+
 </resources>

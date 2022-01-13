@@ -34,6 +34,7 @@ import kotlinx.coroutines.withContext
 
 class ProfilePage : Fragment() {
     private lateinit var sharedPreference:SharedPreferences
+    private lateinit var editor: SharedPreferences.Editor
 
     private lateinit var binding: FragmentProfileBinding
     private lateinit var setting: SettingUtil
@@ -77,7 +78,7 @@ class ProfilePage : Fragment() {
         binding.btnProfLanguage.setOnClickListener {
             val languages = arrayOf("English", "عربى")
             val langSelectorBuilder = AlertDialog.Builder(requireContext())
-            langSelectorBuilder.setTitle("Choose language:")
+            langSelectorBuilder.setTitle(getString(R.string.pro_chooseLang))
             langSelectorBuilder.setSingleChoiceItems(languages, -1) { dialog, selection ->
                 when(selection) {
                     0 -> {
@@ -87,8 +88,11 @@ class ProfilePage : Fragment() {
                         setLocate("ar")
                     }
                 }
+
+            }.setPositiveButton("ok") { dialog, selection ->
                 recreate(context as Activity)
                 dialog.dismiss()
+            }.setNeutralButton("cancel") { dialog, selection ->
             }
             langSelectorBuilder.create().show()
         }
@@ -122,16 +126,26 @@ class ProfilePage : Fragment() {
 
 
         binding.tvProLogOut.setOnClickListener {
-            sharedPreference = this.requireActivity().getSharedPreferences("prefence", Context.MODE_PRIVATE)
+            val langSelectorBuilder = AlertDialog.Builder(requireContext())
+            langSelectorBuilder.setTitle(getString(R.string.pro_warningLog))
+            .setPositiveButton("yes") { dialog, _ ->
+                sharedPreference = this.requireActivity().getSharedPreferences("prefence", Context.MODE_PRIVATE)
 
-            val email = sharedPreference.getString("EMAIL","")
-            binding.tvProfileEmail.text = email
-            /*val password = sharedPrefence.getString("EMAIL","")*/
+                val email = sharedPreference.getString("EMAIL","")
+                binding.tvProfileEmail.text = email
+                /*val password = sharedPrefence.getString("EMAIL","")*/
 
-            val editor: SharedPreferences.Editor = sharedPreference.edit()
-            editor.clear()
-            editor.apply()
-            findNavController().navigate(R.id.action_profileFragment_to_signIn)
+
+                editor = sharedPreference.edit()
+                editor.clear()
+                editor.apply()
+                findNavController().navigate(R.id.action_profileFragment_to_signIn)
+                dialog.dismiss()
+            }.setNeutralButton("no") { dialog, _ ->
+
+            }
+            langSelectorBuilder.create().show()
+
 
 
         }

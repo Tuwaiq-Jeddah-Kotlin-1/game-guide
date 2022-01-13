@@ -13,471 +13,485 @@
         android:fillViewport="true"
         tools:context=".gameDetails.GameDetailsPage">
 
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_details"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/searchCard"
             android:layout_width="match_parent"
-            android:layout_height="fill_parent"
-            android:layoutDirection="ltr">
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:cardBackgroundColor="@color/blue"
+            app:cardCornerRadius="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/tvDisWebsite"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/GD_tv_website"
-                app:layout_constraintStart_toStartOf="@+id/tvTags"
-                app:layout_constraintTop_toBottomOf="@+id/tvTags" />
 
-            <TextView
-                android:id="@+id/tvWebsite"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="24dp"
-                android:text="website"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/tvDisWebsite"
-                app:layout_constraintTop_toBottomOf="@+id/tvDisWebsite" />
-
-            <ImageView
-                android:id="@+id/ivGdPoster"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_details"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:alpha=".25"
-                android:contentDescription="@string/gd_game_image"
-                android:scaleType="fitXY"
-                android:src="@drawable/ic_launcher_foreground"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:tint="#F0151111"
-                app:tintMode="add" />
+                android:layout_height="fill_parent"
+                android:layoutDirection="ltr">
+
+                <TextView
+                    android:id="@+id/tvDisWebsite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/GD_tv_website"
+                    app:layout_constraintStart_toStartOf="@+id/tvTags"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTags" />
+
+                <TextView
+                    android:id="@+id/tvWebsite"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="24dp"
+                    android:text="website"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tvDisWebsite"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDisWebsite" />
+
+                <ImageView
+                    android:id="@+id/ivGdPoster"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:alpha=".25"
+                    android:contentDescription="@string/gd_game_image"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_launcher_foreground"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="#F0151111"
+                    app:tintMode="add" />
 
 
-            <ImageView
-                android:id="@+id/ivPc"
-                android:layout_width="26dp"
-                android:layout_height="32dp"
-                android:layout_marginEnd="12dp"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="@+id/tvGdDate"
-                app:layout_constraintEnd_toStartOf="@+id/tvGdDate"
-                app:layout_constraintTop_toTopOf="@+id/tvGdDate"
-                tools:srcCompat="@tools:sample/avatars" />
+                <ImageView
+                    android:id="@+id/ivPc"
+                    android:layout_width="26dp"
+                    android:layout_height="32dp"
+                    android:layout_marginEnd="12dp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvGdDate"
+                    app:layout_constraintEnd_toStartOf="@+id/tvGdDate"
+                    app:layout_constraintTop_toTopOf="@+id/tvGdDate"
+                    tools:srcCompat="@tools:sample/avatars" />
 
-            <ImageView
-                android:id="@+id/ivPS"
-                android:layout_width="26dp"
-                android:layout_height="32dp"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="@+id/ivPc"
-                app:layout_constraintEnd_toStartOf="@+id/ivPc"
-                app:layout_constraintTop_toTopOf="@+id/ivPc"
-                tools:srcCompat="@tools:sample/avatars" />
+                <ImageView
+                    android:id="@+id/ivPS"
+                    android:layout_width="26dp"
+                    android:layout_height="32dp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@+id/ivPc"
+                    app:layout_constraintEnd_toStartOf="@+id/ivPc"
+                    app:layout_constraintTop_toTopOf="@+id/ivPc"
+                    tools:srcCompat="@tools:sample/avatars" />
 
-            <ImageView
-                android:id="@+id/ivXb"
-                android:layout_width="26dp"
-                android:layout_height="32dp"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="@+id/ivPS"
-                app:layout_constraintEnd_toStartOf="@+id/ivPS"
-                app:layout_constraintTop_toTopOf="@+id/ivPS"
-                tools:srcCompat="@tools:sample/avatars" />
+                <ImageView
+                    android:id="@+id/ivXb"
+                    android:layout_width="26dp"
+                    android:layout_height="32dp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@+id/ivPS"
+                    app:layout_constraintEnd_toStartOf="@+id/ivPS"
+                    app:layout_constraintTop_toTopOf="@+id/ivPS"
+                    tools:srcCompat="@tools:sample/avatars" />
 
-            <ImageView
-                android:id="@+id/ivNs"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="@+id/ivXb"
-                app:layout_constraintEnd_toStartOf="@+id/ivXb"
-                app:layout_constraintTop_toTopOf="@+id/ivXb"
-                tools:srcCompat="@tools:sample/avatars" />
+                <ImageView
+                    android:id="@+id/ivNs"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@+id/ivXb"
+                    app:layout_constraintEnd_toStartOf="@+id/ivXb"
+                    app:layout_constraintTop_toTopOf="@+id/ivXb"
+                    tools:srcCompat="@tools:sample/avatars" />
 
-            <ImageView
-                android:id="@+id/ivIos"
-                android:layout_width="26dp"
-                android:layout_height="32dp"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="@+id/ivNs"
-                app:layout_constraintEnd_toStartOf="@+id/ivNs"
-                app:layout_constraintTop_toTopOf="@+id/ivNs"
-                tools:srcCompat="@tools:sample/avatars" />
+                <ImageView
+                    android:id="@+id/ivIos"
+                    android:layout_width="26dp"
+                    android:layout_height="32dp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@+id/ivNs"
+                    app:layout_constraintEnd_toStartOf="@+id/ivNs"
+                    app:layout_constraintTop_toTopOf="@+id/ivNs"
+                    tools:srcCompat="@tools:sample/avatars" />
 
-            <ImageView
-                android:id="@+id/ivAndroid"
-                android:layout_width="26dp"
-                android:layout_height="32dp"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="@+id/ivIos"
-                app:layout_constraintEnd_toStartOf="@+id/ivIos"
-                app:layout_constraintTop_toTopOf="@+id/ivIos"
-                tools:srcCompat="@tools:sample/avatars" />
+                <ImageView
+                    android:id="@+id/ivAndroid"
+                    android:layout_width="26dp"
+                    android:layout_height="32dp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@+id/ivIos"
+                    app:layout_constraintEnd_toStartOf="@+id/ivIos"
+                    app:layout_constraintTop_toTopOf="@+id/ivIos"
+                    tools:srcCompat="@tools:sample/avatars" />
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/fabGdFav"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="12dp"
-                android:clickable="true"
-                android:contentDescription="@string/gd_game_favourite"
-                android:focusable="true"
-                app:backgroundTint="#5C5C5E"
-                app:layout_constraintEnd_toStartOf="@+id/fabGdShare"
-                app:layout_constraintTop_toBottomOf="@+id/ivGdPoster"
-                app:srcCompat="@drawable/ic_baseline_favorite_border_24"
-                app:tint="#AC0909" />
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fabGdFav"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="12dp"
+                    android:clickable="true"
+                    android:contentDescription="@string/gd_game_favourite"
+                    android:focusable="true"
+                    app:backgroundTint="#5C5C5E"
+                    app:layout_constraintEnd_toStartOf="@+id/fabGdShare"
+                    app:layout_constraintTop_toBottomOf="@+id/ivGdPoster"
+                    app:srcCompat="@drawable/ic_baseline_favorite_border_24"
+                    app:tint="#AC0909" />
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/fabGdShare"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="1dp"
-                android:layout_marginEnd="16dp"
-                android:clickable="true"
-                android:contentDescription="@string/gd_game_share"
-                android:focusable="true"
-                app:backgroundTint="#5C5C5E"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/fabGdFav"
-                app:srcCompat="@drawable/ic_baseline_share_24"
-                app:tint="#D7F4F4F4" />
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fabGdShare"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginEnd="16dp"
+                    android:clickable="true"
+                    android:contentDescription="@string/gd_game_share"
+                    android:focusable="true"
+                    app:backgroundTint="#5C5C5E"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/fabGdFav"
+                    app:srcCompat="@drawable/ic_baseline_share_24"
+                    app:tint="#D7F4F4F4" />
 
-            <TextView
-                android:id="@+id/tvGdTitle"
-                android:layout_width="400dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:gravity="center"
-                android:text="@string/gd_title"
-                android:textColor="#FAF5F5"
-                android:textSize="30sp"
-                app:layout_constraintEnd_toEndOf="@+id/ivGdPoster"
-                app:layout_constraintStart_toStartOf="@+id/ivGdPoster"
-                app:layout_constraintTop_toBottomOf="@+id/tvGdDate" />
+                <TextView
+                    android:id="@+id/tvGdTitle"
+                    android:layout_width="400dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:gravity="center"
+                    android:text="@string/gd_title"
+                    android:textColor="#FAF5F5"
+                    android:textSize="30sp"
+                    app:layout_constraintEnd_toEndOf="@+id/ivGdPoster"
+                    app:layout_constraintStart_toStartOf="@+id/ivGdPoster"
+                    app:layout_constraintTop_toBottomOf="@+id/tvGdDate" />
 
-            <TextView
-                android:id="@+id/tvGdRate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/gd_rating"
-                app:layout_constraintStart_toEndOf="@+id/ivGdRate"
-                app:layout_constraintTop_toTopOf="@+id/ivGdRate" />
+                <TextView
+                    android:id="@+id/tvGdRate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/gd_rating"
+                    app:layout_constraintStart_toEndOf="@+id/ivGdRate"
+                    app:layout_constraintTop_toTopOf="@+id/ivGdRate" />
 
-            <TextView
-                android:id="@+id/tvGdRcount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="1dp"
-                android:text="@string/gd_count"
-                app:layout_constraintStart_toEndOf="@+id/ivGdRcount"
-                app:layout_constraintTop_toBottomOf="@+id/tvRcountGd" />
+                <TextView
+                    android:id="@+id/tvGdRcount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:text="@string/gd_count"
+                    app:layout_constraintStart_toEndOf="@+id/ivGdRcount"
+                    app:layout_constraintTop_toBottomOf="@+id/tvRcountGd" />
 
-            <TextView
-                android:id="@+id/tvGdMeta"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:gravity="center"
-                android:text="@string/gd_meta_rate"
-                app:layout_constraintStart_toEndOf="@+id/ivGdMeta"
-                app:layout_constraintTop_toBottomOf="@+id/tvMetaGd" />
+                <TextView
+                    android:id="@+id/tvGdMeta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="@string/gd_meta_rate"
+                    app:layout_constraintStart_toEndOf="@+id/ivGdMeta"
+                    app:layout_constraintTop_toBottomOf="@+id/tvMetaGd" />
 
-            <TextView
-                android:id="@+id/tvGdDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:layout_marginEnd="130dp"
-                android:background="#5C5C5E"
-                android:text="@string/gd_date"
-                android:textColor="#FAF5F5"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/ivGdPoster" />
+                <TextView
+                    android:id="@+id/tvGdDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginEnd="130dp"
+                    android:background="#5C5C5E"
+                    android:text="@string/gd_date"
+                    android:textColor="#FAF5F5"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/ivGdPoster" />
 
-            <TextView
-                android:id="@+id/tvGdPt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/gd_time"
-                android:textColor="#FAF5F5"
-                app:layout_constraintStart_toEndOf="@+id/tvPtGd"
-                app:layout_constraintTop_toTopOf="@+id/tvPtGd" />
+                <TextView
+                    android:id="@+id/tvGdPt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/gd_time"
+                    android:textColor="#FAF5F5"
+                    app:layout_constraintStart_toEndOf="@+id/tvPtGd"
+                    app:layout_constraintTop_toTopOf="@+id/tvPtGd" />
 
-            <ImageView
-                android:id="@+id/ivGdRate"
-                android:layout_width="24dp"
-                android:layout_height="19dp"
-                android:layout_marginTop="8dp"
-                android:contentDescription="@string/gd_star_image"
-                app:layout_constraintStart_toStartOf="@+id/tvRateGd"
-                app:layout_constraintTop_toBottomOf="@+id/tvRateGd"
-                app:srcCompat="@drawable/ic_star" />
+                <ImageView
+                    android:id="@+id/ivGdRate"
+                    android:layout_width="24dp"
+                    android:layout_height="19dp"
+                    android:layout_marginTop="8dp"
+                    android:contentDescription="@string/gd_star_image"
+                    app:layout_constraintStart_toStartOf="@+id/tvRateGd"
+                    app:layout_constraintTop_toBottomOf="@+id/tvRateGd"
+                    app:srcCompat="@drawable/ic_star" />
 
-            <View
-                android:id="@+id/divider"
-                android:layout_width="409dp"
-                android:layout_height="1dp"
-                android:layout_marginTop="40dp"
-                android:background="?android:attr/listDivider"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvRcountGd" />
+                <View
+                    android:id="@+id/divider"
+                    android:layout_width="409dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="40dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvRcountGd" />
 
-            <TextView
-                android:id="@+id/tvRateGd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:text="@string/gd_Rating"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ivGdPoster" />
+                <TextView
+                    android:id="@+id/tvRateGd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/gd_Rating"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivGdPoster" />
 
-            <TextView
-                android:id="@+id/tvRcountGd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="16dp"
-                android:text="@string/gd_rating_count"
-                app:layout_constraintStart_toStartOf="@+id/tvRatings"
-                app:layout_constraintTop_toBottomOf="@+id/tvRatings" />
+                <TextView
+                    android:id="@+id/tvRcountGd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/gd_rating_count"
+                    app:layout_constraintStart_toStartOf="@+id/tvRatings"
+                    app:layout_constraintTop_toBottomOf="@+id/tvRatings" />
 
-            <ImageView
-                android:id="@+id/ivGdRcount"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="1dp"
-                android:contentDescription="@string/gd_count_image"
-                app:layout_constraintStart_toStartOf="@+id/tvRcountGd"
-                app:layout_constraintTop_toBottomOf="@+id/tvRcountGd"
-                app:srcCompat="@drawable/rating" />
+                <ImageView
+                    android:id="@+id/ivGdRcount"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="1dp"
+                    android:contentDescription="@string/gd_count_image"
+                    app:layout_constraintStart_toStartOf="@+id/tvRcountGd"
+                    app:layout_constraintTop_toBottomOf="@+id/tvRcountGd"
+                    app:srcCompat="@drawable/rating" />
 
-            <TextView
-                android:id="@+id/tvMetaGd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="32dp"
-                android:text="@string/gd_metacritic_rating"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvAbout" />
+                <TextView
+                    android:id="@+id/tvMetaGd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="32dp"
+                    android:text="@string/gd_metacritic_rating"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvAbout" />
 
-            <ImageView
-                android:id="@+id/ivGdMeta"
-                android:layout_width="24dp"
-                android:layout_height="19dp"
-                android:contentDescription="@string/gd_metacritic_image"
-                app:layout_constraintStart_toStartOf="@+id/tvMetaGd"
-                app:layout_constraintTop_toTopOf="@+id/tvGdMeta"
-                app:srcCompat="@drawable/ic_metacritic" />
+                <ImageView
+                    android:id="@+id/ivGdMeta"
+                    android:layout_width="24dp"
+                    android:layout_height="19dp"
+                    android:contentDescription="@string/gd_metacritic_image"
+                    app:layout_constraintStart_toStartOf="@+id/tvMetaGd"
+                    app:layout_constraintTop_toTopOf="@+id/tvGdMeta"
+                    app:srcCompat="@drawable/ic_metacritic" />
 
-            <ImageView
-                android:id="@+id/ivGdPt"
-                android:layout_width="24dp"
-                android:layout_height="19dp"
-                android:contentDescription="@string/gd_time_image"
-                app:layout_constraintStart_toEndOf="@+id/tvGdPt"
-                app:layout_constraintTop_toTopOf="@+id/tvGdPt"
-                app:srcCompat="@drawable/ic_baseline_access_time" />
+                <ImageView
+                    android:id="@+id/ivGdPt"
+                    android:layout_width="24dp"
+                    android:layout_height="19dp"
+                    android:contentDescription="@string/gd_time_image"
+                    app:layout_constraintStart_toEndOf="@+id/tvGdPt"
+                    app:layout_constraintTop_toTopOf="@+id/tvGdPt"
+                    app:srcCompat="@drawable/ic_baseline_access_time" />
 
-            <TextView
-                android:id="@+id/tvPtGd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="50dp"
-                android:text="@string/gd_play_time"
-                android:textColor="#FAF5F5"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvGdTitle" />
+                <TextView
+                    android:id="@+id/tvPtGd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="50dp"
+                    android:text="@string/gd_play_time"
+                    android:textColor="#FAF5F5"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvGdTitle" />
 
-            <TextView
-                android:id="@+id/tvRatings"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Ratings"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvRateTop" />
+                <TextView
+                    android:id="@+id/tvRatings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Ratings"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvRateTop" />
 
-            <ImageView
-                android:id="@+id/ivRating"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_marginStart="1dp"
-                app:layout_constraintBottom_toBottomOf="@+id/tvRatings"
-                app:layout_constraintStart_toEndOf="@+id/tvRatings"
-                app:layout_constraintTop_toTopOf="@+id/tvRatings"
-                tools:srcCompat="@tools:sample/avatars" />
+                <ImageView
+                    android:id="@+id/ivRating"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="1dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvRatings"
+                    app:layout_constraintStart_toEndOf="@+id/tvRatings"
+                    app:layout_constraintTop_toTopOf="@+id/tvRatings"
+                    tools:srcCompat="@tools:sample/avatars" />
 
-            <TextView
-                android:id="@+id/tvRateTop"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="rate top"
-                app:layout_constraintStart_toEndOf="@+id/tvGdRate"
-                app:layout_constraintTop_toTopOf="@+id/tvGdRate" />
+                <TextView
+                    android:id="@+id/tvRateTop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="rate top"
+                    app:layout_constraintStart_toEndOf="@+id/tvGdRate"
+                    app:layout_constraintTop_toTopOf="@+id/tvGdRate" />
 
-            <TextView
-                android:id="@+id/tvDisAbout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/GD_tv_about"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/divider" />
+                <TextView
+                    android:id="@+id/tvDisAbout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/GD_tv_about"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/divider" />
 
-            <TextView
-                android:id="@+id/tvAbout"
-                android:layout_width="375dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="18dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="18dp"
-                android:text="about"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvDisAbout" />
+                <TextView
+                    android:id="@+id/tvAbout"
+                    android:layout_width="375dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="18dp"
+                    android:text="about"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDisAbout" />
 
-            <TextView
-                android:id="@+id/tvDisPlatforms"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="50dp"
-                android:layout_marginTop="16dp"
-                android:text="@string/GD_tv_platforms"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvAbout" />
+                <TextView
+                    android:id="@+id/tvDisPlatforms"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/GD_tv_platforms"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvAbout" />
 
-            <TextView
-                android:id="@+id/tvPlatform"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="platform"
-                app:layout_constraintStart_toStartOf="@+id/tvDisPlatforms"
-                app:layout_constraintTop_toBottomOf="@+id/tvDisPlatforms" />
+                <TextView
+                    android:id="@+id/tvPlatform"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="platform"
+                    app:layout_constraintStart_toStartOf="@+id/tvDisPlatforms"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDisPlatforms" />
 
-            <TextView
-                android:id="@+id/tvDisGeners"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/GD_tv_geners"
-                app:layout_constraintStart_toStartOf="@+id/tvPlatform"
-                app:layout_constraintTop_toBottomOf="@+id/tvPlatform" />
+                <TextView
+                    android:id="@+id/tvDisGeners"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/GD_tv_geners"
+                    app:layout_constraintStart_toStartOf="@+id/tvPlatform"
+                    app:layout_constraintTop_toBottomOf="@+id/tvPlatform" />
 
-            <TextView
-                android:id="@+id/tvGeners"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Geners"
-                app:layout_constraintStart_toStartOf="@+id/tvDisGeners"
-                app:layout_constraintTop_toBottomOf="@+id/tvDisGeners" />
+                <TextView
+                    android:id="@+id/tvGeners"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Geners"
+                    app:layout_constraintStart_toStartOf="@+id/tvDisGeners"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDisGeners" />
 
-            <TextView
-                android:id="@+id/tvDisDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/GD_tv_date"
-                app:layout_constraintStart_toStartOf="@+id/ivGdMeta"
-                app:layout_constraintTop_toBottomOf="@+id/tvPlatform" />
+                <TextView
+                    android:id="@+id/tvDisDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/GD_tv_date"
+                    app:layout_constraintStart_toStartOf="@+id/ivGdMeta"
+                    app:layout_constraintTop_toBottomOf="@+id/tvPlatform" />
 
-            <TextView
-                android:id="@+id/tvDate"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Date"
-                app:layout_constraintStart_toStartOf="@+id/tvDisDate"
-                app:layout_constraintTop_toBottomOf="@+id/tvDisDate" />
+                <TextView
+                    android:id="@+id/tvDate"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Date"
+                    app:layout_constraintStart_toStartOf="@+id/tvDisDate"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDisDate" />
 
-            <TextView
-                android:id="@+id/tvDisDevelopers"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/GD_tv_developers"
-                app:layout_constraintStart_toStartOf="@+id/tvGeners"
-                app:layout_constraintTop_toBottomOf="@+id/tvGeners" />
+                <TextView
+                    android:id="@+id/tvDisDevelopers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/GD_tv_developers"
+                    app:layout_constraintStart_toStartOf="@+id/tvGeners"
+                    app:layout_constraintTop_toBottomOf="@+id/tvGeners" />
 
-            <TextView
-                android:id="@+id/tvDisPublishers"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/GD_tv_publishers"
-                app:layout_constraintStart_toStartOf="@+id/tvDate"
-                app:layout_constraintTop_toBottomOf="@+id/tvGeners" />
+                <TextView
+                    android:id="@+id/tvDisPublishers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/GD_tv_publishers"
+                    app:layout_constraintStart_toStartOf="@+id/tvDate"
+                    app:layout_constraintTop_toBottomOf="@+id/tvGeners" />
 
-            <TextView
-                android:id="@+id/tvPublishers"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Publishers"
-                app:layout_constraintStart_toStartOf="@+id/tvDisPublishers"
-                app:layout_constraintTop_toBottomOf="@+id/tvDisPublishers" />
+                <TextView
+                    android:id="@+id/tvPublishers"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Publishers"
+                    app:layout_constraintStart_toStartOf="@+id/tvDisPublishers"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDisPublishers" />
 
-            <TextView
-                android:id="@+id/tvDevelopers"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Developers"
-                app:layout_constraintStart_toStartOf="@+id/tvDisDevelopers"
-                app:layout_constraintTop_toBottomOf="@+id/tvDisDevelopers" />
+                <TextView
+                    android:id="@+id/tvDevelopers"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Developers"
+                    app:layout_constraintStart_toStartOf="@+id/tvDisDevelopers"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDisDevelopers" />
 
-            <TextView
-                android:id="@+id/tvDisTags"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/GD_tv_tags"
-                app:layout_constraintStart_toStartOf="@+id/tvAgeRating"
-                app:layout_constraintTop_toBottomOf="@+id/tvAgeRating" />
+                <TextView
+                    android:id="@+id/tvDisTags"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/GD_tv_tags"
+                    app:layout_constraintStart_toStartOf="@+id/tvAgeRating"
+                    app:layout_constraintTop_toBottomOf="@+id/tvAgeRating" />
 
-            <TextView
-                android:id="@+id/tvTags"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="tags"
-                app:layout_constraintStart_toStartOf="@+id/tvDisTags"
-                app:layout_constraintTop_toBottomOf="@+id/tvDisTags" />
+                <TextView
+                    android:id="@+id/tvTags"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="tags"
+                    app:layout_constraintStart_toStartOf="@+id/tvDisTags"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDisTags" />
 
-            <TextView
-                android:id="@+id/tvDisAge"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/GD_tv_age_rating"
-                app:layout_constraintStart_toStartOf="@+id/tvDevelopers"
-                app:layout_constraintTop_toBottomOf="@+id/tvDevelopers" />
+                <TextView
+                    android:id="@+id/tvDisAge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/GD_tv_age_rating"
+                    app:layout_constraintStart_toStartOf="@+id/tvDevelopers"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDevelopers" />
 
-            <TextView
-                android:id="@+id/tvAgeRating"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="age rating"
-                app:layout_constraintStart_toStartOf="@+id/tvDisAge"
-                app:layout_constraintTop_toBottomOf="@+id/tvDisAge" />
+                <TextView
+                    android:id="@+id/tvAgeRating"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="age rating"
+                    app:layout_constraintStart_toStartOf="@+id/tvDisAge"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDisAge" />
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
     </ScrollView>
 
 

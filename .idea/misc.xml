@@ -25,11 +25,14 @@
         <entry key="..\:/Users/Hp/AndroidStudioProjects/gameGuide/app/src/main/res/layout/game_rv_item.xml" value="0.1" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/gameGuide/app/src/main/res/menu/bottom_navigation.xml" value="0.25416666666666665" />
         <entry key="app/src/main/res/drawable-v24/card_game.xml" value="0.25885416666666666" />
+        <entry key="app/src/main/res/drawable/bosh.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/button_background.xml" value="0.17777777777777778" />
         <entry key="app/src/main/res/drawable/edit_shape.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/et_shape.xml" value="0.25885416666666666" />
         <entry key="app/src/main/res/drawable/fav.xml" value="0.25885416666666666" />
+        <entry key="app/src/main/res/drawable/frm_corners.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_baseline_access_time.xml" value="0.3260416666666667" />
+        <entry key="app/src/main/res/drawable/ic_baseline_exit_to_app_24.xml" value="0.25885416666666666" />
         <entry key="app/src/main/res/drawable/ic_baseline_expand_less_24.xml" value="0.25885416666666666" />
         <entry key="app/src/main/res/drawable/ic_baseline_expand_more_24.xml" value="0.25885416666666666" />
         <entry key="app/src/main/res/drawable/ic_baseline_favorite.xml" value="0.25885416666666666" />
@@ -45,12 +48,12 @@
         <entry key="app/src/main/res/drawable/lower_75.xml" value="0.13072916666666667" />
         <entry key="app/src/main/res/drawable/pic_drawable.xml" value="0.12685185185185185" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.31142601752491994" />
-        <entry key="app/src/main/res/layout/bosh_change_profile.xml" value="0.38288288288288286" />
-        <entry key="app/src/main/res/layout/fragment_favourite_page.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_forget_password.xml" value="0.2544229149115417" />
-        <entry key="app/src/main/res/layout/fragment_game_details.xml" value="0.43920829406220546" />
-        <entry key="app/src/main/res/layout/fragment_homepage.xml" value="0.5662821531872899" />
-        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/bosh_change_profile.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_favourite_page.xml" value="0.30884050961056636" />
+        <entry key="app/src/main/res/layout/fragment_forget_password.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_game_details.xml" value="0.189010989010989" />
+        <entry key="app/src/main/res/layout/fragment_homepage.xml" value="0.29411764705882354" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.22692307692307692" />
         <entry key="app/src/main/res/layout/fragment_registration.xml" value="0.24414545970065726" />
         <entry key="app/src/main/res/layout/fragment_search_game_details.xml" value="0.29583333333333334" />
         <entry key="app/src/main/res/layout/fragment_search_page.xml" value="0.29583333333333334" />

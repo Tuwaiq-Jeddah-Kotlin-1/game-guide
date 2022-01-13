@@ -90,17 +90,17 @@ private val isFavorite: Boolean = true
 
                 tvGdDate.text = GD.released
                 when {
-                    GD.playtime >= 1 -> {
+                    GD.playtime == 1 -> {
 
-                        (GD.playtime.toString() + "" + getString(R.string.GD_Hour)+"").also { tvGdPt.text = it }
+                        (getString(R.string.GD_Hour)+"").also { tvGdPt.text = it }
                     }
                     GD.playtime == 2 -> {
                         (GD.playtime.toString() + "" + getString(R.string.GD_Hours2)+"").also { tvGdPt.text = it }
                     }
-                    GD.playtime in 3..9 -> {
-                        (GD.playtime.toString() + "" + getString(R.string.GD_Hours39)+"").also { tvGdPt.text = it }
+                    GD.playtime in 3..10 -> {
+                        (GD.playtime.toString() + "" + getString(R.string.GD_Hours310)+"").also { tvGdPt.text = it }
                     }
-                    GD.playtime >= 10 -> {
+                    GD.playtime >= 11 -> {
                         (GD.playtime.toString() + "" + getString(R.string.GD_Hours)+"").also { tvGdPt.text = it }
                     }
                     else -> tvGdPt.text = "N/A"
