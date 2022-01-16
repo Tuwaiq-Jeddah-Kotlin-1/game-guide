@@ -89,5 +89,12 @@
     <string name="GD_Hours">hours</string>
     <string name="pro_chooseLang">Choose language:</string>
     <string name="pro_warningLog">are you sure you want to log out?!</string>
+    <string name="ab_sign">"sign in"</string>
+    <string name="ab_home">Home</string>
+    <string name="ab_registration">registration</string>
+    <string name="ab_profile">profile</string>
+    <string name="ab_favourite">favourite</string>
+    <string name="ab_game_details">game details</string>
+    <string name="ab_search">search</string>
 
 </resources>

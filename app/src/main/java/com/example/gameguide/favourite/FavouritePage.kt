@@ -6,7 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.gameguide.R
 import com.example.gameguide.dataClasses.FavouriteGame
 import com.example.gameguide.databinding.FragmentFavouritePageBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -16,8 +18,8 @@ class FavouritePage : Fragment() {
 
     private var fireStore: FirebaseFirestore = FirebaseFirestore.getInstance()
     private lateinit var binding: FragmentFavouritePageBinding
-    private lateinit var articleList :ArrayList<FavouriteGame>
-    private lateinit var articleAdapter :FavouriteAdapter
+    private lateinit var FavouriteList :ArrayList<FavouriteGame>
+    private lateinit var FavouriteAdapter :FavouriteAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,11 +33,13 @@ class FavouritePage : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.ab_favourite)
+
         binding.rvFgame.layoutManager = LinearLayoutManager(context)
         binding.rvFgame.setHasFixedSize(true)
-        articleList = arrayListOf<FavouriteGame>()
-        articleAdapter = FavouriteAdapter(articleList)
-        binding.rvFgame.adapter = articleAdapter
+        FavouriteList = arrayListOf<FavouriteGame>()
+        FavouriteAdapter = FavouriteAdapter(FavouriteList)
+        binding.rvFgame.adapter = FavouriteAdapter
 
         getFavGames()
     }
@@ -51,7 +55,7 @@ class FavouritePage : Fragment() {
                 }
                 for (dc : DocumentChange in value?.documentChanges!!){
                     if (dc.type == DocumentChange.Type.ADDED){
-                        articleList.add(dc.document.toObject(FavouriteGame::class.java))
+                        FavouriteList.add(dc.document.toObject(FavouriteGame::class.java))
                     }
                 }
                 binding.rvFgame.adapter?.notifyDataSetChanged()

@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.*
 import android.widget.SearchView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
@@ -20,6 +21,8 @@ class SearchPage : Fragment() {
         ViewModelProvider(this)[SearchVM::class.java]
     }
 
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -30,6 +33,8 @@ class SearchPage : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.ab_search)
+
         setHasOptionsMenu(true)
         binding.rvSgame.layoutManager = StaggeredGridLayoutManager(
             1,

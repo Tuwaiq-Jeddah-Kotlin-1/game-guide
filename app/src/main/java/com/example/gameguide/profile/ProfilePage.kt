@@ -13,6 +13,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO
 import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES
@@ -51,6 +52,9 @@ class ProfilePage : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.ab_profile)
+
         loadData()
         getUserInfo()
         setting = SettingUtil(requireContext())

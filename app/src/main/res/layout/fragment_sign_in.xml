@@ -9,28 +9,30 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:background="#3F51B5"
         tools:context=".enternce.SignIn">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="#3F51B5">
 
             <FrameLayout
                 android:id="@+id/signInFrameLayout"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:background="@drawable/frm_corners"
-                android:backgroundTint="#18535A"
+                android:backgroundTint="#2BC7DA"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
                     android:id="@+id/ivSignInLogo"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
                     android:layout_gravity="center"
                     android:src="@drawable/ic_logo_" />
             </FrameLayout>
@@ -43,7 +45,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="8dp"
-                app:cardBackgroundColor="@color/blue"
+                app:cardBackgroundColor="#2BC7DA"
                 app:cardCornerRadius="15dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -72,6 +74,7 @@
                         android:layout_width="250dp"
                         android:layout_height="40dp"
                         android:layout_marginTop="32dp"
+                        android:autofillHints="emailAddress"
                         android:background="@drawable/edit_shape"
                         android:drawableStart="@drawable/ic_baseline_email"
                         android:ems="10"
@@ -81,14 +84,14 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.497"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tvSignIn"
-                        android:autofillHints="emailAddress" />
+                        app:layout_constraintTop_toBottomOf="@+id/tvSignIn" />
 
                     <EditText
                         android:id="@+id/etSignInPassword"
                         android:layout_width="250dp"
                         android:layout_height="40dp"
                         android:layout_marginTop="16dp"
+                        android:autofillHints="password"
                         android:background="@drawable/edit_shape"
                         android:drawableStart="@drawable/ic_baseline_lock"
                         android:ems="10"
@@ -98,8 +101,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.497"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/etSignInEmail"
-                        android:autofillHints="password" />
+                        app:layout_constraintTop_toBottomOf="@+id/etSignInEmail" />
 
                     <CheckBox
                         android:id="@+id/cbSignInRememberMe"
@@ -172,8 +174,11 @@
                         android:id="@+id/ivSignInVisible"
                         android:layout_width="27dp"
                         android:layout_height="45dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
                         android:src="@drawable/ic_baseline_visibility"
                         app:layout_constraintBottom_toBottomOf="@+id/etSignInPassword"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/etSignInPassword"
                         app:layout_constraintTop_toTopOf="@+id/etSignInPassword" />
                 </androidx.constraintlayout.widget.ConstraintLayout>

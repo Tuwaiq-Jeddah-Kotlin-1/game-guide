@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.gameguide.R
@@ -40,6 +41,9 @@ class Registration : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.ab_registration)
+
 
         binding.ivRegisterVisiPass.setOnClickListener {
             mIsShowPass = !mIsShowPass

@@ -52,13 +52,13 @@
         <entry key="app/src/main/res/layout/bosh_change_profile.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_favourite_page.xml" value="0.30884050961056636" />
         <entry key="app/src/main/res/layout/fragment_forget_password.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_game_details.xml" value="0.189010989010989" />
+        <entry key="app/src/main/res/layout/fragment_game_details.xml" value="0.37742430688012907" />
         <entry key="app/src/main/res/layout/fragment_homepage.xml" value="0.29411764705882354" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.22692307692307692" />
         <entry key="app/src/main/res/layout/fragment_registration.xml" value="0.24414545970065726" />
         <entry key="app/src/main/res/layout/fragment_search_game_details.xml" value="0.29583333333333334" />
         <entry key="app/src/main/res/layout/fragment_search_page.xml" value="0.29583333333333334" />
-        <entry key="app/src/main/res/layout/fragment_sign_in.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_sign_in.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_splash_screen.xml" value="0.1" />
         <entry key="app/src/main/res/layout/game_rv_item.xml" value="0.25" />
         <entry key="app/src/main/res/menu/bottom_navigation.xml" value="0.3098958333333333" />

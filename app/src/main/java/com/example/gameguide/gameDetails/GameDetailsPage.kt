@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import coil.load
@@ -42,6 +43,8 @@ private val args: GameDetailsPageArgs by navArgs()
     @SuppressLint("UseCompatLoadingForDrawables")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.ab_game_details)
+
         val id = args.currentGame.id
         loadGameDetails(id)
     }
