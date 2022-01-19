@@ -23,22 +23,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-        setting = SettingUtil(this)
-        sharedPreference = this.getSharedPreferences("Settings", Context.MODE_PRIVATE)
-        val localeToSet = sharedPreference.getString("LOCALE_TO_SET", "en")!!
-        setting.setLocate(localeToSet)
-        sharedPreference = getSharedPreferences("Settings", Context.MODE_PRIVATE)
-
-        val darkMode = sharedPreference.getBoolean("DARK_MODE", false)
-        if (darkMode) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-            loadData()
-        } else {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-            loadData()
-        }
-
-        NotificationRepo().myNotification(this)
+        setContentView(R.layout.activity_main)
 
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.fragmentContainerView) as NavHostFragment
@@ -65,9 +50,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun loadData() {
-        setContentView(R.layout.activity_main)
-    }
+/*    private fun loadData() {
+    }*/
 }
 
 
