@@ -64,7 +64,7 @@
     <string name="prof_change_language">تغيير اللغة</string>
     <string name="proff_enable_dark_mode">تمكين الوضع الليلي</string>
     <string name="proff_disable_dark_mode">تعطيل الوضع الليلي</string>
-    <string name="prof_appearance">المظهر</string>
+    <string name="prof_Dark_mode">الوضع الليلي</string>
     <string name="app_name" translatable="false">Game Guide</string>
     <string name="GD_tv_website">الموقع</string>
     <string name="GD_tv_about">نبذة</string>
@@ -97,5 +97,7 @@
     <string name="ab_favourite">المفضلة</string>
     <string name="ab_game_details">"تفاصيل اللعبة "</string>
     <string name="ab_search">البحث</string>
+    <string name="prof_dialog_confirm">تأكيد</string>
+    <string name="prof_dialog_cancel">الغاء</string>
 
 </resources>

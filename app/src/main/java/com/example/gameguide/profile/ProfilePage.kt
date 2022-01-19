@@ -28,6 +28,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.rpc.context.AttributeContext
+import kotlinx.android.synthetic.main.fragment_profile.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -41,7 +42,9 @@ class ProfilePage : Fragment() {
     private lateinit var binding: FragmentProfileBinding
     private lateinit var setting: SettingUtil
 
+
     private var state = 0
+    //private var savedText = ""
 
 
 
@@ -58,8 +61,7 @@ class ProfilePage : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.ab_profile)
-
-        loadData()
+        //loadData()
         getUserInfo()
         setting = SettingUtil(requireContext())
         sharedPreference = this.requireActivity().getSharedPreferences("userInfo", Context.MODE_PRIVATE)
@@ -96,17 +98,38 @@ class ProfilePage : Fragment() {
                         setLocate("ar")
                     }
                 }
-            }.setPositiveButton("ok") { dialog, selection ->
+            }.setPositiveButton(getString(R.string.prof_dialog_confirm)) { dialog, selection ->
                 recreate(context as Activity)
                 dialog.dismiss()
-            }.setNeutralButton("cancel") { dialog, selection ->
+            }.setNeutralButton(getString(R.string.prof_dialog_cancel)) { dialog, selection ->
 
             }
             langSelectorBuilder.create().show()
         }
 
 
-        binding.btnProfMode.setOnClickListener {
+
+        //binding.swchProfMode.text = savedText
+        sharedPreference = this.requireActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE)
+        //val darkMode = sharedPreference.getBoolean("DARK_MODE",false)
+
+        binding.swchProfMode.isChecked = sharedPreference.getBoolean("DARK_MODE",false)
+        //savedText = sharedPreference.getString("DARK_MODE_NAME",null)!!
+
+
+        binding.swchProfMode.setOnCheckedChangeListener { _, isChecked ->
+            editor= sharedPreference.edit()
+            if (!isChecked){
+                AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO)
+            }else{
+                AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES)
+            }
+            editor.putBoolean("DARK_MODE",isChecked)
+            editor.apply()
+        }
+
+
+        /*binding.btnProfMode.setOnClickListener {
 
             sharedPreference = this.requireActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE)
             editor= sharedPreference.edit()
@@ -124,12 +147,12 @@ class ProfilePage : Fragment() {
                 editor.apply()
                 binding.btnProfMode.text = getString(R.string.proff_disable_dark_mode)
             }
-        }
+        }*/
 
         binding.tvProLogOut.setOnClickListener {
             val langSelectorBuilder = AlertDialog.Builder(requireContext(), R.style.AppCompatAlertDialogStyle)
             langSelectorBuilder.setTitle(getString(R.string.pro_warningLog))
-            .setPositiveButton("yes") { dialog, _ ->
+            .setPositiveButton(getString(R.string.prof_dialog_confirm)) { dialog, _ ->
                 sharedPreference = this.requireActivity().getSharedPreferences("prefence", Context.MODE_PRIVATE)
 
                 val emailOut = sharedPreference.getString("EMAIL","")
@@ -140,7 +163,7 @@ class ProfilePage : Fragment() {
                 editor.apply()
                 findNavController().navigate(R.id.action_profileFragment_to_signIn)
                 dialog.dismiss()
-            }.setNeutralButton("no") { dialog, _ ->
+            }.setNeutralButton(getString(R.string.prof_dialog_cancel)) { dialog, _ ->
 
             }
             langSelectorBuilder.create().show()
@@ -150,18 +173,20 @@ class ProfilePage : Fragment() {
 
 
 
-    private fun loadData() {
+    /*private fun loadData() {
         sharedPreference = this.requireActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE)
+        editor= sharedPreference.edit()
 
-        val darkMode = sharedPreference.getBoolean("DARK_MODE",false)
+        val darkMode = sharedPreference.getBoolean("DARK_MODE",swchProfMode.isChecked)
         if(darkMode){
-            AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES)
-            binding.btnProfMode.text= getString(R.string.proff_enable_dark_mode)
+            binding.swchProfMode.text= getString(R.string.proff_disable_dark_mode)
+            editor.putString("DARK_MODE_NAME",getString(R.string.proff_disable_dark_mode))
+
         }else{
-            AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO)
-            binding.btnProfMode.text= getString(R.string.proff_disable_dark_mode)
+            binding.swchProfMode.text= getString(R.string.proff_enable_dark_mode)
+            editor.putString("DARK_MODE_NAME",getString(R.string.proff_disable_dark_mode))
         }
-    }
+    }*/
 
     private fun getUserInfo() = CoroutineScope(Dispatchers.IO).launch {
         sharedPreference = this@ProfilePage.requireActivity().getSharedPreferences("userInfo", Context.MODE_PRIVATE)

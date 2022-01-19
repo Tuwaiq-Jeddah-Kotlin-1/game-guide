@@ -16,6 +16,7 @@ import androidx.navigation.fragment.navArgs
 import coil.load
 import com.example.gameguide.R
 import com.example.gameguide.data.GDdata.GameDetailsdata
+import com.example.gameguide.data.GDdata.namee
 import com.example.gameguide.dataClasses.FavouriteGame
 import com.example.gameguide.databinding.FragmentGameDetailsBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -240,7 +241,8 @@ private val args: GameDetailsPageArgs by navArgs()
                     tvAgeRating.visibility = View.GONE
                 }
 
-                var f5=""
+                tvTags.text= listItem(GD.tags)
+                /*var f5=""
                 if (GD.tags.indices.count() >=1) {
                     f5 = GD.tags[0].name
                 }
@@ -250,8 +252,8 @@ private val args: GameDetailsPageArgs by navArgs()
                         s5 += ", ${GD.tags[i + 1].name}"
                     }
                 }
-                (f5 + s5).also { tvTags.text = it }
-
+                (f5 + s5).also {  = li }
+*/
                 tvWebsite.text = GD.website
             }
 
@@ -276,6 +278,20 @@ private val args: GameDetailsPageArgs by navArgs()
             }
             favourite(false,GD)
         })
+    }
+
+    private fun <T:namee>listItem(coll: List<T>):String{
+        var f5=""
+        if (coll.indices.count() >=1) {
+            f5 = coll[0].name
+        }
+        var s5 =""
+        for (i in coll.indices){
+            if(i <= coll.lastIndex-1) {
+                s5 += ", ${coll[i + 1].name}"
+            }
+        }
+        return f5+s5
     }
 
     private fun favourite(onClick: Boolean, id: GameDetailsdata){

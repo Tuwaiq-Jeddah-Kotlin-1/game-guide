@@ -5,6 +5,6 @@ data class Tag(
     val id: Int,
     val image_background: String,
     val language: String,
-    val name: String,
+    override val name: String,
     val slug: String
-)
+) : namee

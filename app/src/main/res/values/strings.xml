@@ -62,9 +62,9 @@
     <string name="nav_game_guide">sign in</string>
     <string name="reset_et_email">email</string>
     <string name="prof_change_language">change language</string>
-    <string name="proff_enable_dark_mode">Enable dark mode</string>
-    <string name="proff_disable_dark_mode">Disable dark mode</string>
-    <string name="prof_appearance">Appearance</string>
+    <string name="proff_enable_dark_mode">Disabled</string>
+    <string name="proff_disable_dark_mode">Enabled</string>
+    <string name="prof_Dark_mode">Dark mode</string>
     <string name="GD_tv_website">website</string>
     <string name="GD_tv_about">about</string>
     <string name="GD_tv_platforms">platforms</string>
@@ -96,5 +96,7 @@
     <string name="ab_favourite">favourite</string>
     <string name="ab_game_details">game details</string>
     <string name="ab_search">search</string>
+    <string name="prof_dialog_confirm">ok</string>
+    <string name="prof_dialog_cancel">cancel</string>
 
 </resources>
