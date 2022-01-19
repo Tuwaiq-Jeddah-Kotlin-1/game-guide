@@ -40,48 +40,84 @@ class Homepage : Fragment() {
         binding.tvHomePnum.text = i.toString()
 
         loadMovieImages("$i")
-
         val minPage = 1
         val maxPage = 33076
+        visibilty(i,minPage,maxPage)
 
         binding.ivHomeNext.setOnClickListener {
-            if (i<maxPage-10) {
+            if (i<maxPage) {
                 i++
                 loadMovieImages("$i")
                 binding.tvHomePnum.text = i.toString()
+                visibilty(i,minPage,maxPage)
             }else{
                 binding.tvHomePnum.text = i.toString()
+                visibilty(i,minPage,maxPage)
+                binding.ivHomeNext.visibility = View.GONE
             }
         }
 
         binding.ivHome10Next.setOnClickListener {
-            if (i<=maxPage) {
+            if (i<maxPage-10) {
                 i += 10
                 loadMovieImages("$i")
                 binding.tvHomePnum.text = i.toString()
+                visibilty(i,minPage,maxPage)
             }else{
                 binding.tvHomePnum.text = i.toString()
+                visibilty(i,minPage,maxPage)
+                visibilty(i,minPage,maxPage)
+                binding.ivHome10Next.visibility = View.GONE
+
             }
         }
 
         binding.ivHomePrev.setOnClickListener {
            if(i<=minPage){
-               i = 1
+               visibilty(i,minPage,maxPage)
+               binding.ivHomePrev.visibility = View.GONE
            }else{
                i--
                loadMovieImages("$i")
                binding.tvHomePnum.text = i.toString()
+               visibilty(i,minPage,maxPage)
            }
         }
 
         binding.ivHome10Prev.setOnClickListener {
            if(i<minPage+10){
-               i = 1
+               binding.tvHomePnum.text = i.toString()
+               visibilty(i,minPage,maxPage)
+               binding.ivHome10Prev.visibility = View.GONE
            }else{
                i -= 10
                loadMovieImages("$i")
                binding.tvHomePnum.text = i.toString()
+               visibilty(i, minPage, maxPage)
            }
+        }
+    }
+
+    private fun visibilty(i: Int, minPage: Int, maxPage: Int) {
+        if(i>=minPage+10){
+            binding.ivHome10Prev.visibility = View.VISIBLE
+        }else{
+            binding.ivHome10Prev.visibility = View.GONE
+        }
+        if(i>minPage){
+            binding.ivHomePrev.visibility = View.VISIBLE
+        }else{
+            binding.ivHomePrev.visibility = View.GONE
+        }
+        if(i>maxPage-10){
+            binding.ivHome10Next.visibility = View.GONE
+        }else{
+            binding.ivHome10Next.visibility = View.VISIBLE
+        }
+        if(i>maxPage){
+            binding.ivHomeNext.visibility = View.GONE
+        }else{
+            binding.ivHomeNext.visibility = View.VISIBLE
         }
     }
 
