@@ -28,16 +28,17 @@
             android:layout_width="250dp"
             android:layout_height="40dp"
             android:layout_marginTop="60dp"
+            android:autofillHints="username"
             android:background="@drawable/edit_shape"
             android:ems="10"
             android:gravity="center"
             android:inputType="textPersonName"
             android:text="@string/changeProf_et_username"
+            android:textColor="@color/background"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/ivChangeProfNotch"
-            android:autofillHints="username"/>
+            app:layout_constraintTop_toTopOf="@+id/ivChangeProfNotch" />
 
         <EditText
             android:id="@+id/etChangeProfPhone"
@@ -48,6 +49,7 @@
             android:ems="10"
             android:gravity="center"
             android:inputType="phone"
+            android:textColor="#393E46"
             android:text="@string/changeProf_et_phone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -61,9 +63,8 @@
             android:layout_marginTop="32dp"
             android:layout_marginBottom="32dp"
             android:background="@drawable/button_background"
+            app:backgroundTint="@color/button_body"
             android:text="@string/changeProf_btn_edit"
-            app:backgroundTint="@color/teal_700"
-
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"

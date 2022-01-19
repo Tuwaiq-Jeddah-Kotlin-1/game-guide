@@ -3,4 +3,55 @@
     <color name="Red">#F44336</color>
     <color name="blue">#073860</color>
 
+
+    <color name="sky">#c66b3d</color>
+    <color name="navy">#BBBBBB</color>
+    <color name="cyan">#c4a35a</color>
+    <color name="background">#393E46</color>
+    <color name="boarder">#4C4949</color>
+
+    <color name="sympol">#222831</color><!--
+    <color name="sympol">#353232</color>-->
+
+    <color name="home_page_sympol">#BBBBBB</color>
+    <color name="home_text">#BBBBBB</color>
+
+    <!--e5e5dc-->
+<!--    <color name="sky">#c66b3d</color>
+    <color name="navy">#78abc7</color>
+    <color name="cyan">#c4a35a</color>
+    <color name="background">#40403C</color>
+
+    <color name="sympol">#40403C</color>-->
+
+    <!--<color name="text_colorr">#3BE71</color>-->
+
+
+<!--    <color name="sky">#D5DEDF</color>
+    <color name="navy">#673AB7</color>
+    <color name="cyan">#5ECABE</color>
+    <color name="background">#00020E</color>
+
+    <color name="sympol">#f47a60</color>-->
+
+<!--    <color name="sky">#D5DEDF</color>
+    <color name="navy">#46879A</color>
+    <color name="cyan">#5ECABE</color>
+    <color name="background">#00020E</color>
+
+    <color name="sympol">#f47a60</color>-->
+<!--
+    <color name="card_body">#B27010</color>030819-->
+
+    <color name="button_body">#27496D</color>
+    <color name="fab_body">#BBBBBB</color>
+    <color name="share">#253A47</color>
+    <color name="gd_text">#BBBBBB</color>
+
+
+
+
+    <color name="card_body">#222831</color>
+    <color name="card_boarder">#B27010</color>
+
 </resources>

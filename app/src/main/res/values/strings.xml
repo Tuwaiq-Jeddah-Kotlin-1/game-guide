@@ -3,7 +3,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="reset_tv_ResetPassword_in">Reset Password</string>
     <string name="singIn_tv_SignIn">Sign in</string>
-    <string name="signIn_tv_log_in_now"><u>reg now!</u></string>
+    <string name="signIn_tv_log_in_now"><u>register now!</u></string>
     <string name="signIn_et_password">password</string>
     <string name="signIn_cb_remember_me">remember me</string>
     <string name="signIn_tv_forget_password">forget password?</string>
@@ -41,7 +41,7 @@
     <string name="gd_rating_count">rating count</string>
     <string name="gd_metacritic_rating">metacritic rating</string>
     <string name="gd_release_date">release date</string>
-    <string name="gd_play_time">average play time: </string>
+    <string name="gd_play_time">average play time:  </string>
     <string name="gd_game_image">game image</string>
     <string name="gd_game_favourite">game favourite</string>
     <string name="gd_game_share">game share</string>

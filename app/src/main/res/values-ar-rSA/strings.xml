@@ -42,7 +42,7 @@
     <string name="gd_rating_count">عدد التقاييم</string>
     <string name="gd_metacritic_rating">تقييم metacritic</string>
     <string name="gd_release_date">تاريخ الإصدار</string>
-    <string name="gd_play_time">وقت اللعب</string>
+    <string name="gd_play_time">  :وقت اللعب</string>
     <string name="gd_game_image">صورة اللعبة</string>
     <string name="gd_game_favourite">المفضلة</string>
     <string name="gd_game_share">المشاركة</string>

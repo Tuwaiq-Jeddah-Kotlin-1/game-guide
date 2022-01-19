@@ -27,6 +27,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.rpc.context.AttributeContext
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -39,6 +40,7 @@ class ProfilePage : Fragment() {
 
     private lateinit var binding: FragmentProfileBinding
     private lateinit var setting: SettingUtil
+
 
 
 
@@ -116,7 +118,7 @@ class ProfilePage : Fragment() {
         }
 
         binding.tvProLogOut.setOnClickListener {
-            val langSelectorBuilder = AlertDialog.Builder(requireContext())
+            val langSelectorBuilder = AlertDialog.Builder(requireContext(), R.style.AppCompatAlertDialogStyle)
             langSelectorBuilder.setTitle(getString(R.string.pro_warningLog))
             .setPositiveButton("yes") { dialog, _ ->
                 sharedPreference = this.requireActivity().getSharedPreferences("prefence", Context.MODE_PRIVATE)
@@ -133,6 +135,7 @@ class ProfilePage : Fragment() {
 
             }
             langSelectorBuilder.create().show()
+
         }
     }
 

@@ -88,13 +88,16 @@ private val args: GameDetailsPageArgs by navArgs()
                         (getString(R.string.GD_Hour)+"").also { tvGdPt.text = it }
                     }
                     GD.playtime == 2 -> {
-                        (GD.playtime.toString() + "" + getString(R.string.GD_Hours2)+"").also { tvGdPt.text = it }
+                        //(GD.playtime.toString() + "" + getString(R.string.GD_Hours2)+"").also { tvGdPt.text = it }
+                        "${GD.playtime.toString()} ${getString(R.string.GD_Hours2)}".also { tvGdPt.text = it }
                     }
                     GD.playtime in 3..10 -> {
-                        (GD.playtime.toString() + "" + getString(R.string.GD_Hours310)+"").also { tvGdPt.text = it }
+                        //(GD.playtime.toString() + "" + getString(R.string.GD_Hours310)+"").also { tvGdPt.text = it }
+                        "${GD.playtime.toString()} ${getString(R.string.GD_Hours310)}".also { tvGdPt.text = it }
                     }
                     GD.playtime >= 11 -> {
-                        (GD.playtime.toString() + "" + getString(R.string.GD_Hours)+"").also { tvGdPt.text = it }
+                        //(GD.playtime.toString() + "" + getString(R.string.GD_Hours)+"").also { tvGdPt.text = it }
+                        "${GD.playtime.toString()} ${getString(R.string.GD_Hours)}".also { tvGdPt.text = it }
                     }
                     else -> tvGdPt.text = "N/A"
                 }
@@ -103,7 +106,7 @@ private val args: GameDetailsPageArgs by navArgs()
 
                 tvGdRate.text = GD.rating.toString()
 
-                tvRateTop.text = "/${GD.rating_top}"
+                "/${GD.rating_top}".also { tvRateTop.text = it }
 
                 var n = ""
                 var max = 0
@@ -133,20 +136,25 @@ private val args: GameDetailsPageArgs by navArgs()
                         "exceptional" -> {
                             tvRatings.text = getString(R.string.GD_exceptional)
                             ivRating.setImageResource(R.drawable.target)
+                            tvNumOfRate.text = max.toString()
                         }
                         "recommended" -> {
                             tvRatings.text = getString(R.string.GD_recommended)
                             ivRating.setImageResource(R.drawable.like)
+                            tvNumOfRate.text = max.toString()
                         }
                         "meh" -> {
                             tvRatings.text = getString(R.string.GD_meh)
                             ivRating.setImageResource(R.drawable.meh)
+                            tvNumOfRate.text = max.toString()
                         }
                         "skip" -> {
                             tvRatings.text = getString(R.string.GD_skip)
                             ivRating.setImageResource(R.drawable.forbidden)
+                            tvNumOfRate.text = max.toString()
                         }else ->{
                         ivRating.visibility = View.GONE
+                        tvNumOfRate.visibility = View.GONE
                         }
                     }
                 }
@@ -166,7 +174,7 @@ private val args: GameDetailsPageArgs by navArgs()
                     }
                 }
 
-                tvPlatform.text = f+s
+                (f+s).also { tvPlatform.text = it }
 
                 when {
                     GD.metacritic>=75 -> {
@@ -195,7 +203,7 @@ private val args: GameDetailsPageArgs by navArgs()
                     }
                 }
 
-                tvGeners.text = f2+s2
+                (f2+s2).also { tvGeners.text = it }
 
                 tvDate.text = GD.released
 
@@ -210,7 +218,7 @@ private val args: GameDetailsPageArgs by navArgs()
                     }
                 }
 
-                tvDevelopers.text = f3+s3
+                (f3+s3).also { tvDevelopers.text = it }
 
                 var f4=""
                 if (GD.publishers.indices.count() >=1) {
@@ -223,7 +231,7 @@ private val args: GameDetailsPageArgs by navArgs()
                     }
                 }
 
-                tvPublishers.text = f4+s4
+                (f4+s4).also { tvPublishers.text = it }
 
                 if(GD.esrb_rating?.name?.isNotEmpty() == true){
                     tvAgeRating.text = GD.esrb_rating.name
@@ -242,7 +250,7 @@ private val args: GameDetailsPageArgs by navArgs()
                         s5 += ", ${GD.tags[i + 1].name}"
                     }
                 }
-                tvTags.text = f5+s5
+                (f5 + s5).also { tvTags.text = it }
 
                 tvWebsite.text = GD.website
             }

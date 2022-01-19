@@ -16,21 +16,23 @@
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/card_game"
-        android:padding="3dp"
-        android:layoutDirection="ltr">
+        android:padding="3dp">
 
         <TextView
             android:id="@+id/tvTitle"
-            android:layout_width="350dp"
+            android:layout_width="340dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="6dp"
+            android:layoutDirection="ltr"
             android:text="title"
-            android:textColor="@color/white"
+            android:textColor="@color/home_page_sympol"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView13"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView13"
-            app:layout_constraintTop_toTopOf="@+id/imageView13" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView14" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cvImage"
@@ -48,23 +50,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="1dp"
+                android:contentDescription="poster"
                 android:scaleType="fitXY"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_launcher_foreground"
-                android:contentDescription="poster" />
+                app:srcCompat="@drawable/ic_launcher_foreground" />
 
         </androidx.cardview.widget.CardView>
 
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="19dp"
-            android:layout_height="19dp"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
             android:layout_marginStart="19dp"
             android:layout_marginTop="16dp"
-            android:visibility="gone"
+            android:layoutDirection="ltr"
+            android:visibility="visible"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cvImage"
             tools:srcCompat="@tools:sample/avatars" />
@@ -74,10 +77,12 @@
             android:layout_width="19dp"
             android:layout_height="19dp"
             android:layout_marginStart="1dp"
+            android:layout_marginTop="16dp"
+            android:layoutDirection="ltr"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@+id/imageView"
             app:layout_constraintStart_toEndOf="@+id/imageView"
-            app:layout_constraintTop_toTopOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/cvImage"
             tools:srcCompat="@tools:sample/avatars" />
 
         <ImageView
@@ -85,10 +90,12 @@
             android:layout_width="19dp"
             android:layout_height="19dp"
             android:layout_marginStart="1dp"
+            android:layout_marginTop="16dp"
+            android:layoutDirection="ltr"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@+id/imageView2"
             app:layout_constraintStart_toEndOf="@+id/imageView2"
-            app:layout_constraintTop_toTopOf="@+id/imageView2"
+            app:layout_constraintTop_toBottomOf="@+id/cvImage"
             tools:srcCompat="@tools:sample/avatars" />
 
         <ImageView
@@ -96,10 +103,12 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginStart="1dp"
+            android:layout_marginTop="15dp"
+            android:layoutDirection="ltr"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@+id/imageView3"
             app:layout_constraintStart_toEndOf="@+id/imageView3"
-            app:layout_constraintTop_toTopOf="@+id/imageView3"
+            app:layout_constraintTop_toBottomOf="@+id/cvImage"
             tools:srcCompat="@tools:sample/avatars" />
 
         <ImageView
@@ -107,10 +116,11 @@
             android:layout_width="19dp"
             android:layout_height="19dp"
             android:layout_marginStart="1dp"
+            android:layout_marginTop="16dp"
+            android:layoutDirection="ltr"
             android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView4"
             app:layout_constraintStart_toEndOf="@+id/imageView4"
-            app:layout_constraintTop_toTopOf="@+id/imageView4"
+            app:layout_constraintTop_toBottomOf="@+id/cvImage"
             tools:srcCompat="@tools:sample/avatars" />
 
         <ImageView
@@ -118,10 +128,11 @@
             android:layout_width="19dp"
             android:layout_height="19dp"
             android:layout_marginStart="1dp"
+            android:layout_marginTop="16dp"
+            android:layoutDirection="ltr"
             android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView5"
             app:layout_constraintStart_toEndOf="@+id/imageView5"
-            app:layout_constraintTop_toTopOf="@+id/imageView5"
+            app:layout_constraintTop_toBottomOf="@+id/cvImage"
             tools:srcCompat="@tools:sample/avatars" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -138,15 +149,12 @@
                 android:id="@+id/tvGenereItem"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:layout_marginStart="29dp"
                 android:layout_marginTop="32dp"
-                android:layout_marginEnd="5dp"
+                android:layout_marginEnd="16dp"
                 android:text="genera"
-                android:textAlignment="textEnd"
-                android:textColor="@color/white"
+                android:textAlignment="viewEnd"
+                android:textColor="@color/home_page_sympol"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/tvItemGenere"
                 app:layout_constraintTop_toTopOf="parent">
 
             </TextView>
@@ -158,7 +166,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="32dp"
                 android:text="@string/rvItem_tv_geners"
-                android:textColor="@color/white"
+                android:textColor="@color/home_page_sympol"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
@@ -178,15 +186,14 @@
 
             <TextView
                 android:id="@+id/tvReleased"
-                android:layout_width="80dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
                 android:text="Released"
                 android:textAlignment="textEnd"
-                android:textColor="@color/white"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:textColor="@color/home_page_sympol"
+                app:layout_constraintEnd_toEndOf="@+id/tvGenereItem"
                 app:layout_constraintTop_toBottomOf="@+id/divider3">
 
             </TextView>
@@ -198,7 +205,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:text="@string/rvItem_released_date"
-                android:textColor="@color/white"
+                android:textColor="@color/home_page_sympol"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/divider3">
 
@@ -225,41 +232,44 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="19dp"
             android:gravity="center"
+            android:layoutDirection="ltr"
             android:text="metacritic"
-            android:textColor="@color/white"
+            android:textColor="@color/home_page_sympol"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cvImage" />
 
         <ImageView
             android:id="@+id/imageView13"
-            android:layout_width="26dp"
-            android:layout_height="25dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="18dp"
-            app:layout_constraintBottom_toTopOf="@+id/imageView15"
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            android:layout_marginStart="40dp"
+            android:layoutDirection="ltr"
+            app:layout_constraintEnd_toStartOf="@+id/tvTitle"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView14"
+            app:layout_constraintTop_toTopOf="@+id/tvTitle"
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
             android:id="@+id/tvItemRating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="17dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layoutDirection="ltr"
             android:text="rating"
-            android:textColor="@color/white"
+            android:textColor="@color/home_page_sympol"
             app:layout_constraintStart_toEndOf="@+id/imageView15"
             app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
         <ImageView
             android:id="@+id/ivItemExpand"
-            android:layout_width="43dp"
-            android:layout_height="35dp"
-            android:layout_marginTop="43dp"
+            android:layout_width="27dp"
+            android:layout_height="34dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
+            android:layoutDirection="ltr"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvItemMetacritic"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle"
             app:srcCompat="@drawable/ic_baseline_expand_more_24" />
 
         <ImageView
@@ -267,17 +277,21 @@
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_marginEnd="3dp"
+            android:background="@color/navy"
+            android:layoutDirection="ltr"
             app:layout_constraintEnd_toStartOf="@+id/tvItemMetacritic"
             app:layout_constraintTop_toTopOf="@+id/tvItemMetacritic"
             app:srcCompat="@drawable/ic_metacritic" />
 
         <ImageView
             android:id="@+id/imageView15"
-            android:layout_width="19dp"
+            android:layout_width="20dp"
             android:layout_height="19dp"
-            android:layout_marginStart="19dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:layoutDirection="ltr"
             app:layout_constraintEnd_toStartOf="@+id/tvItemRating"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/imageView13"
             app:layout_constraintTop_toTopOf="@+id/tvItemRating"
             app:srcCompat="@drawable/add" />
 
