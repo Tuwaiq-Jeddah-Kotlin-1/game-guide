@@ -46,6 +46,13 @@
         <item name="background">@color/card_body</item>
     </style>
 
+    <style name="AppCompatAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@color/sky</item>
+        <item name="android:textColorPrimary">@color/card_boarder</item>
+        <item name="android:background">#CDB786</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
 
     <style name="splashScreenTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
