@@ -85,7 +85,7 @@ class ProfilePage : Fragment() {
                 state = 1
              }
             val languages = arrayOf("English", "عربى")
-            val langSelectorBuilder = AlertDialog.Builder(requireContext())
+            val langSelectorBuilder = AlertDialog.Builder(requireContext(), R.style.AppCompatAlertDialogStyle)
             langSelectorBuilder.setTitle(getString(R.string.pro_chooseLang))
             langSelectorBuilder.setSingleChoiceItems(languages, state) { dialog, selection ->
                 when(selection) {

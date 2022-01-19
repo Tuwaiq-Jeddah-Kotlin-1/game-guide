@@ -144,7 +144,7 @@
                 android:id="@+id/pCard"
                 android:layout_width="315dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="24dp"
                 android:layout_marginBottom="16dp"
                 app:cardBackgroundColor="#2BC7DA"
                 app:cardCornerRadius="5dp"
@@ -154,7 +154,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/divider2">
+                app:layout_constraintTop_toBottomOf="@+id/prfileCard">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -248,16 +248,6 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
-
-            <View
-                android:id="@+id/divider2"
-                android:layout_width="0dp"
-                android:layout_height="5dp"
-                android:layout_marginTop="16dp"
-                android:background="?android:attr/listDivider"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/prfileCard" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
