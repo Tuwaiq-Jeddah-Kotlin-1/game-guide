@@ -16,7 +16,7 @@ import androidx.navigation.fragment.navArgs
 import coil.load
 import com.example.gameguide.R
 import com.example.gameguide.data.GDdata.GameDetailsdata
-import com.example.gameguide.data.GDdata.namee
+import com.example.gameguide.data.GDdata.Name
 import com.example.gameguide.dataClasses.FavouriteGame
 import com.example.gameguide.databinding.FragmentGameDetailsBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -177,6 +177,7 @@ private val args: GameDetailsPageArgs by navArgs()
 
                 (f+s).also { tvPlatform.text = it }
 
+
                 when {
                     GD.metacritic>=75 -> {
                         tvGdMeta.text = GD.metacritic.toString()
@@ -193,67 +194,24 @@ private val args: GameDetailsPageArgs by navArgs()
                     }
                 }
 
-                var f2=""
-                if (GD.genres.indices.count() >=1) {
-                    f2 = GD.genres[0].name
-                }
-                var s2 =""
-                for (i in GD.genres.indices){
-                    if(i <= GD.genres.lastIndex-1) {
-                        s2 += ", ${GD.genres[i+1].name}"
-                    }
-                }
 
-                (f2+s2).also { tvGeners.text = it }
+
+                tvGeners.text = listItem(GD.genres)
 
                 tvDate.text = GD.released
 
-                var f3=""
-                if (GD.developers.indices.count() >=1) {
-                    f3 = GD.developers[0].name
-                }
-                var s3 =""
-                for (i in GD.developers.indices){
-                    if(i <= GD.developers.lastIndex-1) {
-                        s3 += ", ${GD.developers[i + 1].name}"
-                    }
-                }
+                 tvDevelopers.text = listItem(GD.developers)
 
-                (f3+s3).also { tvDevelopers.text = it }
-
-                var f4=""
-                if (GD.publishers.indices.count() >=1) {
-                    f4 = GD.publishers[0].name
-                }
-                var s4 =""
-                for (i in GD.publishers.indices){
-                    if(i <= GD.publishers.lastIndex-1) {
-                        s4 += ", ${GD.publishers[i + 1].name}"
-                    }
-                }
-
-                (f4+s4).also { tvPublishers.text = it }
+                tvPublishers.text = listItem(GD.publishers)
 
                 if(GD.esrb_rating?.name?.isNotEmpty() == true){
                     tvAgeRating.text = GD.esrb_rating.name
                 }else{
-                    tvDisAge.visibility = View.GONE
-                    tvAgeRating.visibility = View.GONE
+                    tvAgeRating.text = getString(R.string.gd_not_rated)
                 }
 
                 tvTags.text= listItem(GD.tags)
-                /*var f5=""
-                if (GD.tags.indices.count() >=1) {
-                    f5 = GD.tags[0].name
-                }
-                var s5 =""
-                for (i in GD.tags.indices){
-                    if(i <= GD.tags.lastIndex-1) {
-                        s5 += ", ${GD.tags[i + 1].name}"
-                    }
-                }
-                (f5 + s5).also {  = li }
-*/
+
                 tvWebsite.text = GD.website
             }
 
@@ -280,18 +238,18 @@ private val args: GameDetailsPageArgs by navArgs()
         })
     }
 
-    private fun <T:namee>listItem(coll: List<T>):String{
-        var f5=""
+    private fun <T:Name>listItem(coll: List<T>):String{
+        var f=""
         if (coll.indices.count() >=1) {
-            f5 = coll[0].name
+            f = coll[0].name
         }
-        var s5 =""
+        var s =""
         for (i in coll.indices){
             if(i <= coll.lastIndex-1) {
-                s5 += ", ${coll[i + 1].name}"
+                s += ", ${coll[i + 1].name}"
             }
         }
-        return f5+s5
+        return f+s
     }
 
     private fun favourite(onClick: Boolean, id: GameDetailsdata){

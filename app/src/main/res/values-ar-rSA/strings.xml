@@ -99,5 +99,6 @@
     <string name="ab_search">البحث</string>
     <string name="prof_dialog_confirm">تأكيد</string>
     <string name="prof_dialog_cancel">الغاء</string>
+    <string name="gd_not_rated">غير مصنف</string>
 
 </resources>

@@ -7,4 +7,4 @@ data class Tag(
     val language: String,
     override val name: String,
     val slug: String
-) : namee
+) : Name

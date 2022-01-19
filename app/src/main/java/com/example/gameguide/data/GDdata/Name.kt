@@ -1,5 +1,5 @@
 package com.example.gameguide.data.GDdata
 
-interface namee {
+interface Name {
     val name: String
 }

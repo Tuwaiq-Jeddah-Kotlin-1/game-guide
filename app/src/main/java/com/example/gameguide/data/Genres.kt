@@ -10,12 +10,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 For support, please feel free to contact me at https://www.linkedin.com/in/syedabsar */
 package com.example.gameguide.data
 
+import com.example.gameguide.data.GDdata.Name
+
 
 data class Genres (
 
-	 val id : Int,
-	 val name : String,
-	 val slug : String,
-	 val games_count : Int,
-	 val image_background : String
-)
+	val id : Int,
+	override val name : String,
+	val slug : String,
+	val games_count : Int,
+	val image_background : String
+):Name

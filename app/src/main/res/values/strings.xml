@@ -38,7 +38,7 @@
     <string name="gd_date">date</string>
     <string name="gd_time">time</string>
     <string name="gd_meta_rate">rating</string>
-    <string name="gd_rating_count">rating count</string>
+    <string name="gd_rating_count">total rating</string>
     <string name="gd_metacritic_rating">metacritic rating</string>
     <string name="gd_release_date">release date</string>
     <string name="gd_play_time">average play time:  </string>
@@ -98,5 +98,6 @@
     <string name="ab_search">search</string>
     <string name="prof_dialog_confirm">ok</string>
     <string name="prof_dialog_cancel">cancel</string>
+    <string name="gd_not_rated">not rated</string>
 
 </resources>
