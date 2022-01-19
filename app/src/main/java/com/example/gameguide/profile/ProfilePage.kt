@@ -41,6 +41,8 @@ class ProfilePage : Fragment() {
     private lateinit var binding: FragmentProfileBinding
     private lateinit var setting: SettingUtil
 
+    private var state = 0
+
 
 
 
@@ -75,10 +77,17 @@ class ProfilePage : Fragment() {
         }
 
         binding.btnProfLanguage.setOnClickListener {
+            sharedPreference = this.requireActivity().getSharedPreferences("Settings",Context.MODE_PRIVATE)
+            val checked = sharedPreference.getString("LOCALE_TO_SET", "")
+            if (checked == "en"){
+                state = 0
+             }else if (checked == "ar"){
+                state = 1
+             }
             val languages = arrayOf("English", "عربى")
             val langSelectorBuilder = AlertDialog.Builder(requireContext())
             langSelectorBuilder.setTitle(getString(R.string.pro_chooseLang))
-            langSelectorBuilder.setSingleChoiceItems(languages, -1) { dialog, selection ->
+            langSelectorBuilder.setSingleChoiceItems(languages, state) { dialog, selection ->
                 when(selection) {
                     0 -> {
                         setLocate("en")
