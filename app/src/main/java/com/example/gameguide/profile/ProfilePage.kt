@@ -69,9 +69,9 @@ class ProfilePage : Fragment() {
         val name = sharedPreference.getString("NAME","")
         val phone = sharedPreference.getString("PHONE","")
         val email = sharedPreference.getString("EMAIL","")
-       /* binding.tvProfileUserName= name.toString()
-        binding.tvProfilePhone= phone.toString()
-        binding.tvProfileEmail= email.toString()*/
+        binding.tvProfileUserName.text= name.toString()
+        binding.tvProfilePhone.text= phone.toString()
+        binding.tvProfileEmail.text= email.toString()
 
 
         binding.btnProfileEdit.setOnClickListener{
@@ -83,9 +83,9 @@ class ProfilePage : Fragment() {
             val checked = sharedPreference.getString("LOCALE_TO_SET", "")
             if (checked == "en"){
                 state = 0
-             }else if (checked == "ar"){
+            }else if (checked == "ar"){
                 state = 1
-             }
+            }
             val languages = arrayOf("English", "عربى")
             val langSelectorBuilder = AlertDialog.Builder(requireContext(), R.style.AppCompatAlertDialogStyle)
             langSelectorBuilder.setTitle(getString(R.string.pro_chooseLang))
@@ -152,20 +152,20 @@ class ProfilePage : Fragment() {
         binding.tvProLogOut.setOnClickListener {
             val langSelectorBuilder = AlertDialog.Builder(requireContext(), R.style.AppCompatAlertDialogStyle)
             langSelectorBuilder.setTitle(getString(R.string.pro_warningLog))
-            .setPositiveButton(getString(R.string.prof_dialog_confirm)) { dialog, _ ->
-                sharedPreference = this.requireActivity().getSharedPreferences("prefence", Context.MODE_PRIVATE)
+                .setPositiveButton(getString(R.string.prof_dialog_confirm)) { dialog, _ ->
+                    sharedPreference = this.requireActivity().getSharedPreferences("prefence", Context.MODE_PRIVATE)
 
-                val emailOut = sharedPreference.getString("EMAIL","")
-                //binding.tvProfileEmail = emailOut
+                    val emailOut = sharedPreference.getString("EMAIL","")
+                    binding.tvProfileEmail.text = emailOut
 
-                editor = sharedPreference.edit()
-                editor.clear()
-                editor.apply()
-                findNavController().navigate(R.id.action_profileFragment_to_signIn)
-                dialog.dismiss()
-            }.setNeutralButton(getString(R.string.prof_dialog_cancel)) { dialog, _ ->
+                    editor = sharedPreference.edit()
+                    editor.clear()
+                    editor.apply()
+                    findNavController().navigate(R.id.action_profileFragment_to_signIn)
+                    dialog.dismiss()
+                }.setNeutralButton(getString(R.string.prof_dialog_cancel)) { dialog, _ ->
 
-            }
+                }
             langSelectorBuilder.create().show()
 
         }
@@ -198,20 +198,20 @@ class ProfilePage : Fragment() {
             val db = FirebaseFirestore.getInstance()
             db.collection("Users").document("$uId").get().addOnCompleteListener {
 
-                    if (it.result?.exists()!!) {
-                        //+++++++++++++++++++++++++++++++++++++++++
-                        val name = it.result!!.getString("userName")
-                        val userPhone = it.result!!.getString("userPhone")
-                        val userEmail = it.result!!.getString("userEmail")
+                if (it.result?.exists()!!) {
+                    //+++++++++++++++++++++++++++++++++++++++++
+                    val name = it.result!!.getString("userName")
+                    val userPhone = it.result!!.getString("userPhone")
+                    val userEmail = it.result!!.getString("userEmail")
 
-                        editor.putString("NAME",name)
-                        editor.putString("PHONE",userPhone)
-                        editor.putString("EMAIL",userEmail)
-                        editor.apply()
-                    } else {
-                        Log.e("error", "error in displaying")
-                    }
+                    editor.putString("NAME",name)
+                    editor.putString("PHONE",userPhone)
+                    editor.putString("EMAIL",userEmail)
+                    editor.apply()
+                } else {
+                    Log.e("error", "error in displaying")
                 }
+            }
         } catch (e: Exception) {
             withContext(Dispatchers.Main) {
                 // Toast.makeText(coroutineContext,0,0, e.message, Toast.LENGTH_LONG).show()
@@ -230,8 +230,8 @@ class ProfilePage : Fragment() {
         val userPhoneEt = view.findViewById<EditText>(R.id.etChangeProfPhone)
         val continueBtn = view.findViewById<Button>(R.id.btnChangeProfConfirm)
 
-        usernameEt.setText(binding.tvProfileUserName.toString())
-        userPhoneEt.setText(binding.tvProfilePhone.toString())
+        usernameEt.setText(binding.tvProfileUserName.text.toString())
+        userPhoneEt.setText(binding.tvProfilePhone.text.toString())
 
         continueBtn.setOnClickListener {
             if (usernameEt.text.isNotEmpty()&&userPhoneEt.text.isNotEmpty()){
@@ -251,14 +251,14 @@ class ProfilePage : Fragment() {
 
         val uId = FirebaseAuth.getInstance().currentUser?.uid
         val userRef = Firebase.firestore.collection("Users").document(uId.toString()).update("userName",usernameEt,
-                "userPhone",userPhotoEt)
+            "userPhone",userPhotoEt)
 
         editor.putString("NAME",usernameEt)
         editor.putString("PHONE",userPhotoEt)
         editor.apply()
 
-        //binding.tvProfileUserName = usernameEt
-        //binding.tvProfilePhone = userPhotoEt
+        binding.tvProfileUserName.text = usernameEt
+        binding.tvProfilePhone.text = userPhotoEt
 
         userRef
     }

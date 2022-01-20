@@ -1,5 +1,7 @@
 package com.example.gameguide.enternce
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
@@ -30,6 +32,10 @@ import kotlinx.coroutines.withContext
 class Registration : Fragment() {
     private var mIsShowPass = false
     private lateinit var binding: FragmentRegistrationBinding
+    private lateinit var sharedPreference: SharedPreferences
+    private lateinit var editor: SharedPreferences.Editor
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,30 +51,30 @@ class Registration : Fragment() {
         (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.ab_registration)
 
 
-        /*binding.ivRegisterVisiPass.setOnClickListener {
+        binding.ivRegisterVisiPass.setOnClickListener {
             mIsShowPass = !mIsShowPass
             showPassword(mIsShowPass)
         }
         showPassword(mIsShowPass)
-*/
-        /*binding.ivRegisterVisiRePass.setOnClickListener {
+
+        binding.ivRegisterVisiRePass.setOnClickListener {
             mIsShowPass = !mIsShowPass
             showRePassword(mIsShowPass)
         }
-        showRePassword(mIsShowPass)*/
+        showRePassword(mIsShowPass)
 
         binding.tvRegistrationBackSign.setOnClickListener{
             view.findNavController().navigate(RegistrationDirections.actionRegistrationToSignIn())
         }
 
         binding.btnRegistration.setOnClickListener{
-            registerUser(binding.etRegistrationUserName.toString(),binding.etRegistrationEmail.toString(),
-                binding.etRegistrationPhone.toString(),binding.etRegistrationPassword.toString(),
-                binding.etRegistrationRePassword.toString())
+            registerUser(binding.etRegistrationUserName.text.toString(),binding.etRegistrationEmail.text.toString(),
+                binding.etRegistrationPhone.text.toString(),binding.etRegistrationPassword.text.toString(),
+                binding.etRegistrationRePassword.text.toString())
         }
     }
 
-    /*private fun showPassword(isShow: Boolean) {
+    private fun showPassword(isShow: Boolean) {
         if (isShow) {
             // To show the password
             binding.etRegistrationPassword.transformationMethod = HideReturnsTransformationMethod.getInstance()
@@ -94,7 +100,7 @@ class Registration : Fragment() {
         }
         // This line of code to put the pointer at the end of the password string
         binding.etRegistrationRePassword.setSelection(binding.etRegistrationRePassword.text.toString().length)
-    }*/
+    }
 
     //class Firebase
     private fun registerUser(
@@ -104,6 +110,9 @@ class Registration : Fragment() {
         ePassword: String,
         eRePassword: String)
     {
+        sharedPreference = this.requireActivity().getSharedPreferences("userInfo", Context.MODE_PRIVATE)
+        editor = sharedPreference.edit()
+
         val userName: String = eUsername.trim { it <= ' ' }
         val email: String = eEmail.trim { it <= ' ' }
         val phone: String = ePhone.trim { it <= ' ' }
@@ -123,15 +132,21 @@ class Registration : Fragment() {
             else -> {
                 //register
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password).addOnCompleteListener { task ->
-                        if (task.isSuccessful) {
-                            userData(userName, email, phone)
-                            Toast.makeText(context, "registration successful", Toast.LENGTH_LONG).show()
-                            Log.e("OK", "registration successful")
-                        } else {
-                            Toast.makeText(context, task.exception!!.message.toString(), Toast.LENGTH_LONG).show()
-                        }
-                    }.addOnCompleteListener {
+                    if (task.isSuccessful) {
+                        userData(userName, email, phone)
+
+                        editor.putString("NAME",userName)
+                        editor.putString("PHONE",email)
+                        editor.putString("EMAIL",phone)
+                        editor.apply()
+
+                        Toast.makeText(context, "registration successful", Toast.LENGTH_LONG).show()
+                        Log.e("OK", "registration successful")
+                    } else {
+                        Toast.makeText(context, task.exception!!.message.toString(), Toast.LENGTH_LONG).show()
                     }
+                }.addOnCompleteListener {
+                }
             }
         }
     }
