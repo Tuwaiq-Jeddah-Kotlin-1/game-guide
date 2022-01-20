@@ -100,5 +100,6 @@
     <string name="prof_dialog_confirm">تأكيد</string>
     <string name="prof_dialog_cancel">الغاء</string>
     <string name="gd_not_rated">غير مصنف</string>
+    <string name="GD_not_reated">غير مصنف</string>
 
 </resources>

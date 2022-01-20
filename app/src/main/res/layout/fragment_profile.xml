@@ -26,6 +26,7 @@
                 android:layout_height="130dp"
                 android:background="@drawable/frm_corners"
                 android:backgroundTint="@color/navy"
+                android:layout_marginHorizontal="43dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -80,7 +81,6 @@
                         android:layout_marginTop="16dp"
                         android:layout_marginEnd="32dp"
                         android:background="@drawable/edit_shape"
-                        android:backgroundTint="#FFFFFF"
                         android:drawablePadding="-15dp"
                         android:gravity="center|center_horizontal"
                         android:paddingStart="15dp"
@@ -101,7 +101,6 @@
                         android:layout_marginTop="8dp"
                         android:layout_marginEnd="32dp"
                         android:background="@drawable/edit_shape"
-                        android:backgroundTint="#FFFFFF"
                         android:drawablePadding="-15dp"
                         android:gravity="center|center_horizontal"
                         android:paddingStart="15dp"
@@ -121,7 +120,6 @@
                         android:layout_marginTop="8dp"
                         android:layout_marginEnd="32dp"
                         android:background="@drawable/edit_shape"
-                        android:backgroundTint="#FFFFFF"
                         android:drawablePadding="-15dp"
                         android:gravity="center|center_horizontal"
                         android:paddingStart="15dp"
@@ -134,14 +132,19 @@
 
                     <ImageView
                         android:id="@+id/btnProfileEdit"
-                        android:layout_width="38dp"
-                        android:layout_height="38dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="24dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
                         android:layout_marginBottom="8dp"
+                        android:background="@drawable/button_background"
+                        android:backgroundTint="@color/button_body"
+                        android:paddingHorizontal="15dp"
+                        android:paddingVertical="5dp"
                         android:src="@drawable/ic_baseline_edit"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/tvProfileEmail" />
 
                     <!--<com.google.android.material.textfield.TextInputLayout
@@ -255,7 +258,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/swchProfMode" />
+                        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
                     <TextView
                         android:id="@+id/tvProLogOut"

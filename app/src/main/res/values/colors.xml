@@ -42,6 +42,9 @@
     <color name="card_body">#f0f0f0</color>
     <color name="card_boarder">#B27010</color>
 
+    <color name="mtacritic_color">#595656</color>
+    <color name="pen_sympol">#e5e5dc</color>
+
 
 
 </resources>

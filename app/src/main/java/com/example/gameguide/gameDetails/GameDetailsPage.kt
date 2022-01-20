@@ -153,9 +153,6 @@ private val args: GameDetailsPageArgs by navArgs()
                             tvRatings.text = getString(R.string.GD_skip)
                             ivRating.setImageResource(R.drawable.forbidden)
                             tvNumOfRate.text = max.toString()
-                        }else ->{
-                        ivRating.visibility = View.GONE
-                        tvNumOfRate.visibility = View.GONE
                         }
                     }
                 }

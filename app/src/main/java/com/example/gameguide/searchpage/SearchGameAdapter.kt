@@ -52,8 +52,6 @@ class CustomHolder(private val binding: GameRvItemBinding) : RecyclerView.ViewHo
             if (game.ratings[i].title == "exceptional"){
                 if(game.ratings[i].count >= max)
                     max = game.ratings[i].count
-                /*binding.imageView13.setImageResource(R.drawable.windows)
-                binding.imageView13.visibility = View.VISIBLE*/
             }
             if (game.ratings[i].title  == "recommended"){
                 if(game.ratings[i].count >= max)
@@ -68,9 +66,10 @@ class CustomHolder(private val binding: GameRvItemBinding) : RecyclerView.ViewHo
                     max = game.ratings[i].count
             }
 
-            if(max == game.ratings[i].count){
-                n += game.ratings[i].title
+             if(max == game.ratings[i].count) {
+                n = game.ratings[i].title
             }
+        }
 
             when (n) {
                 "exceptional" -> {
@@ -78,20 +77,16 @@ class CustomHolder(private val binding: GameRvItemBinding) : RecyclerView.ViewHo
                 }
                 "recommended" -> {
                     binding.imageView13.setImageResource(R.drawable.like)
-
                 }
                 "meh" -> {
                     binding.imageView13.setImageResource(R.drawable.meh)
-
                 }
                 "skip" -> {
                     binding.imageView13.setImageResource(R.drawable.forbidden)
 
-                }else ->{
-                binding.imageView13.visibility = View.GONE
                 }
             }
-        }
+
 
         for (i in game.parent_platforms.indices){
             if (game.parent_platforms[i].platform.name == "PC"){

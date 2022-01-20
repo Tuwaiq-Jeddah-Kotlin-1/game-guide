@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import android.view.inputmethod.EditorInfo
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -59,6 +60,7 @@ class SearchPage : Fragment() {
         val searchIcon: MenuItem = menu.findItem(R.id.app_bar_search)
         val TAG = "searchView"
         val searchView = searchIcon.actionView as SearchView
+        searchView.imeOptions= searchView.imeOptions or EditorInfo.IME_FLAG_NO_EXTRACT_UI
 
         searchView.apply {
             setOnQueryTextListener(object : SearchView.OnQueryTextListener {
