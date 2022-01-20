@@ -45,30 +45,30 @@ class Registration : Fragment() {
         (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.ab_registration)
 
 
-        binding.ivRegisterVisiPass.setOnClickListener {
+        /*binding.ivRegisterVisiPass.setOnClickListener {
             mIsShowPass = !mIsShowPass
             showPassword(mIsShowPass)
         }
         showPassword(mIsShowPass)
-
-        binding.ivRegisterVisiRePass.setOnClickListener {
+*/
+        /*binding.ivRegisterVisiRePass.setOnClickListener {
             mIsShowPass = !mIsShowPass
             showRePassword(mIsShowPass)
         }
-        showRePassword(mIsShowPass)
+        showRePassword(mIsShowPass)*/
 
         binding.tvRegistrationBackSign.setOnClickListener{
             view.findNavController().navigate(RegistrationDirections.actionRegistrationToSignIn())
         }
 
         binding.btnRegistration.setOnClickListener{
-            registerUser(binding.etRegistrationUserName.text.toString(),binding.etRegistrationEmail.text.toString(),
-                binding.etRegistrationPhone.text.toString(),binding.etRegistrationPassword.text.toString(),
-                binding.etRegistrationRePassword.text.toString())
+            registerUser(binding.etRegistrationUserName.toString(),binding.etRegistrationEmail.toString(),
+                binding.etRegistrationPhone.toString(),binding.etRegistrationPassword.toString(),
+                binding.etRegistrationRePassword.toString())
         }
     }
 
-    private fun showPassword(isShow: Boolean) {
+    /*private fun showPassword(isShow: Boolean) {
         if (isShow) {
             // To show the password
             binding.etRegistrationPassword.transformationMethod = HideReturnsTransformationMethod.getInstance()
@@ -94,7 +94,7 @@ class Registration : Fragment() {
         }
         // This line of code to put the pointer at the end of the password string
         binding.etRegistrationRePassword.setSelection(binding.etRegistrationRePassword.text.toString().length)
-    }
+    }*/
 
     //class Firebase
     private fun registerUser(

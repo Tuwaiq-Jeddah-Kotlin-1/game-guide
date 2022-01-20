@@ -36,7 +36,7 @@ class ForgetPassword : Fragment() {
         }
 
         binding.btnResetPassword.setOnClickListener{
-            restPass(binding.etResetPasswordEmail.text.toString())
+            restPass(binding.etResetPasswordEmail.toString())
         }
     }
     private fun restPass(fEmail: String) {

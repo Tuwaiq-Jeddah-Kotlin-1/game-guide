@@ -55,14 +55,16 @@
                 app:layout_constraintTop_toBottomOf="@+id/registrationFrameLayout">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
                     <TextView
                         android:id="@+id/tvRegistration"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="32dp"
+                        android:layout_marginStart="40dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="40dp"
                         android:drawablePadding="5dp"
                         android:gravity="center"
                         android:text="@string/register_tv_registration"
@@ -73,16 +75,16 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
 
-                    <EditText
+                    <!--<EditText
                         android:id="@+id/etRegistrationUserName"
                         android:layout_width="250dp"
                         android:layout_height="40dp"
                         android:layout_marginTop="32dp"
-                        android:autofillHints="username"
                         android:background="@drawable/edit_shape"
                         android:drawableStart="@drawable/ic_baseline_person"
                         android:ems="10"
                         android:gravity="center|center_horizontal"
+                        android:autofillHints="username"
                         android:hint="@string/register_et_user_name"
                         android:inputType="textPersonName"
                         android:textColor="@color/boarder"
@@ -97,11 +99,11 @@
                         android:layout_width="250dp"
                         android:layout_height="40dp"
                         android:layout_marginTop="16dp"
-                        android:autofillHints="emailAddress"
                         android:background="@drawable/edit_shape"
-                        android:drawableStart="@drawable/ic_baseline_email"
                         android:ems="10"
                         android:gravity="center|center_horizontal"
+                        android:drawableStart="@drawable/ic_baseline_email"
+                        android:autofillHints="emailAddress"
                         android:hint="@string/register_et_email"
                         android:inputType="textEmailAddress"
                         android:textColor="@color/boarder"
@@ -115,11 +117,11 @@
                         android:layout_width="250dp"
                         android:layout_height="40dp"
                         android:layout_marginTop="16dp"
-                        android:autofillHints="phone"
-                        android:background="@drawable/edit_shape"
-                        android:drawableStart="@drawable/ic_baseline_phone"
                         android:ems="10"
+                        android:background="@drawable/edit_shape"
                         android:gravity="center|center_horizontal"
+                        android:autofillHints="phone"
+                        android:drawableStart="@drawable/ic_baseline_phone"
                         android:hint="@string/register_et_phone"
                         android:inputType="phone"
                         android:textColor="@color/boarder"
@@ -133,12 +135,13 @@
                         android:layout_width="250dp"
                         android:layout_height="40dp"
                         android:layout_marginTop="16dp"
-                        android:autofillHints="password"
                         android:background="@drawable/edit_shape"
-                        android:drawableStart="@drawable/ic_baseline_lock"
                         android:ems="10"
                         android:gravity="center|center_horizontal"
+                        android:autofillHints="password"
+                        android:drawableStart="@drawable/ic_baseline_lock"
                         android:hint="@string/register_et_password"
+                        android:autofillHints="password"
                         android:inputType="textPassword"
                         android:textColor="@color/boarder"
                         android:textColorHint="@color/boarder"
@@ -162,48 +165,22 @@
                         android:textColorHint="@color/boarder"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/etRegistrationPassword" />
+                        app:layout_constraintTop_toBottomOf="@+id/etRegistrationPassword" />-->
+
 
                     <Button
                         android:id="@+id/btnRegistration"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginBottom="16dp"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="32dp"
                         android:backgroundTint="@color/button_body"
                         android:text="@string/register_btn_registration"
                         app:background="@drawable/button_background"
-                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.498"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/etRegistrationRePassword" />
-
-
-                    <ImageView
-                        android:id="@+id/ivRegisterVisiPass"
-                        android:layout_width="27dp"
-                        android:layout_height="45dp"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginEnd="5dp"
-                        android:src="@drawable/ic_baseline_visibility_off"
-                        app:layout_constraintBottom_toBottomOf="@+id/etRegistrationPassword"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/etRegistrationPassword"
-                        app:layout_constraintTop_toTopOf="@+id/etRegistrationPassword"
-                        app:layout_constraintVertical_bias="0.0" />
-
-                    <ImageView
-                        android:id="@+id/ivRegisterVisiRePass"
-                        android:layout_width="27dp"
-                        android:layout_height="45dp"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginEnd="5dp"
-                        android:src="@drawable/ic_baseline_visibility_off"
-                        app:layout_constraintBottom_toBottomOf="@+id/etRegistrationRePassword"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/etRegistrationRePassword"
-                        app:layout_constraintTop_toTopOf="@+id/etRegistrationRePassword" />
 
                     <TextView
                         android:id="@+id/tvRegistrationBackSign"
@@ -215,9 +192,114 @@
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/btnRegistration" />
+                        app:layout_constraintTop_toBottomOf="@+id/btnRegistration"
+                        app:layout_constraintVertical_bias="1.0" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/etRegistrationUserName"
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="32dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvRegistration">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:autofillHints="username"
+                            android:hint="@string/register_et_user_name"
+                            android:inputType="textPersonName"
+                            android:drawableStart="@drawable/ic_baseline_person"
+                            android:textColor="@color/boarder"
+                            android:textColorHint="@color/boarder" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/etRegistrationEmail"
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintEnd_toEndOf="@+id/etRegistrationUserName"
+                        app:layout_constraintStart_toStartOf="@+id/etRegistrationUserName"
+                        app:layout_constraintTop_toBottomOf="@+id/etRegistrationUserName">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableStart="@drawable/ic_baseline_email"
+                            android:autofillHints="emailAddress"
+                            android:hint="@string/register_et_email"
+                            android:inputType="textEmailAddress"
+                            android:textColor="@color/boarder"
+                            android:textColorHint="@color/boarder"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/etRegistrationPhone"
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintEnd_toEndOf="@+id/etRegistrationEmail"
+                        app:layout_constraintStart_toStartOf="@+id/etRegistrationEmail"
+                        app:layout_constraintTop_toBottomOf="@+id/etRegistrationEmail">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:autofillHints="phone"
+                            android:drawableStart="@drawable/ic_baseline_phone"
+                            android:hint="@string/register_et_phone"
+                            android:inputType="phone"
+                            android:textColor="@color/boarder"
+                            android:textColorHint="@color/boarder" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/etRegistrationPassword"
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        app:passwordToggleEnabled="true"
+                        app:layout_constraintEnd_toEndOf="@+id/etRegistrationPhone"
+                        app:layout_constraintStart_toStartOf="@+id/etRegistrationPhone"
+                        app:layout_constraintTop_toBottomOf="@+id/etRegistrationPhone">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:autofillHints="password"
+                            android:drawableStart="@drawable/ic_baseline_lock"
+                            android:hint="@string/register_et_password"
+                            android:inputType="textPassword"
+                            android:textColor="@color/boarder"
+                            android:textColorHint="@color/boarder"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/etRegistrationRePassword"
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        app:passwordToggleEnabled="true"
+                        app:layout_constraintEnd_toEndOf="@+id/etRegistrationPassword"
+                        app:layout_constraintStart_toStartOf="@+id/etRegistrationPassword"
+                        app:layout_constraintTop_toBottomOf="@+id/etRegistrationPassword">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:autofillHints="password"
+                            android:drawableStart="@drawable/ic_baseline_lock"
+                            android:hint="@string/register_et_repassword"
+                            android:inputType="textPassword"
+                            android:textColor="@color/boarder"
+                            android:textColorHint="@color/boarder" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 

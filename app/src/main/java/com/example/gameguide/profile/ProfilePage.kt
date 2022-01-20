@@ -69,9 +69,9 @@ class ProfilePage : Fragment() {
         val name = sharedPreference.getString("NAME","")
         val phone = sharedPreference.getString("PHONE","")
         val email = sharedPreference.getString("EMAIL","")
-        binding.tvProfileUserName.text= name.toString()
-        binding.tvProfilePhone.text= phone.toString()
-        binding.tvProfileEmail.text= email.toString()
+       /* binding.tvProfileUserName= name.toString()
+        binding.tvProfilePhone= phone.toString()
+        binding.tvProfileEmail= email.toString()*/
 
 
         binding.btnProfileEdit.setOnClickListener{
@@ -156,7 +156,7 @@ class ProfilePage : Fragment() {
                 sharedPreference = this.requireActivity().getSharedPreferences("prefence", Context.MODE_PRIVATE)
 
                 val emailOut = sharedPreference.getString("EMAIL","")
-                binding.tvProfileEmail.text = emailOut
+                //binding.tvProfileEmail = emailOut
 
                 editor = sharedPreference.edit()
                 editor.clear()
@@ -230,8 +230,8 @@ class ProfilePage : Fragment() {
         val userPhoneEt = view.findViewById<EditText>(R.id.etChangeProfPhone)
         val continueBtn = view.findViewById<Button>(R.id.btnChangeProfConfirm)
 
-        usernameEt.setText(binding.tvProfileUserName.text.toString())
-        userPhoneEt.setText(binding.tvProfilePhone.text.toString())
+        usernameEt.setText(binding.tvProfileUserName.toString())
+        userPhoneEt.setText(binding.tvProfilePhone.toString())
 
         continueBtn.setOnClickListener {
             if (usernameEt.text.isNotEmpty()&&userPhoneEt.text.isNotEmpty()){
@@ -257,8 +257,8 @@ class ProfilePage : Fragment() {
         editor.putString("PHONE",userPhotoEt)
         editor.apply()
 
-        binding.tvProfileUserName.text = usernameEt
-        binding.tvProfilePhone.text = userPhotoEt
+        //binding.tvProfileUserName = usernameEt
+        //binding.tvProfilePhone = userPhotoEt
 
         userRef
     }
