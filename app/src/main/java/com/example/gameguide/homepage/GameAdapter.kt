@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.gameguide.GameData
 import com.example.gameguide.R
+import com.example.gameguide.data.GDdata.Name
 import com.example.gameguide.data.Results
 import com.example.gameguide.databinding.GameRvItemBinding
 
@@ -33,6 +34,7 @@ class GameAdapter(private val gameData: List<Results>) : RecyclerView.Adapter<Cu
 
 
 }
+
 
 class CustomHolder(private val binding: GameRvItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
@@ -133,18 +135,7 @@ class CustomHolder(private val binding: GameRvItemBinding) : RecyclerView.ViewHo
 
         binding.tvItemRating.text = game.added.toString()
 
-        var f=""
-        if (game.genres.indices.count() >=1) {
-            f = game.genres[0].name
-        }
-        var s =""
-        for (i in game.genres.indices){
-            if(i <= game.genres.lastIndex-1) {
-                s += ", ${game.genres[i+1].name}"
-            }
-        }
-
-        binding.tvGenereItem.text = f+s
+        binding.tvGenereItem.text = listItem(game.genres)
 
         binding.tvReleased.text=game.released
 
@@ -169,5 +160,18 @@ class CustomHolder(private val binding: GameRvItemBinding) : RecyclerView.ViewHo
         }
     }
 
+}
+private fun <T: Name>listItem(coll: List<T>):String{
+    var f=""
+    if (coll.indices.count() >=1) {
+        f = coll[0].name
+    }
+    var s =""
+    for (i in coll.indices){
+        if(i <= coll.lastIndex-1) {
+            s += ", ${coll[i + 1].name}"
+        }
+    }
+    return f+s
 }
 

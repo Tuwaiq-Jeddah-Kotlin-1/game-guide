@@ -10,11 +10,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import coil.load
 import com.example.gameguide.R
 import com.example.gameguide.data.GDdata.GameDetailsdata
+import com.example.gameguide.data.GDdata.Name
 import com.example.gameguide.dataClasses.FavouriteGame
 import com.example.gameguide.databinding.FragmentGameDetailsBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -42,6 +44,8 @@ private val args: GameDetailsPageArgs by navArgs()
     @SuppressLint("UseCompatLoadingForDrawables")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.ab_game_details)
+
         val id = args.currentGame.id
         loadGameDetails(id)
     }
@@ -85,13 +89,16 @@ private val args: GameDetailsPageArgs by navArgs()
                         (getString(R.string.GD_Hour)+"").also { tvGdPt.text = it }
                     }
                     GD.playtime == 2 -> {
-                        (GD.playtime.toString() + "" + getString(R.string.GD_Hours2)+"").also { tvGdPt.text = it }
+                        //(GD.playtime.toString() + "" + getString(R.string.GD_Hours2)+"").also { tvGdPt.text = it }
+                        "${GD.playtime.toString()} ${getString(R.string.GD_Hours2)}".also { tvGdPt.text = it }
                     }
                     GD.playtime in 3..10 -> {
-                        (GD.playtime.toString() + "" + getString(R.string.GD_Hours310)+"").also { tvGdPt.text = it }
+                        //(GD.playtime.toString() + "" + getString(R.string.GD_Hours310)+"").also { tvGdPt.text = it }
+                        "${GD.playtime.toString()} ${getString(R.string.GD_Hours310)}".also { tvGdPt.text = it }
                     }
                     GD.playtime >= 11 -> {
-                        (GD.playtime.toString() + "" + getString(R.string.GD_Hours)+"").also { tvGdPt.text = it }
+                        //(GD.playtime.toString() + "" + getString(R.string.GD_Hours)+"").also { tvGdPt.text = it }
+                        "${GD.playtime.toString()} ${getString(R.string.GD_Hours)}".also { tvGdPt.text = it }
                     }
                     else -> tvGdPt.text = "N/A"
                 }
@@ -100,7 +107,7 @@ private val args: GameDetailsPageArgs by navArgs()
 
                 tvGdRate.text = GD.rating.toString()
 
-                tvRateTop.text = "/${GD.rating_top}"
+                "/${GD.rating_top}".also { tvRateTop.text = it }
 
                 var n = ""
                 var max = 0
@@ -130,20 +137,22 @@ private val args: GameDetailsPageArgs by navArgs()
                         "exceptional" -> {
                             tvRatings.text = getString(R.string.GD_exceptional)
                             ivRating.setImageResource(R.drawable.target)
+                            tvNumOfRate.text = max.toString()
                         }
                         "recommended" -> {
                             tvRatings.text = getString(R.string.GD_recommended)
                             ivRating.setImageResource(R.drawable.like)
+                            tvNumOfRate.text = max.toString()
                         }
                         "meh" -> {
                             tvRatings.text = getString(R.string.GD_meh)
                             ivRating.setImageResource(R.drawable.meh)
+                            tvNumOfRate.text = max.toString()
                         }
                         "skip" -> {
                             tvRatings.text = getString(R.string.GD_skip)
                             ivRating.setImageResource(R.drawable.forbidden)
-                        }else ->{
-                        ivRating.visibility = View.GONE
+                            tvNumOfRate.text = max.toString()
                         }
                     }
                 }
@@ -163,7 +172,8 @@ private val args: GameDetailsPageArgs by navArgs()
                     }
                 }
 
-                tvPlatform.text = f+s
+                (f+s).also { tvPlatform.text = it }
+
 
                 when {
                     GD.metacritic>=75 -> {
@@ -181,65 +191,23 @@ private val args: GameDetailsPageArgs by navArgs()
                     }
                 }
 
-                var f2=""
-                if (GD.genres.indices.count() >=1) {
-                    f2 = GD.genres[0].name
-                }
-                var s2 =""
-                for (i in GD.genres.indices){
-                    if(i <= GD.genres.lastIndex-1) {
-                        s2 += ", ${GD.genres[i+1].name}"
-                    }
-                }
 
-                tvGeners.text = f2+s2
+
+                tvGeners.text = listItem(GD.genres)
 
                 tvDate.text = GD.released
 
-                var f3=""
-                if (GD.developers.indices.count() >=1) {
-                    f3 = GD.developers[0].name
-                }
-                var s3 =""
-                for (i in GD.developers.indices){
-                    if(i <= GD.developers.lastIndex-1) {
-                        s3 += ", ${GD.developers[i + 1].name}"
-                    }
-                }
+                 tvDevelopers.text = listItem(GD.developers)
 
-                tvDevelopers.text = f3+s3
-
-                var f4=""
-                if (GD.publishers.indices.count() >=1) {
-                    f4 = GD.publishers[0].name
-                }
-                var s4 =""
-                for (i in GD.publishers.indices){
-                    if(i <= GD.publishers.lastIndex-1) {
-                        s4 += ", ${GD.publishers[i + 1].name}"
-                    }
-                }
-
-                tvPublishers.text = f4+s4
+                tvPublishers.text = listItem(GD.publishers)
 
                 if(GD.esrb_rating?.name?.isNotEmpty() == true){
                     tvAgeRating.text = GD.esrb_rating.name
                 }else{
-                    tvDisAge.visibility = View.GONE
-                    tvAgeRating.visibility = View.GONE
+                    tvAgeRating.text = getString(R.string.gd_not_rated)
                 }
 
-                var f5=""
-                if (GD.tags.indices.count() >=1) {
-                    f5 = GD.tags[0].name
-                }
-                var s5 =""
-                for (i in GD.tags.indices){
-                    if(i <= GD.tags.lastIndex-1) {
-                        s5 += ", ${GD.tags[i + 1].name}"
-                    }
-                }
-                tvTags.text = f5+s5
+                tvTags.text= listItem(GD.tags)
 
                 tvWebsite.text = GD.website
             }
@@ -265,6 +233,20 @@ private val args: GameDetailsPageArgs by navArgs()
             }
             favourite(false,GD)
         })
+    }
+
+    private fun <T:Name>listItem(coll: List<T>):String{
+        var f=""
+        if (coll.indices.count() >=1) {
+            f = coll[0].name
+        }
+        var s =""
+        for (i in coll.indices){
+            if(i <= coll.lastIndex-1) {
+                s += ", ${coll[i + 1].name}"
+            }
+        }
+        return f+s
     }
 
     private fun favourite(onClick: Boolean, id: GameDetailsdata){

@@ -8,30 +8,35 @@
     </data>
 
     <ScrollView
+        android:id="@+id/bac"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@color/card_body"
         tools:context=".enternce.SignIn">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@color/card_body">
 
             <FrameLayout
                 android:id="@+id/signInFrameLayout"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
+                android:layout_marginHorizontal="43dp"
                 android:background="@drawable/frm_corners"
-                android:backgroundTint="#18535A"
+                android:backgroundTint="@color/navy"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
                     android:id="@+id/ivSignInLogo"
-                    android:layout_width="150dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:backgroundTint="@color/navy"
                     android:src="@drawable/ic_logo_" />
             </FrameLayout>
 
@@ -40,25 +45,29 @@
                 android:id="@+id/SignCard"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
                 android:layout_marginTop="24dp"
-                android:layout_marginEnd="8dp"
-                app:cardBackgroundColor="@color/blue"
+                android:layout_marginBottom="32dp"
+                app:cardBackgroundColor="@color/navy"
                 app:cardCornerRadius="15dp"
+                app:cardUseCompatPadding="true"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/signInFrameLayout"
+                app:layout_constraintStart_toStartOf="@+id/signInFrameLayout"
                 app:layout_constraintTop_toBottomOf="@+id/signInFrameLayout">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/navy">
 
                     <TextView
                         android:id="@+id/tvSignIn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="32dp"
                         android:layout_marginTop="32dp"
+                        android:layout_marginEnd="32dp"
+                        android:drawablePadding="5dp"
                         android:gravity="center"
                         android:text="@string/singIn_tv_SignIn"
                         android:textAlignment="center"
@@ -72,43 +81,53 @@
                         android:layout_width="250dp"
                         android:layout_height="40dp"
                         android:layout_marginTop="32dp"
+                        android:autofillHints="emailAddress"
                         android:background="@drawable/edit_shape"
                         android:drawableStart="@drawable/ic_baseline_email"
+                        android:drawablePadding="-15dp"
+                        android:paddingStart="15dp"
                         android:ems="10"
                         android:gravity="center|center_horizontal"
                         android:hint="@string/reset_et_email"
                         android:inputType="textEmailAddress"
+                        android:textColor="@color/background"
+                        android:textColorHint="@color/background"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.497"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tvSignIn"
-                        android:autofillHints="emailAddress" />
+                        app:layout_constraintTop_toBottomOf="@+id/tvSignIn" />
 
                     <EditText
                         android:id="@+id/etSignInPassword"
                         android:layout_width="250dp"
                         android:layout_height="40dp"
                         android:layout_marginTop="16dp"
+                        android:autofillHints="password"
                         android:background="@drawable/edit_shape"
                         android:drawableStart="@drawable/ic_baseline_lock"
+                        android:drawablePadding="-15dp"
+                        android:paddingStart="15dp"
                         android:ems="10"
                         android:gravity="center|center_horizontal"
                         android:hint="@string/signIn_et_password"
                         android:inputType="textPassword"
+                        android:textColor="@color/background"
+                        android:textColorHint="@color/background"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.497"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/etSignInEmail"
-                        android:autofillHints="password" />
+                        app:layout_constraintTop_toBottomOf="@+id/etSignInEmail" />
 
                     <CheckBox
                         android:id="@+id/cbSignInRememberMe"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="50dp"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="9dp"
                         android:text="@string/signIn_cb_remember_me"
-                        app:layout_constraintStart_toStartOf="parent"
+                        android:textColor="@color/background"
+                        android:textColorLink="#00BCD4"
+                        app:layout_constraintStart_toStartOf="@+id/etSignInPassword"
                         app:layout_constraintTop_toBottomOf="@+id/etSignInPassword" />
 
                     <TextView
@@ -125,11 +144,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="24dp"
                         android:layout_marginStart="3dp"
-                        android:layout_marginTop="10dp"
                         android:text="@string/signIn_tv_reset_password"
                         android:textStyle="bold"
                         app:layout_constraintStart_toEndOf="@+id/tvSignInForgetPassword"
-                        app:layout_constraintTop_toBottomOf="@+id/cbSignInRememberMe" />
+                        app:layout_constraintTop_toTopOf="@+id/tvSignInForgetPassword" />
 
 
                     <Button
@@ -139,43 +157,91 @@
                         android:layout_marginTop="16dp"
                         android:background="@drawable/button_background"
                         android:text="@string/signIn_btn_sign_in"
-                        app:backgroundTint="@color/purple_500"
+                        app:backgroundTint="@color/button_body"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.498"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/tvSignInForgetPassword" />
 
+
                     <TextView
                         android:id="@+id/tvSignInYouDont"
                         android:layout_width="wrap_content"
                         android:layout_height="24dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginBottom="8dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginBottom="16dp"
                         android:text="@string/signIn_tv_you_don_t_have_account"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="@+id/tvSignInForgetPassword"
                         app:layout_constraintTop_toBottomOf="@+id/btnSignIn" />
 
-
                     <TextView
                         android:id="@+id/tvSignInLogInNow"
                         android:layout_width="wrap_content"
                         android:layout_height="24dp"
-                        android:layout_marginStart="3dp"
+                        android:layout_marginEnd="32dp"
                         android:text="@string/signIn_tv_log_in_now"
                         android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="@+id/tvSignInYouDont"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/tvSignInYouDont"
                         app:layout_constraintTop_toTopOf="@+id/tvSignInYouDont" />
 
                     <ImageView
                         android:id="@+id/ivSignInVisible"
-                        android:layout_width="27dp"
-                        android:layout_height="45dp"
-                        android:src="@drawable/ic_baseline_visibility"
+                        android:layout_width="25dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
                         app:layout_constraintBottom_toBottomOf="@+id/etSignInPassword"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/etSignInPassword"
-                        app:layout_constraintTop_toTopOf="@+id/etSignInPassword" />
+                        app:layout_constraintTop_toTopOf="@+id/etSignInPassword"
+                        app:srcCompat="@drawable/ic_baseline_visibility" />
+
+                    <!--<com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/etSignInEmail"
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="32dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvSignIn">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableStart="@drawable/ic_baseline_email"
+                            android:autofillHints="emailAddress"
+                            android:inputType="textEmailAddress"
+                            android:hint="@string/reset_et_email" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/etSignInPassword"
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="32dp"
+                        app:passwordToggleEnabled="true"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/etSignInEmail">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/signIn_et_password"
+                            android:autofillHints="password"
+                            android:inputType="textPassword"
+                            android:textColor="@color/background"
+                            android:textColorHint="@color/background"
+                            android:drawableStart="@drawable/ic_baseline_lock"/>
+
+
+                    </com.google.android.material.textfield.TextInputLayout>-->
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 

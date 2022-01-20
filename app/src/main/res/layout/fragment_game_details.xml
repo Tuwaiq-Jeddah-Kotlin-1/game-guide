@@ -10,16 +10,18 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/navy"
         android:fillViewport="true"
         tools:context=".gameDetails.GameDetailsPage">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/searchCard"
+            android:id="@+id/detailsCard"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="8dp"
-            app:cardBackgroundColor="@color/blue"
+            app:cardBackgroundColor="@color/card_body"
             app:cardCornerRadius="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -39,6 +41,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:text="@string/GD_tv_website"
+                    android:textColor="@color/gd_text"
+                    android:textSize="24sp"
                     app:layout_constraintStart_toStartOf="@+id/tvTags"
                     app:layout_constraintTop_toBottomOf="@+id/tvTags" />
 
@@ -49,6 +53,8 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="24dp"
                     android:text="website"
+                    android:textColor="@color/gd_text"
+                    android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/tvDisWebsite"
                     app:layout_constraintTop_toBottomOf="@+id/tvDisWebsite" />
@@ -134,13 +140,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:layout_marginEnd="12dp"
+                    android:layout_marginEnd="5dp"
                     android:clickable="true"
                     android:contentDescription="@string/gd_game_favourite"
                     android:focusable="true"
-                    app:backgroundTint="#5C5C5E"
+                    app:backgroundTint="@color/fab_body"
                     app:layout_constraintEnd_toStartOf="@+id/fabGdShare"
-                    app:layout_constraintTop_toBottomOf="@+id/ivGdPoster"
+                    app:layout_constraintTop_toBottomOf="@+id/tvGdRcount"
                     app:srcCompat="@drawable/ic_baseline_favorite_border_24"
                     app:tint="#AC0909" />
 
@@ -148,16 +154,15 @@
                     android:id="@+id/fabGdShare"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="1dp"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginEnd="5dp"
                     android:clickable="true"
                     android:contentDescription="@string/gd_game_share"
                     android:focusable="true"
-                    app:backgroundTint="#5C5C5E"
+                    app:backgroundTint="@color/fab_body"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/fabGdFav"
                     app:srcCompat="@drawable/ic_baseline_share_24"
-                    app:tint="#D7F4F4F4" />
+                    app:tint="@color/share" />
 
                 <TextView
                     android:id="@+id/tvGdTitle"
@@ -167,7 +172,7 @@
                     android:gravity="center"
                     android:text="@string/gd_title"
                     android:textColor="#FAF5F5"
-                    android:textSize="30sp"
+                    android:textSize="32sp"
                     app:layout_constraintEnd_toEndOf="@+id/ivGdPoster"
                     app:layout_constraintStart_toStartOf="@+id/ivGdPoster"
                     app:layout_constraintTop_toBottomOf="@+id/tvGdDate" />
@@ -177,16 +182,43 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/gd_rating"
+                    android:textColor="@color/gd_text"
+                    android:textSize="15sp"
                     app:layout_constraintStart_toEndOf="@+id/ivGdRate"
                     app:layout_constraintTop_toTopOf="@+id/ivGdRate" />
+
+                <ImageView
+                    android:id="@+id/ivGdRate"
+                    android:layout_width="24dp"
+                    android:layout_height="19dp"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginTop="32dp"
+                    android:contentDescription="@string/gd_star_image"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivGdRcount"
+                    app:srcCompat="@drawable/ic_star" />
+
+                <TextView
+                    android:id="@+id/tvRateTop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="rate top"
+                    android:textColor="@color/gd_text"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toEndOf="@+id/tvGdRate"
+                    app:layout_constraintTop_toTopOf="@+id/tvGdRate" />
 
                 <TextView
                     android:id="@+id/tvGdRcount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="1dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="7dp"
                     android:text="@string/gd_count"
-                    app:layout_constraintStart_toEndOf="@+id/ivGdRcount"
+                    android:textColor="@color/gd_text"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tvRcountGd"
+                    app:layout_constraintStart_toStartOf="@+id/tvRcountGd"
                     app:layout_constraintTop_toBottomOf="@+id/tvRcountGd" />
 
                 <TextView
@@ -196,6 +228,8 @@
                     android:layout_marginTop="8dp"
                     android:gravity="center"
                     android:text="@string/gd_meta_rate"
+                    android:textColor="@color/gd_text"
+                    android:textSize="18sp"
                     app:layout_constraintStart_toEndOf="@+id/ivGdMeta"
                     app:layout_constraintTop_toBottomOf="@+id/tvMetaGd" />
 
@@ -204,7 +238,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="40dp"
-                    android:layout_marginEnd="130dp"
+                    android:layout_marginEnd="100dp"
                     android:background="#5C5C5E"
                     android:text="@string/gd_date"
                     android:textColor="#FAF5F5"
@@ -215,60 +249,43 @@
                     android:id="@+id/tvGdPt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
                     android:text="@string/gd_time"
                     android:textColor="#FAF5F5"
                     app:layout_constraintStart_toEndOf="@+id/tvPtGd"
                     app:layout_constraintTop_toTopOf="@+id/tvPtGd" />
 
-                <ImageView
-                    android:id="@+id/ivGdRate"
-                    android:layout_width="24dp"
-                    android:layout_height="19dp"
-                    android:layout_marginTop="8dp"
-                    android:contentDescription="@string/gd_star_image"
-                    app:layout_constraintStart_toStartOf="@+id/tvRateGd"
-                    app:layout_constraintTop_toBottomOf="@+id/tvRateGd"
-                    app:srcCompat="@drawable/ic_star" />
-
                 <View
                     android:id="@+id/divider"
                     android:layout_width="409dp"
                     android:layout_height="1dp"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="16dp"
                     android:background="?android:attr/listDivider"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvRcountGd" />
-
-                <TextView
-                    android:id="@+id/tvRateGd"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/gd_Rating"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/ivGdPoster" />
+                    app:layout_constraintTop_toBottomOf="@+id/fabGdFav" />
 
                 <TextView
                     android:id="@+id/tvRcountGd"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="11dp"
                     android:text="@string/gd_rating_count"
-                    app:layout_constraintStart_toStartOf="@+id/tvRatings"
-                    app:layout_constraintTop_toBottomOf="@+id/tvRatings" />
+                    android:textColor="@color/gd_text"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tvNumOfRate"
+                    app:layout_constraintStart_toStartOf="@+id/tvNumOfRate"
+                    app:layout_constraintTop_toBottomOf="@+id/tvNumOfRate" />
 
                 <ImageView
                     android:id="@+id/ivGdRcount"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="1dp"
+                    android:layout_marginEnd="1dp"
                     android:contentDescription="@string/gd_count_image"
-                    app:layout_constraintStart_toStartOf="@+id/tvRcountGd"
-                    app:layout_constraintTop_toBottomOf="@+id/tvRcountGd"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvGdRcount"
+                    app:layout_constraintEnd_toStartOf="@+id/tvGdRcount"
+                    app:layout_constraintTop_toTopOf="@+id/tvGdRcount"
                     app:srcCompat="@drawable/rating" />
 
                 <TextView
@@ -276,8 +293,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:layout_marginEnd="32dp"
+                    android:layout_marginEnd="16dp"
                     android:text="@string/gd_metacritic_rating"
+                    android:textColor="@color/gd_text"
+                    android:textSize="22sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tvAbout" />
 
@@ -294,6 +313,7 @@
                     android:id="@+id/ivGdPt"
                     android:layout_width="24dp"
                     android:layout_height="19dp"
+                    android:layout_marginStart="4dp"
                     android:contentDescription="@string/gd_time_image"
                     app:layout_constraintStart_toEndOf="@+id/tvGdPt"
                     app:layout_constraintTop_toTopOf="@+id/tvGdPt"
@@ -315,12 +335,14 @@
                     android:id="@+id/tvRatings"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="8dp"
                     android:text="Ratings"
+                    android:textColor="@color/gd_text"
+                    android:textSize="23sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvRateTop" />
+                    app:layout_constraintTop_toBottomOf="@+id/ivGdPoster" />
 
                 <ImageView
                     android:id="@+id/ivRating"
@@ -333,19 +355,13 @@
                     tools:srcCompat="@tools:sample/avatars" />
 
                 <TextView
-                    android:id="@+id/tvRateTop"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="rate top"
-                    app:layout_constraintStart_toEndOf="@+id/tvGdRate"
-                    app:layout_constraintTop_toTopOf="@+id/tvGdRate" />
-
-                <TextView
                     android:id="@+id/tvDisAbout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:text="@string/GD_tv_about"
+                    android:textColor="@color/gd_text"
+                    android:textSize="24sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/divider" />
@@ -358,6 +374,8 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="18dp"
                     android:text="about"
+                    android:textColor="@color/gd_text"
+                    android:textSize="18sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tvDisAbout" />
@@ -366,9 +384,11 @@
                     android:id="@+id/tvDisPlatforms"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="50dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:text="@string/GD_tv_platforms"
+                    android:textColor="@color/gd_text"
+                    android:textSize="24sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tvAbout" />
 
@@ -378,6 +398,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:text="platform"
+                    android:textColor="@color/gd_text"
+                    android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="@+id/tvDisPlatforms"
                     app:layout_constraintTop_toBottomOf="@+id/tvDisPlatforms" />
 
@@ -387,6 +409,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:text="@string/GD_tv_geners"
+                    android:textColor="@color/gd_text"
+                    android:textSize="24sp"
                     app:layout_constraintStart_toStartOf="@+id/tvPlatform"
                     app:layout_constraintTop_toBottomOf="@+id/tvPlatform" />
 
@@ -396,6 +420,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:text="Geners"
+                    android:textColor="@color/gd_text"
+                    android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="@+id/tvDisGeners"
                     app:layout_constraintTop_toBottomOf="@+id/tvDisGeners" />
 
@@ -405,6 +431,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:text="@string/GD_tv_date"
+                    android:textColor="@color/gd_text"
+                    android:textSize="24sp"
                     app:layout_constraintStart_toStartOf="@+id/ivGdMeta"
                     app:layout_constraintTop_toBottomOf="@+id/tvPlatform" />
 
@@ -414,6 +442,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:text="Date"
+                    android:textColor="@color/gd_text"
+                    android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="@+id/tvDisDate"
                     app:layout_constraintTop_toBottomOf="@+id/tvDisDate" />
 
@@ -423,6 +453,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:text="@string/GD_tv_developers"
+                    android:textColor="@color/gd_text"
+                    android:textSize="24sp"
                     app:layout_constraintStart_toStartOf="@+id/tvGeners"
                     app:layout_constraintTop_toBottomOf="@+id/tvGeners" />
 
@@ -432,6 +464,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:text="@string/GD_tv_publishers"
+                    android:textColor="@color/gd_text"
+                    android:textSize="24sp"
                     app:layout_constraintStart_toStartOf="@+id/tvDate"
                     app:layout_constraintTop_toBottomOf="@+id/tvGeners" />
 
@@ -441,6 +475,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:text="Publishers"
+                    android:textColor="@color/gd_text"
+                    android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="@+id/tvDisPublishers"
                     app:layout_constraintTop_toBottomOf="@+id/tvDisPublishers" />
 
@@ -450,6 +486,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:text="Developers"
+                    android:textColor="@color/gd_text"
+                    android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="@+id/tvDisDevelopers"
                     app:layout_constraintTop_toBottomOf="@+id/tvDisDevelopers" />
 
@@ -457,8 +495,10 @@
                     android:id="@+id/tvDisTags"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="24dp"
                     android:text="@string/GD_tv_tags"
+                    android:textColor="@color/gd_text"
+                    android:textSize="24sp"
                     app:layout_constraintStart_toStartOf="@+id/tvAgeRating"
                     app:layout_constraintTop_toBottomOf="@+id/tvAgeRating" />
 
@@ -468,6 +508,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:text="tags"
+                    android:textColor="@color/gd_text"
+                    android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="@+id/tvDisTags"
                     app:layout_constraintTop_toBottomOf="@+id/tvDisTags" />
 
@@ -477,6 +519,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:text="@string/GD_tv_age_rating"
+                    android:textColor="@color/gd_text"
+                    android:textSize="24sp"
                     app:layout_constraintStart_toStartOf="@+id/tvDevelopers"
                     app:layout_constraintTop_toBottomOf="@+id/tvDevelopers" />
 
@@ -486,8 +530,23 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:text="age rating"
+                    android:textColor="@color/gd_text"
+                    android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="@+id/tvDisAge"
                     app:layout_constraintTop_toBottomOf="@+id/tvDisAge" />
+
+                <TextView
+                    android:id="@+id/tvNumOfRate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="rating number"
+                    android:textColor="@color/gd_text"
+                    android:textSize="19sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tvRatings"
+                    app:layout_constraintStart_toStartOf="@+id/tvRatings"
+                    app:layout_constraintTop_toBottomOf="@+id/ivRating" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

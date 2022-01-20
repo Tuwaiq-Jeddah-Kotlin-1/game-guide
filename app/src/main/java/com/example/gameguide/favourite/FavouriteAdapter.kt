@@ -96,6 +96,10 @@ class CustomHolder(private val binding: GameRvItemBinding) : RecyclerView.ViewHo
             }
             "skip" -> {
                 binding.imageView13.setImageResource(R.drawable.forbidden)
+            }"not rated yet" ->{
+                binding.imageView13.setImageResource(R.drawable.sleep)
+            }else->{
+                binding.imageView13.setImageResource(R.drawable.sleep)
             }
         }
 

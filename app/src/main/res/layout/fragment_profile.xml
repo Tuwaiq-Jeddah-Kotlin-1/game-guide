@@ -9,30 +9,33 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@color/card_body"
         tools:context=".ProfilePage">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/card_body"
             tools:context=".ProfilePage">
 
 
             <FrameLayout
                 android:id="@+id/profileFrameLayout"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="130dp"
                 android:background="@drawable/frm_corners"
-                android:backgroundTint="#18535A"
+                android:backgroundTint="@color/navy"
+                android:layout_marginHorizontal="43dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
                     android:id="@+id/ivProfileLogo"
-                    android:layout_width="150dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
+                    android:layout_gravity="center_horizontal"
                     android:src="@drawable/ic_logo_" />
             </FrameLayout>
 
@@ -42,17 +45,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                app:cardCornerRadius="3dp"
-                app:cardElevation="4dp"
+                app:cardBackgroundColor="#2BC7DA"
+                app:cardCornerRadius="5dp"
+                app:cardElevation="5dp"
                 app:cardMaxElevation="6dp"
-                app:cardBackgroundColor="@color/blue"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/profileFrameLayout">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="350dp"
-                    android:layout_height="252dp">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/navy">
 
                     <TextView
                         android:id="@+id/tvProfile"
@@ -62,6 +66,7 @@
                         android:gravity="center"
                         android:text="@string/pro_tv_profile"
                         android:textAlignment="center"
+
                         android:textSize="35dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
@@ -72,9 +77,13 @@
                         android:id="@+id/tvProfileUserName"
                         android:layout_width="250dp"
                         android:layout_height="40dp"
+                        android:layout_marginStart="32dp"
                         android:layout_marginTop="16dp"
+                        android:layout_marginEnd="32dp"
                         android:background="@drawable/edit_shape"
+                        android:drawablePadding="-15dp"
                         android:gravity="center|center_horizontal"
+                        android:paddingStart="15dp"
                         android:text="@string/prof_tv_username"
                         android:textSize="18sp"
                         app:drawableStartCompat="@drawable/ic_baseline_person"
@@ -88,9 +97,13 @@
                         android:id="@+id/tvProfilePhone"
                         android:layout_width="250dp"
                         android:layout_height="40dp"
+                        android:layout_marginStart="32dp"
                         android:layout_marginTop="8dp"
+                        android:layout_marginEnd="32dp"
                         android:background="@drawable/edit_shape"
+                        android:drawablePadding="-15dp"
                         android:gravity="center|center_horizontal"
+                        android:paddingStart="15dp"
                         android:text="@string/prof_tv_phone"
                         android:textSize="18sp"
                         app:drawableStartCompat="@drawable/ic_baseline_phone"
@@ -103,9 +116,13 @@
                         android:id="@+id/tvProfileEmail"
                         android:layout_width="250dp"
                         android:layout_height="40dp"
+                        android:layout_marginStart="32dp"
                         android:layout_marginTop="8dp"
+                        android:layout_marginEnd="32dp"
                         android:background="@drawable/edit_shape"
+                        android:drawablePadding="-15dp"
                         android:gravity="center|center_horizontal"
+                        android:paddingStart="15dp"
                         android:text="@string/prof_tv_email"
                         android:textSize="18sp"
                         app:drawableStartCompat="@drawable/ic_baseline_email"
@@ -115,12 +132,77 @@
 
                     <ImageView
                         android:id="@+id/btnProfileEdit"
-                        android:layout_width="43dp"
-                        android:layout_height="40dp"
-                        android:layout_marginEnd="1dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@drawable/button_background"
+                        android:backgroundTint="@color/button_body"
+                        android:paddingHorizontal="15dp"
+                        android:paddingVertical="5dp"
                         android:src="@drawable/ic_baseline_edit"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/tvProfileEmail" />
+
+                    <!--<com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tvProfileUserName"
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="32dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvProfile">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/prof_tv_username"
+                            android:textSize="18sp"
+                            app:drawableStartCompat="@drawable/ic_baseline_person" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tvProfilePhone"
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="32dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvProfileUserName">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/prof_tv_phone"
+                            android:textSize="18sp"
+                            app:drawableStartCompat="@drawable/ic_baseline_phone"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tvProfileEmail"
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="32dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvProfilePhone">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/prof_tv_email"
+                            android:textSize="18sp"
+                            app:drawableStartCompat="@drawable/ic_baseline_email"/>
+                    </com.google.android.material.textfield.TextInputLayout>-->
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -130,23 +212,24 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/pCard"
-                android:layout_width="349dp"
-                android:layout_height="227dp"
-                android:layout_marginTop="16dp"
+                android:layout_width="315dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
                 android:layout_marginBottom="16dp"
-                app:cardCornerRadius="3dp"
-                app:cardElevation="4dp"
+                app:cardBackgroundColor="#2BC7DA"
+                app:cardCornerRadius="5dp"
+                app:cardElevation="5dp"
                 app:cardMaxElevation="6dp"
-                app:cardBackgroundColor="@color/blue"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/divider2">
+                app:layout_constraintTop_toBottomOf="@+id/prfileCard">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/navy">
 
 
                     <TextView
@@ -163,80 +246,61 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
-                        android:id="@+id/tvProfileLanguage"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="24dp"
-                        android:text="@string/prof_tv_language"
-                        android:textSize="20dp"
-                        app:drawableStartCompat="@drawable/ic_baseline_translate_24"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tvProfile2" />
-
-                    <Button
-                        android:id="@+id/btnProfMode"
-                        android:layout_width="117dp"
-                        android:layout_height="52dp"
-                        android:background="@drawable/button_background"
-                        android:text="@string/prof_enable_dark_mode"
-                        android:textSize="12sp"
-                        app:layout_constraintBottom_toBottomOf="@+id/tvprofAppearance"
-                        app:layout_constraintEnd_toEndOf="@+id/btnProfLanguage"
-                        app:layout_constraintTop_toTopOf="@+id/tvprofAppearance" />
-
                     <Button
                         android:id="@+id/btnProfLanguage"
-                        android:layout_width="117dp"
-                        android:layout_height="52dp"
-                        android:layout_marginEnd="16dp"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
                         android:background="@drawable/button_background"
                         android:text="@string/prof_change_language"
                         android:textSize="12sp"
-                        app:layout_constraintBottom_toBottomOf="@+id/tvProfileLanguage"
+                        app:backgroundTint="@color/button_body"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/tvProfileLanguage" />
-
-                    <TextView
-                        android:id="@+id/tvprofAppearance"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="32dp"
-                        android:text="@string/prof_appearance"
-                        android:textSize="20dp"
-                        app:drawableStartCompat="@drawable/ic_baseline_brightness_medium_24"
-                        app:layout_constraintStart_toStartOf="@+id/tvProfileLanguage"
-                        app:layout_constraintTop_toBottomOf="@+id/tvProfileLanguage" />
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
                     <TextView
                         android:id="@+id/tvProLogOut"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="132dp"
-                        android:layout_marginTop="32dp"
-                        android:layout_marginEnd="149dp"
-                        android:layout_marginBottom="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="8dp"
                         android:text="@string/pro_tv_log_out"
-                        android:textColor="#D30D0D"
+                        android:textColor="#AA0A0A"
                         android:textSize="25dp"
                         app:drawableStartCompat="@drawable/ic_baseline_exit_to_app_24"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tvprofAppearance" />
+                        app:layout_constraintTop_toBottomOf="@+id/btnProfLanguage" />
+
+                    <Switch
+                        android:id="@+id/swchProfMode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="32dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvProfile2"
+                        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="32dp"
+                        android:drawableStart="@drawable/ic_baseline_dark_mode_24"
+                        android:text="@string/prof_Dark_mode"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/swchProfMode"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/swchProfMode" />
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
-            <View
-                android:id="@+id/divider2"
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_marginTop="16dp"
-                android:background="?android:attr/listDivider"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/prfileCard" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

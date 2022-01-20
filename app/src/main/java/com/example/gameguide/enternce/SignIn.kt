@@ -11,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.gameguide.R
@@ -44,15 +45,17 @@ class SignIn : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.ab_sign)
+
         sharedPreference = this.requireActivity().getSharedPreferences("prefence", Context.MODE_PRIVATE)
         isRemember = sharedPreference.getBoolean("CHECKBOX", false)
 
         binding.ivSignInVisible.setOnClickListener {
 
-                mIsShowPass = !mIsShowPass
-                showPassword(mIsShowPass)
+            mIsShowPass = !mIsShowPass
+            showPassword(mIsShowPass)
         }
-                showPassword(mIsShowPass)
+        showPassword(mIsShowPass)
 
 
         binding.tvSignInLogInNow.setOnClickListener {
@@ -82,12 +85,12 @@ class SignIn : Fragment() {
             binding.etSignInPassword.transformationMethod = PasswordTransformationMethod.getInstance()
             binding.ivSignInVisible.setImageResource(R.drawable.ic_baseline_visibility)
         }
-            // This line of code to put the pointer at the end of the password string
+        // This line of code to put the pointer at the end of the password string
         binding.etSignInPassword.setSelection(binding.etSignInPassword.text.toString().length)
 
     }
 
-        private fun login(sEmail: String, sPassword: String) {
+    private fun login(sEmail: String, sPassword: String) {
 
         val logEmail: String = sEmail.trim { it <= ' ' }
         val logPassword: String = sPassword.trim { it <= ' ' }
@@ -119,7 +122,7 @@ class SignIn : Fragment() {
             }.addOnCompleteListener {
 
             }
-            }else{
+        }else{
             Toast.makeText(context, "email field or password is empty", Toast.LENGTH_LONG).show()
         }
     }
@@ -133,21 +136,21 @@ class SignIn : Fragment() {
         try {
             val db = FirebaseFirestore.getInstance()
             db.collection("Users").document("$uId").get().addOnCompleteListener {
-                    if (it.result?.exists()!!) {
+                if (it.result?.exists()!!) {
 
-                        val name = it.result!!.getString("userName")
-                        val userPhone = it.result!!.getString("userPhone")
-                        val userEmail = it.result!!.getString("userEmail")
+                    val name = it.result!!.getString("userName")
+                    val userPhone = it.result!!.getString("userPhone")
+                    val userEmail = it.result!!.getString("userEmail")
 
-                        editor.putString("NAME",name)
-                        editor.putString("PHONE",userPhone)
-                        editor.putString("EMAIL",userEmail)
-                        editor.apply()
+                    editor.putString("NAME",name)
+                    editor.putString("PHONE",userPhone)
+                    editor.putString("EMAIL",userEmail)
+                    editor.apply()
 
-                    } else {
-                        Log.e("error", "error in displaying")
-                    }
+                } else {
+                    Log.e("error", "error in displaying")
                 }
+            }
         } catch (e: Exception) {
             withContext(Dispatchers.Main) {
                 // Toast.makeText(coroutineContext,0,0, e.message, Toast.LENGTH_LONG).show()

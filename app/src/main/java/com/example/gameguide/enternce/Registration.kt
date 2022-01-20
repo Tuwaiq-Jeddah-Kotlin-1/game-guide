@@ -1,5 +1,7 @@
 package com.example.gameguide.enternce
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
@@ -9,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.gameguide.R
@@ -29,6 +32,10 @@ import kotlinx.coroutines.withContext
 class Registration : Fragment() {
     private var mIsShowPass = false
     private lateinit var binding: FragmentRegistrationBinding
+    private lateinit var sharedPreference: SharedPreferences
+    private lateinit var editor: SharedPreferences.Editor
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,6 +47,9 @@ class Registration : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.ab_registration)
+
 
         binding.ivRegisterVisiPass.setOnClickListener {
             mIsShowPass = !mIsShowPass
@@ -100,6 +110,9 @@ class Registration : Fragment() {
         ePassword: String,
         eRePassword: String)
     {
+        sharedPreference = this.requireActivity().getSharedPreferences("userInfo", Context.MODE_PRIVATE)
+        editor = sharedPreference.edit()
+
         val userName: String = eUsername.trim { it <= ' ' }
         val email: String = eEmail.trim { it <= ' ' }
         val phone: String = ePhone.trim { it <= ' ' }
@@ -119,15 +132,21 @@ class Registration : Fragment() {
             else -> {
                 //register
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password).addOnCompleteListener { task ->
-                        if (task.isSuccessful) {
-                            userData(userName, email, phone)
-                            Toast.makeText(context, "registration successful", Toast.LENGTH_LONG).show()
-                            Log.e("OK", "registration successful")
-                        } else {
-                            Toast.makeText(context, task.exception!!.message.toString(), Toast.LENGTH_LONG).show()
-                        }
-                    }.addOnCompleteListener {
+                    if (task.isSuccessful) {
+                        userData(userName, email, phone)
+
+                        editor.putString("NAME",userName)
+                        editor.putString("PHONE",email)
+                        editor.putString("EMAIL",phone)
+                        editor.apply()
+
+                        Toast.makeText(context, "registration successful", Toast.LENGTH_LONG).show()
+                        Log.e("OK", "registration successful")
+                    } else {
+                        Toast.makeText(context, task.exception!!.message.toString(), Toast.LENGTH_LONG).show()
                     }
+                }.addOnCompleteListener {
+                }
             }
         }
     }

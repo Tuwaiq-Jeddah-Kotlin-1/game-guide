@@ -9,197 +9,335 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@color/card_body"
         tools:context=".enternce.Registration">
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-
-
-
-        <FrameLayout
-            android:id="@+id/registrationFrameLayout"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:background="@drawable/frm_corners"
-            android:backgroundTint="#18535A"
-            android:layout_height="150dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <ImageView
-                android:id="@+id/ivRegistrationLogo"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:src="@drawable/ic_logo_" />
-        </FrameLayout>
-        <androidx.cardview.widget.CardView
-
-            android:id="@+id/SignCard"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="8dp"
-            app:cardBackgroundColor="@color/blue"
-            app:cardCornerRadius="15dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/registrationFrameLayout">
+            android:background="@color/card_body">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+
+            <FrameLayout
+                android:id="@+id/registrationFrameLayout"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginHorizontal="43dp"
+                android:background="@drawable/frm_corners"
+                android:backgroundTint="@color/navy"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/ivRegistrationLogo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_logo_" />
+            </FrameLayout>
+
+            <androidx.cardview.widget.CardView
+
+                android:id="@+id/SignCard"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="24dp"
+                app:cardBackgroundColor="@color/navy"
+                app:cardCornerRadius="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/registrationFrameLayout">
 
-                <TextView
-                    android:id="@+id/tvRegistration"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
-                    android:gravity="center"
-                    android:text="@string/register_tv_registration"
-                    android:textAlignment="center"
-                    android:textSize="35dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-
-                <EditText
-                    android:id="@+id/etRegistrationUserName"
-                    android:layout_width="250dp"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="32dp"
-                    android:background="@drawable/edit_shape"
-                    android:drawableStart="@drawable/ic_baseline_person"
-                    android:ems="10"
-                    android:gravity="center|center_horizontal"
-                    android:hint="@string/register_et_user_name"
-                    android:inputType="textPersonName"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvRegistration"
-                    android:autofillHints="username" />
-
-
-                <EditText
-                    android:id="@+id/etRegistrationEmail"
-                    android:layout_width="250dp"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="16dp"
-                    android:background="@drawable/edit_shape"
-                    android:drawableStart="@drawable/ic_baseline_email"
-                    android:ems="10"
-                    android:gravity="center|center_horizontal"
-                    android:hint="@string/register_et_email"
-                    android:inputType="textEmailAddress"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/etRegistrationUserName"
-                    android:autofillHints="emailAddress" />
-
-                <EditText
-                    android:id="@+id/etRegistrationPhone"
-                    android:layout_width="250dp"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="16dp"
-                    android:background="@drawable/edit_shape"
-                    android:drawableStart="@drawable/ic_baseline_phone"
-                    android:ems="10"
-                    android:gravity="center|center_horizontal"
-                    android:hint="@string/register_et_phone"
-                    android:inputType="phone"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/etRegistrationEmail"
-                    android:autofillHints="phone"/>
-
-                <EditText
-                    android:id="@+id/etRegistrationPassword"
-                    android:layout_width="250dp"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="16dp"
-                    android:background="@drawable/edit_shape"
-                    android:drawableStart="@drawable/ic_baseline_lock"
-                    android:ems="10"
-                    android:gravity="center|center_horizontal"
-                    android:hint="@string/register_et_password"
-                    android:inputType="textPassword"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/etRegistrationPhone"
-                    android:autofillHints="password"/>
-
-                <EditText
-                    android:id="@+id/etRegistrationRePassword"
-                    android:layout_width="250dp"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="16dp"
-                    android:background="@drawable/edit_shape"
-                    android:drawableStart="@drawable/ic_baseline_lock"
-                    android:ems="10"
-                    android:gravity="center|center_horizontal"
-                    android:hint="@string/register_et_repassword"
-                    android:inputType="textPassword"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/etRegistrationPassword"
-                    android:autofillHints="password"/>
-
-                <Button
-                    android:id="@+id/btnRegistration"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:backgroundTint="@color/purple_500"
-                    android:text="@string/register_btn_registration"
-                    app:background="@drawable/button_background"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/etRegistrationRePassword" />
+                    <TextView
+                        android:id="@+id/tvRegistration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="40dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="40dp"
+                        android:drawablePadding="5dp"
+                        android:gravity="center"
+                        android:text="@string/register_tv_registration"
+                        android:textAlignment="center"
+                        android:textSize="35dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
 
-                <TextView
-                    android:id="@+id/tvRegistrationBackSign"
-                    android:layout_width="wrap_content"
-                    android:layout_height="24dp"
-                    android:layout_marginTop="32dp"
-                    android:layout_marginBottom="8dp"
-                    android:text="@string/register_tv_back_to_sign_in_page"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btnRegistration" />
-
-                <ImageView
-                    android:id="@+id/ivRegisterVisiPass"
-                    android:layout_width="27dp"
-                    android:layout_height="45dp"
-                    android:src="@drawable/ic_baseline_visibility_off"
-                    app:layout_constraintBottom_toBottomOf="@+id/etRegistrationPassword"
-                    app:layout_constraintStart_toEndOf="@+id/etRegistrationPassword"
-                    app:layout_constraintTop_toTopOf="@+id/etRegistrationPassword"
-                    app:layout_constraintVertical_bias="0.0" />
-
-                <ImageView
-                    android:id="@+id/ivRegisterVisiRePass"
-                    android:layout_width="27dp"
-                    android:layout_height="45dp"
-                    android:src="@drawable/ic_baseline_visibility_off"
-                    app:layout_constraintBottom_toBottomOf="@+id/etRegistrationRePassword"
-                    app:layout_constraintStart_toEndOf="@+id/etRegistrationRePassword"
-                    app:layout_constraintTop_toTopOf="@+id/etRegistrationRePassword" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
+                    <EditText
+                        android:id="@+id/etRegistrationUserName"
+                        android:layout_width="250dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="32dp"
+                        android:background="@drawable/edit_shape"
+                        android:drawableStart="@drawable/ic_baseline_person"
+                        android:ems="10"
+                        android:drawablePadding="-15dp"
+                        android:gravity="center|center_horizontal"
+                        android:paddingStart="15dp"
+                        android:autofillHints="username"
+                        android:hint="@string/register_et_user_name"
+                        android:inputType="textPersonName"
+                        android:textColor="@color/boarder"
+                        android:textColorHint="@color/boarder"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvRegistration" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <EditText
+                        android:id="@+id/etRegistrationEmail"
+                        android:layout_width="250dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/edit_shape"
+                        android:ems="10"
+                        android:paddingStart="15dp"
+                        android:drawablePadding="-15dp"
+                        android:gravity="center|center_horizontal"
+                        android:drawableStart="@drawable/ic_baseline_email"
+                        android:autofillHints="emailAddress"
+                        android:hint="@string/register_et_email"
+                        android:inputType="textEmailAddress"
+                        android:textColor="@color/boarder"
+                        android:textColorHint="@color/boarder"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/etRegistrationUserName" />
+
+                    <EditText
+                        android:id="@+id/etRegistrationPhone"
+                        android:layout_width="250dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="16dp"
+                        android:ems="10"
+                        android:background="@drawable/edit_shape"
+                        android:gravity="center|center_horizontal"
+                        android:paddingStart="15dp"
+                        android:drawablePadding="-15dp"
+                        android:autofillHints="phone"
+                        android:drawableStart="@drawable/ic_baseline_phone"
+                        android:hint="@string/register_et_phone"
+                        android:inputType="phone"
+                        android:textColor="@color/boarder"
+                        android:textColorHint="@color/boarder"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/etRegistrationEmail" />
+
+                    <EditText
+                        android:id="@+id/etRegistrationPassword"
+                        android:layout_width="250dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/edit_shape"
+                        android:ems="10"
+                        android:gravity="center|center_horizontal"
+                        android:paddingStart="15dp"
+                        android:drawablePadding="-15dp"
+                        android:autofillHints="password"
+                        android:drawableStart="@drawable/ic_baseline_lock"
+                        android:hint="@string/register_et_password"
+                        android:inputType="textPassword"
+                        android:textColor="@color/boarder"
+                        android:textColorHint="@color/boarder"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/etRegistrationPhone" />
+
+                    <EditText
+                        android:id="@+id/etRegistrationRePassword"
+                        android:layout_width="250dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="16dp"
+                        android:autofillHints="password"
+                        android:background="@drawable/edit_shape"
+                        android:drawableStart="@drawable/ic_baseline_lock"
+                        android:ems="10"
+                        android:paddingStart="15dp"
+                        android:drawablePadding="-15dp"
+                        android:gravity="center|center_horizontal"
+                        android:hint="@string/register_et_repassword"
+                        android:inputType="textPassword"
+                        android:textColor="@color/boarder"
+                        android:textColorHint="@color/boarder"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/etRegistrationPassword" />
+
+
+                    <Button
+                        android:id="@+id/btnRegistration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="32dp"
+                        android:backgroundTint="@color/button_body"
+                        android:text="@string/register_btn_registration"
+                        app:background="@drawable/button_background"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/etRegistrationRePassword" />
+
+                    <TextView
+                        android:id="@+id/tvRegistrationBackSign"
+                        android:layout_width="wrap_content"
+                        android:layout_height="24dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="@string/register_tv_back_to_sign_in_page"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/btnRegistration"
+                        app:layout_constraintVertical_bias="1.0" />
+
+                    <ImageView
+                        android:id="@+id/ivRegisterVisiPass"
+                        android:layout_width="25dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/etRegistrationPassword"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/etRegistrationPassword"
+                        app:layout_constraintTop_toTopOf="@+id/etRegistrationPassword"
+                        app:srcCompat="@drawable/ic_baseline_visibility" />
+
+                    <ImageView
+                        android:id="@+id/ivRegisterVisiRePass"
+                        android:layout_width="25dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/etRegistrationRePassword"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/etRegistrationRePassword"
+                        app:layout_constraintTop_toTopOf="@+id/etRegistrationRePassword"
+                        app:srcCompat="@drawable/ic_baseline_visibility" />
+
+                    <!-- <com.google.android.material.textfield.TextInputLayout
+                         android:id="@+id/etRegistrationUserName"
+                         android:layout_width="250dp"
+                         android:layout_height="wrap_content"
+                         android:layout_marginStart="32dp"
+                         android:layout_marginTop="16dp"
+                         android:layout_marginEnd="32dp"
+                         app:layout_constraintEnd_toEndOf="parent"
+                         app:layout_constraintStart_toStartOf="parent"
+                         app:layout_constraintTop_toBottomOf="@+id/tvRegistration">
+
+                         <com.google.android.material.textfield.TextInputEditText
+                             android:layout_width="match_parent"
+                             android:layout_height="wrap_content"
+                             android:autofillHints="username"
+                             android:hint="@string/register_et_user_name"
+                             android:inputType="textPersonName"
+                             android:drawableStart="@drawable/ic_baseline_person"
+                             android:textColor="@color/boarder"
+                             android:textColorHint="@color/boarder" />
+                     </com.google.android.material.textfield.TextInputLayout>
+
+                     <com.google.android.material.textfield.TextInputLayout
+                         android:id="@+id/etRegistrationEmail"
+                         android:layout_width="250dp"
+                         android:layout_height="wrap_content"
+                         android:layout_marginTop="8dp"
+                         app:layout_constraintEnd_toEndOf="@+id/etRegistrationUserName"
+                         app:layout_constraintStart_toStartOf="@+id/etRegistrationUserName"
+                         app:layout_constraintTop_toBottomOf="@+id/etRegistrationUserName">
+
+                         <com.google.android.material.textfield.TextInputEditText
+                             android:layout_width="match_parent"
+                             android:layout_height="wrap_content"
+                             android:drawableStart="@drawable/ic_baseline_email"
+                             android:autofillHints="emailAddress"
+                             android:hint="@string/register_et_email"
+                             android:inputType="textEmailAddress"
+                             android:textColor="@color/boarder"
+                             android:textColorHint="@color/boarder"/>
+                     </com.google.android.material.textfield.TextInputLayout>
+
+                     <com.google.android.material.textfield.TextInputLayout
+                         android:id="@+id/etRegistrationPhone"
+                         android:layout_width="250dp"
+                         android:layout_height="wrap_content"
+                         android:layout_marginTop="8dp"
+                         app:layout_constraintEnd_toEndOf="@+id/etRegistrationEmail"
+                         app:layout_constraintStart_toStartOf="@+id/etRegistrationEmail"
+                         app:layout_constraintTop_toBottomOf="@+id/etRegistrationEmail">
+
+                         <com.google.android.material.textfield.TextInputEditText
+                             android:layout_width="match_parent"
+                             android:layout_height="wrap_content"
+                             android:autofillHints="phone"
+                             android:drawableStart="@drawable/ic_baseline_phone"
+                             android:hint="@string/register_et_phone"
+                             android:inputType="phone"
+                             android:textColor="@color/boarder"
+                             android:textColorHint="@color/boarder" />
+                     </com.google.android.material.textfield.TextInputLayout>
+
+                     <com.google.android.material.textfield.TextInputLayout
+                         android:id="@+id/etRegistrationPassword"
+                         android:layout_width="250dp"
+                         android:layout_height="wrap_content"
+                         android:layout_marginTop="8dp"
+                         app:passwordToggleEnabled="true"
+                         app:layout_constraintEnd_toEndOf="@+id/etRegistrationPhone"
+                         app:layout_constraintStart_toStartOf="@+id/etRegistrationPhone"
+                         app:layout_constraintTop_toBottomOf="@+id/etRegistrationPhone">
+
+                         <com.google.android.material.textfield.TextInputEditText
+                             android:layout_width="match_parent"
+                             android:layout_height="wrap_content"
+                             android:autofillHints="password"
+                             android:drawableStart="@drawable/ic_baseline_lock"
+                             android:hint="@string/register_et_password"
+                             android:inputType="textPassword"
+                             android:textColor="@color/boarder"
+                             android:textColorHint="@color/boarder"/>
+                     </com.google.android.material.textfield.TextInputLayout>
+
+                     <com.google.android.material.textfield.TextInputLayout
+                         android:id="@+id/etRegistrationRePassword"
+                         android:layout_width="250dp"
+                         android:layout_height="wrap_content"
+                         android:layout_marginTop="8dp"
+                         app:passwordToggleEnabled="true"
+                         app:layout_constraintEnd_toEndOf="@+id/etRegistrationPassword"
+                         app:layout_constraintStart_toStartOf="@+id/etRegistrationPassword"
+                         app:layout_constraintTop_toBottomOf="@+id/etRegistrationPassword">
+
+                         <com.google.android.material.textfield.TextInputEditText
+                             android:layout_width="match_parent"
+                             android:layout_height="wrap_content"
+                             android:autofillHints="password"
+                             android:drawableStart="@drawable/ic_baseline_lock"
+                             android:hint="@string/register_et_repassword"
+                             android:inputType="textPassword"
+                             android:textColor="@color/boarder"
+                             android:textColorHint="@color/boarder" />
+                     </com.google.android.material.textfield.TextInputLayout>-->
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </layout>

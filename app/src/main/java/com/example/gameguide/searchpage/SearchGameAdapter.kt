@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.gameguide.GameData
 import com.example.gameguide.R
+import com.example.gameguide.data.GDdata.Name
 import com.example.gameguide.data.Results
 import com.example.gameguide.databinding.GameRvItemBinding
 
@@ -51,8 +52,6 @@ class CustomHolder(private val binding: GameRvItemBinding) : RecyclerView.ViewHo
             if (game.ratings[i].title == "exceptional"){
                 if(game.ratings[i].count >= max)
                     max = game.ratings[i].count
-                /*binding.imageView13.setImageResource(R.drawable.windows)
-                binding.imageView13.visibility = View.VISIBLE*/
             }
             if (game.ratings[i].title  == "recommended"){
                 if(game.ratings[i].count >= max)
@@ -67,9 +66,10 @@ class CustomHolder(private val binding: GameRvItemBinding) : RecyclerView.ViewHo
                     max = game.ratings[i].count
             }
 
-            if(max == game.ratings[i].count){
-                n += game.ratings[i].title
+             if(max == game.ratings[i].count) {
+                n = game.ratings[i].title
             }
+        }
 
             when (n) {
                 "exceptional" -> {
@@ -77,20 +77,16 @@ class CustomHolder(private val binding: GameRvItemBinding) : RecyclerView.ViewHo
                 }
                 "recommended" -> {
                     binding.imageView13.setImageResource(R.drawable.like)
-
                 }
                 "meh" -> {
                     binding.imageView13.setImageResource(R.drawable.meh)
-
                 }
                 "skip" -> {
                     binding.imageView13.setImageResource(R.drawable.forbidden)
 
-                }else ->{
-                binding.imageView13.visibility = View.GONE
                 }
             }
-        }
+
 
         for (i in game.parent_platforms.indices){
             if (game.parent_platforms[i].platform.name == "PC"){
@@ -131,20 +127,10 @@ class CustomHolder(private val binding: GameRvItemBinding) : RecyclerView.ViewHo
 
         binding.tvItemRating.text = game.added.toString()
 
-        var f=""
-        if (game.genres.indices.count() >=1) {
-            f = game.genres[0].name
-        }
-        var s =""
-        for (i in game.genres.indices){
-            if(i <= game.genres.lastIndex-1) {
-                s += ", ${game.genres[i+1].name}"
-            }
-        }
 
-        binding.tvGenereItem.text = f+s
+        binding.tvGenereItem.text = listItem(game.genres)
 
-        binding.tvReleased.text=game.released
+        binding.tvReleased.text = game.released
 
 
         val isVisible : Boolean = game.visibility
@@ -167,4 +153,17 @@ class CustomHolder(private val binding: GameRvItemBinding) : RecyclerView.ViewHo
             binding.root.findNavController().navigate(action)
         }
     }
+}
+private fun <T: Name>listItem(coll: List<T>):String{
+    var f=""
+    if (coll.indices.count() >=1) {
+        f = coll[0].name
+    }
+    var s =""
+    for (i in coll.indices){
+        if(i <= coll.lastIndex-1) {
+            s += ", ${coll[i + 1].name}"
+        }
+    }
+    return f+s
 }

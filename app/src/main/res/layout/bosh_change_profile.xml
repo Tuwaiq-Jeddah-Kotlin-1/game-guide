@@ -28,16 +28,20 @@
             android:layout_width="250dp"
             android:layout_height="40dp"
             android:layout_marginTop="60dp"
+            android:autofillHints="username"
             android:background="@drawable/edit_shape"
             android:ems="10"
             android:gravity="center"
             android:inputType="textPersonName"
             android:text="@string/changeProf_et_username"
+            android:drawableStart="@drawable/ic_baseline_person"
+            android:textColor="@color/background"
+            android:paddingStart="15dp"
+            android:drawablePadding="-15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/ivChangeProfNotch"
-            android:autofillHints="username"/>
+            app:layout_constraintTop_toTopOf="@+id/ivChangeProfNotch" />
 
         <EditText
             android:id="@+id/etChangeProfPhone"
@@ -48,7 +52,11 @@
             android:ems="10"
             android:gravity="center"
             android:inputType="phone"
+            android:textColor="#393E46"
             android:text="@string/changeProf_et_phone"
+            android:drawableStart="@drawable/ic_baseline_phone"
+            android:paddingStart="15dp"
+            android:drawablePadding="-15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etChangeProfUsername"
@@ -58,17 +66,55 @@
             android:id="@+id/btnChangeProfConfirm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="24dp"
             android:layout_marginBottom="32dp"
             android:background="@drawable/button_background"
             android:text="@string/changeProf_btn_edit"
-            app:backgroundTint="@color/teal_700"
-
+            app:backgroundTint="@color/button_body"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etChangeProfPhone" />
+
+       <!-- <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etChangeProfUsername"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivChangeProfNotch">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="username"
+                android:inputType="textPersonName"
+                android:text="@string/changeProf_et_username"
+                android:textColor="@color/background" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etChangeProfPhone"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="1dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etChangeProfUsername">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:textColor="@color/background"
+                android:text="@string/changeProf_et_phone"/>
+        </com.google.android.material.textfield.TextInputLayout>-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

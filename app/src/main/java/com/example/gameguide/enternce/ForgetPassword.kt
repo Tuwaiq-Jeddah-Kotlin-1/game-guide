@@ -47,15 +47,15 @@ class ForgetPassword : Fragment() {
 
         }else{
             FirebaseAuth.getInstance().sendPasswordResetEmail(email).addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        Log.e("OK", "registration is successfully done")
-                        findNavController().navigate(R.id.action_forgetPassword_to_signIn)
-                    } else {
-                        Toast.makeText(context, task.exception!!.message.toString(), Toast.LENGTH_LONG).show()
-                    }
-                }.addOnCompleteListener {
-
+                if (task.isSuccessful) {
+                    Log.e("OK", "registration is successfully done")
+                    findNavController().navigate(R.id.action_forgetPassword_to_signIn)
+                } else {
+                    Toast.makeText(context, task.exception!!.message.toString(), Toast.LENGTH_LONG).show()
                 }
+            }.addOnCompleteListener {
+
+            }
         }
 
     }

@@ -25,42 +25,69 @@
         <entry key="..\:/Users/Hp/AndroidStudioProjects/gameGuide/app/src/main/res/layout/game_rv_item.xml" value="0.1" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/gameGuide/app/src/main/res/menu/bottom_navigation.xml" value="0.25416666666666665" />
         <entry key="app/src/main/res/drawable-v24/card_game.xml" value="0.25885416666666666" />
+        <entry key="app/src/main/res/drawable-v24/ic_date.xml" value="0.25885416666666666" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.25885416666666666" />
         <entry key="app/src/main/res/drawable/bosh.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/button_background.xml" value="0.17777777777777778" />
         <entry key="app/src/main/res/drawable/edit_shape.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/et_shape.xml" value="0.25885416666666666" />
         <entry key="app/src/main/res/drawable/fav.xml" value="0.25885416666666666" />
         <entry key="app/src/main/res/drawable/frm_corners.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/higher_75.xml" value="0.25885416666666666" />
+        <entry key="app/src/main/res/drawable/ic_baseline_3p.xml" value="0.25885416666666666" />
         <entry key="app/src/main/res/drawable/ic_baseline_access_time.xml" value="0.3260416666666667" />
+        <entry key="app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.25885416666666666" />
+        <entry key="app/src/main/res/drawable/ic_baseline_app_registration_24.xml" value="0.25885416666666666" />
+        <entry key="app/src/main/res/drawable/ic_baseline_arrow_back.xml" value="0.25885416666666666" />
+        <entry key="app/src/main/res/drawable/ic_baseline_arrow_forward.xml" value="0.25885416666666666" />
+        <entry key="app/src/main/res/drawable/ic_baseline_brightness_medium_24.xml" value="0.25885416666666666" />
+        <entry key="app/src/main/res/drawable/ic_baseline_chevron_left.xml" value="0.25885416666666666" />
+        <entry key="app/src/main/res/drawable/ic_baseline_chevron_right.xml" value="0.25885416666666666" />
+        <entry key="app/src/main/res/drawable/ic_baseline_edit.xml" value="0.25885416666666666" />
+        <entry key="app/src/main/res/drawable/ic_baseline_email.xml" value="0.25885416666666666" />
         <entry key="app/src/main/res/drawable/ic_baseline_exit_to_app_24.xml" value="0.25885416666666666" />
         <entry key="app/src/main/res/drawable/ic_baseline_expand_less_24.xml" value="0.25885416666666666" />
         <entry key="app/src/main/res/drawable/ic_baseline_expand_more_24.xml" value="0.25885416666666666" />
         <entry key="app/src/main/res/drawable/ic_baseline_favorite.xml" value="0.25885416666666666" />
         <entry key="app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.25885416666666666" />
         <entry key="app/src/main/res/drawable/ic_baseline_favorite_border_24.xml" value="0.25885416666666666" />
+        <entry key="app/src/main/res/drawable/ic_baseline_first_page.xml" value="0.25885416666666666" />
+        <entry key="app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.25885416666666666" />
+        <entry key="app/src/main/res/drawable/ic_baseline_last_page.xml" value="0.25885416666666666" />
+        <entry key="app/src/main/res/drawable/ic_baseline_lock.xml" value="0.25885416666666666" />
+        <entry key="app/src/main/res/drawable/ic_baseline_login_24.xml" value="0.25885416666666666" />
         <entry key="app/src/main/res/drawable/ic_baseline_maximize.xml" value="0.3260416666666667" />
         <entry key="app/src/main/res/drawable/ic_baseline_military_tech_24.xml" value="0.3260416666666667" />
         <entry key="app/src/main/res/drawable/ic_baseline_minimize.xml" value="0.3260416666666667" />
+        <entry key="app/src/main/res/drawable/ic_baseline_not_interested_24.xml" value="0.25885416666666666" />
+        <entry key="app/src/main/res/drawable/ic_baseline_notifications_24.xml" value="0.25885416666666666" />
         <entry key="app/src/main/res/drawable/ic_baseline_person.xml" value="0.3260416666666667" />
         <entry key="app/src/main/res/drawable/ic_baseline_person_add_alt_1_24.xml" value="0.3260416666666667" />
+        <entry key="app/src/main/res/drawable/ic_baseline_phone.xml" value="0.25885416666666666" />
+        <entry key="app/src/main/res/drawable/ic_baseline_search.xml" value="0.25885416666666666" />
         <entry key="app/src/main/res/drawable/ic_baseline_share_24.xml" value="0.3260416666666667" />
+        <entry key="app/src/main/res/drawable/ic_baseline_thumb_down_24.xml" value="0.25885416666666666" />
+        <entry key="app/src/main/res/drawable/ic_baseline_thumb_up_24.xml" value="0.25885416666666666" />
+        <entry key="app/src/main/res/drawable/ic_baseline_translate_24.xml" value="0.25885416666666666" />
         <entry key="app/src/main/res/drawable/ic_baseline_visibility.xml" value="0.3260416666666667" />
+        <entry key="app/src/main/res/drawable/ic_baseline_visibility_off.xml" value="0.25885416666666666" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.25885416666666666" />
         <entry key="app/src/main/res/drawable/lower_75.xml" value="0.13072916666666667" />
         <entry key="app/src/main/res/drawable/pic_drawable.xml" value="0.12685185185185185" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.31142601752491994" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.14010416666666667" />
-        <entry key="app/src/main/res/layout/bosh_change_profile.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/bosh_change_profile.xml" value="0.11497326203208556" />
         <entry key="app/src/main/res/layout/fragment_favourite_page.xml" value="0.30884050961056636" />
-        <entry key="app/src/main/res/layout/fragment_forget_password.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_game_details.xml" value="0.189010989010989" />
-        <entry key="app/src/main/res/layout/fragment_homepage.xml" value="0.29411764705882354" />
-        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.22692307692307692" />
-        <entry key="app/src/main/res/layout/fragment_registration.xml" value="0.24414545970065726" />
+        <entry key="app/src/main/res/layout/fragment_forget_password.xml" value="0.34895725130234784" />
+        <entry key="app/src/main/res/layout/fragment_game_details.xml" value="0.34597295731061534" />
+        <entry key="app/src/main/res/layout/fragment_homepage.xml" value="0.2079729978554599" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.11684782608695653" />
+        <entry key="app/src/main/res/layout/fragment_registration.xml" value="0.3054295565527417" />
         <entry key="app/src/main/res/layout/fragment_search_game_details.xml" value="0.29583333333333334" />
         <entry key="app/src/main/res/layout/fragment_search_page.xml" value="0.29583333333333334" />
-        <entry key="app/src/main/res/layout/fragment_sign_in.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_sign_in.xml" value="0.4177014623406916" />
         <entry key="app/src/main/res/layout/fragment_splash_screen.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/game_rv_item.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/game_rv_item.xml" value="0.40560008334707875" />
         <entry key="app/src/main/res/menu/bottom_navigation.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/menu/search_menu.xml" value="0.3098958333333333" />
       </map>
