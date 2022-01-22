@@ -12,14 +12,21 @@ import kotlinx.coroutines.launch
 class SearchVM: ViewModel() {
 
     val repo = GameRepo()
+    var i = 1
+    var min = 1
+    var max = 33076
+
+    /*var j = 1*/
+
     fun searchGames(searchKeyWord: String?/*,pageNumber:String*/): LiveData<Json4Kotlin_Base> {
         val game = MutableLiveData<Json4Kotlin_Base>()
+        i = (min..max).random()
         viewModelScope.launch {
             try {
                 if (searchKeyWord.isNullOrBlank()){
-                    game.postValue(repo.fetchInterestingList("1"))
+                    game.postValue(repo.fetchInterestingList("$i"))
                 } else{
-                    game.postValue(repo.searchGames(searchKeyWord/*,pageNumber*/))
+                    game.postValue(repo.searchGames(searchKeyWord/*,"$j"*/))
                 }
 
             } catch (e: Throwable){

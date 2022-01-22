@@ -45,6 +45,7 @@ class SearchPage : Fragment() {
             StaggeredGridLayoutManager.VERTICAL
         )
         loadgames()
+
     }
 
     private fun loadgames(query: String? = null/*,pageNumber:String*/) {
