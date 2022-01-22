@@ -23,12 +23,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
         setting = SettingUtil(this)
         sharedPreference = this.getSharedPreferences("Settings", Context.MODE_PRIVATE)
         val localeToSet = sharedPreference.getString("LOCALE_TO_SET", "en")!!
         setting.setLocate(localeToSet)
         sharedPreference = getSharedPreferences("Settings", Context.MODE_PRIVATE)
+        setContentView(R.layout.activity_main)
+
 
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.fragmentContainerView) as NavHostFragment

@@ -43,12 +43,7 @@ class ProfilePage : Fragment() {
     private lateinit var binding: FragmentProfileBinding
     private lateinit var setting: SettingUtil
 
-
     private var state = 0
-    //private var savedText = ""
-
-
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -115,19 +110,32 @@ class ProfilePage : Fragment() {
         //binding.swchProfMode.text = savedText
         sharedPreference = this.requireActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE)
         //val darkMode = sharedPreference.getBoolean("DARK_MODE",false)
+        editor= sharedPreference.edit()
 
         binding.swchProfMode.isChecked = sharedPreference.getBoolean("DARK_MODE",false)
         //savedText = sharedPreference.getString("DARK_MODE_NAME",null)!!
 
 
         binding.swchProfMode.setOnCheckedChangeListener { _, isChecked ->
-            editor= sharedPreference.edit()
-            if (!isChecked){
-                AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO)
-            }else{
+            if (isChecked){
                 AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES)
+                /*val checkn = sharedPreference.getString("LOCALE_TO_SET", "")
+                if (checkn == "en"){
+                    setLocate("en")
+                }else if (checkn == "ar"){
+                    setLocate("ar")
+                }*/
+
+            }else{
+                AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO)
+                /*val checkd = sharedPreference.getString("LOCALE_TO_SET", "")
+                if (checkd == "en"){
+                    setLocate("en")
+                }else if (checkd == "ar"){
+                    setLocate("ar")
+                }*/
             }
-            editor.putBoolean("DARK_MODE",isChecked)
+            editor.putBoolean("DARK_MODE",binding.swchProfMode.isChecked)
             editor.apply()
         }
 

@@ -1,13 +1,10 @@
 package com.example.gameguide.searchpage
 
-import android.content.Context
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.*
 import android.view.inputmethod.EditorInfo
 import android.widget.SearchView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -37,7 +34,7 @@ class SearchPage : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity?)!!.supportActionBar!!.show()
 
-        (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.ab_search)
+        (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.ab_explore)
 
         setHasOptionsMenu(true)
         binding.rvSgame.layoutManager = StaggeredGridLayoutManager(
