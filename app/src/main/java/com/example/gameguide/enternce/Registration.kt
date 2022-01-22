@@ -48,7 +48,8 @@ class Registration : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.ab_registration)
+        (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
+
 
 
         binding.ivRegisterVisiPass.setOnClickListener {

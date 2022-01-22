@@ -44,6 +44,9 @@ private val args: GameDetailsPageArgs by navArgs()
     @SuppressLint("UseCompatLoadingForDrawables")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        (activity as AppCompatActivity?)!!.supportActionBar!!.show()
+
         (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.ab_game_details)
 
         val id = args.currentGame.id

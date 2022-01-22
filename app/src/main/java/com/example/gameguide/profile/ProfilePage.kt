@@ -60,7 +60,9 @@ class ProfilePage : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-        (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.ab_profile)
+        (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
+
+
         //loadData()
         getUserInfo()
         setting = SettingUtil(requireContext())

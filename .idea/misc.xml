@@ -81,11 +81,11 @@
         <entry key="app/src/main/res/layout/fragment_forget_password.xml" value="0.34895725130234784" />
         <entry key="app/src/main/res/layout/fragment_game_details.xml" value="0.34597295731061534" />
         <entry key="app/src/main/res/layout/fragment_homepage.xml" value="0.2079729978554599" />
-        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.11684782608695653" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_registration.xml" value="0.3054295565527417" />
         <entry key="app/src/main/res/layout/fragment_search_game_details.xml" value="0.29583333333333334" />
         <entry key="app/src/main/res/layout/fragment_search_page.xml" value="0.29583333333333334" />
-        <entry key="app/src/main/res/layout/fragment_sign_in.xml" value="0.4177014623406916" />
+        <entry key="app/src/main/res/layout/fragment_sign_in.xml" value="0.40301574149793334" />
         <entry key="app/src/main/res/layout/fragment_splash_screen.xml" value="0.1" />
         <entry key="app/src/main/res/layout/game_rv_item.xml" value="0.40560008334707875" />
         <entry key="app/src/main/res/menu/bottom_navigation.xml" value="0.3098958333333333" />

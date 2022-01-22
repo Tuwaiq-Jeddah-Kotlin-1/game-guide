@@ -12,6 +12,10 @@ import androidx.navigation.fragment.findNavController
 import com.example.gameguide.R
 import com.example.gameguide.databinding.FragmentForgetPasswordBinding
 import com.google.firebase.auth.FirebaseAuth
+import androidx.appcompat.app.AppCompatActivity
+
+
+
 
 
 class ForgetPassword : Fragment() {
@@ -30,6 +34,11 @@ class ForgetPassword : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
+
+
+
 
         binding.tvResetBackToSignIn.setOnClickListener{
             view.findNavController().navigate(ForgetPasswordDirections.actionForgetPasswordToSignIn())

@@ -45,7 +45,7 @@ class SignIn : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.ab_sign)
+        (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
 
         sharedPreference = this.requireActivity().getSharedPreferences("prefence", Context.MODE_PRIVATE)
         isRemember = sharedPreference.getBoolean("CHECKBOX", false)

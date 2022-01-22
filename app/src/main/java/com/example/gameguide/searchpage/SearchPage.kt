@@ -24,6 +24,7 @@ class SearchPage : Fragment() {
 
 
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -34,6 +35,8 @@ class SearchPage : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (activity as AppCompatActivity?)!!.supportActionBar!!.show()
+
         (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.ab_search)
 
         setHasOptionsMenu(true)
