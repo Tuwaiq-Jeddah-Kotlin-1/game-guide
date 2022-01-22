@@ -22,6 +22,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.gameguide.R
 import com.example.gameguide.databinding.FragmentProfileBinding
 import com.example.gameguide.settingUtil.SettingUtil
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -227,6 +228,7 @@ class ProfilePage : Fragment() {
 
         val builder = BottomSheetDialog(requireContext())//requireView()?.context
         builder.setTitle("edit profile")
+        builder.behavior.state = BottomSheetBehavior.STATE_EXPANDED
 
         val usernameEt = view.findViewById<EditText>(R.id.etChangeProfUsername)
         val userPhoneEt = view.findViewById<EditText>(R.id.etChangeProfPhone)
