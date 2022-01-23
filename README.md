@@ -16,8 +16,8 @@ Game Guide is an application that displays global games and its information and 
 
 ## acount
 
-** email: t@gmail.com **
-** password: 12345678 **
+email: t@gmail.com 
+password: 12345678 
 
 ## 📸 screen shots
 
