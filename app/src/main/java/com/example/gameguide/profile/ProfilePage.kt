@@ -59,7 +59,6 @@ class ProfilePage : Fragment() {
         (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
 
 
-        //loadData()
         getUserInfo()
         setting = SettingUtil(requireContext())
         sharedPreference = this.requireActivity().getSharedPreferences("userInfo", Context.MODE_PRIVATE)
@@ -107,58 +106,21 @@ class ProfilePage : Fragment() {
 
 
 
-        //binding.swchProfMode.text = savedText
         sharedPreference = this.requireActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE)
-        //val darkMode = sharedPreference.getBoolean("DARK_MODE",false)
         editor= sharedPreference.edit()
 
         binding.swchProfMode.isChecked = sharedPreference.getBoolean("DARK_MODE",false)
-        //savedText = sharedPreference.getString("DARK_MODE_NAME",null)!!
 
 
         binding.swchProfMode.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked){
                 AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES)
-                /*val checkn = sharedPreference.getString("LOCALE_TO_SET", "")
-                if (checkn == "en"){
-                    setLocate("en")
-                }else if (checkn == "ar"){
-                    setLocate("ar")
-                }*/
-
             }else{
                 AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO)
-                /*val checkd = sharedPreference.getString("LOCALE_TO_SET", "")
-                if (checkd == "en"){
-                    setLocate("en")
-                }else if (checkd == "ar"){
-                    setLocate("ar")
-                }*/
             }
             editor.putBoolean("DARK_MODE",binding.swchProfMode.isChecked)
             editor.apply()
         }
-
-
-        /*binding.btnProfMode.setOnClickListener {
-
-            sharedPreference = this.requireActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE)
-            editor= sharedPreference.edit()
-
-            val darkMode = sharedPreference.getBoolean("DARK_MODE",false)
-
-            if(darkMode) {
-                AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO)
-                editor.putBoolean("DARK_MODE",false)
-                editor.apply()
-                binding.btnProfMode.text = getString(R.string.proff_enable_dark_mode)
-            } else {
-                AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES)
-                editor.putBoolean("DARK_MODE",true)
-                editor.apply()
-                binding.btnProfMode.text = getString(R.string.proff_disable_dark_mode)
-            }
-        }*/
 
         binding.tvProLogOut.setOnClickListener {
             val langSelectorBuilder = AlertDialog.Builder(requireContext(), R.style.AppCompatAlertDialogStyle)
@@ -182,23 +144,6 @@ class ProfilePage : Fragment() {
         }
     }
 
-
-
-    /*private fun loadData() {
-        sharedPreference = this.requireActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE)
-        editor= sharedPreference.edit()
-
-        val darkMode = sharedPreference.getBoolean("DARK_MODE",swchProfMode.isChecked)
-        if(darkMode){
-            binding.swchProfMode.text= getString(R.string.proff_disable_dark_mode)
-            editor.putString("DARK_MODE_NAME",getString(R.string.proff_disable_dark_mode))
-
-        }else{
-            binding.swchProfMode.text= getString(R.string.proff_enable_dark_mode)
-            editor.putString("DARK_MODE_NAME",getString(R.string.proff_disable_dark_mode))
-        }
-    }*/
-
     private fun getUserInfo() = CoroutineScope(Dispatchers.IO).launch {
         sharedPreference = this@ProfilePage.requireActivity().getSharedPreferences("userInfo", Context.MODE_PRIVATE)
         editor= sharedPreference.edit()
@@ -210,7 +155,7 @@ class ProfilePage : Fragment() {
             db.collection("Users").document("$uId").get().addOnCompleteListener {
 
                 if (it.result?.exists()!!) {
-                    //+++++++++++++++++++++++++++++++++++++++++
+
                     val name = it.result!!.getString("userName")
                     val userPhone = it.result!!.getString("userPhone")
                     val userEmail = it.result!!.getString("userEmail")

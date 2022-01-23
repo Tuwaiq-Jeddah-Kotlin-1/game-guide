@@ -112,8 +112,6 @@ class SignIn : Fragment() {
 
                     getUserInfo()
 
-                    Toast.makeText(context,"information saved!",Toast.LENGTH_LONG).show()
-
                     Log.e("OK", "registration is sucessfully done")
                     findNavController().navigate(R.id.action_signIn_to_homepage)
                 } else {

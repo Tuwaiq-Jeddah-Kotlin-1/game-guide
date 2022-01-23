@@ -118,23 +118,28 @@ private val args: GameDetailsPageArgs by navArgs()
                     if (GD.ratings[i].title == "exceptional"){
                         if(GD.ratings[i].count >= max)
                             max = GD.ratings[i].count
+                        n += GD.ratings[i].title
                     }
                     if (GD.ratings[i].title  == "recommended"){
                         if(GD.ratings[i].count >= max)
                             max = GD.ratings[i].count
+                        n += GD.ratings[i].title
                     }
                     if (GD.ratings[i].title  == "meh"){
                         if(GD.ratings[i].count >= max)
                             max = GD.ratings[i].count
+                        n += GD.ratings[i].title
                     }
                     if (GD.ratings[i].title  == "skip"){
                         if(GD.ratings[i].count >= max)
                             max = GD.ratings[i].count
-                    }
-
-                    if(max == GD.ratings[i].count){
                         n += GD.ratings[i].title
                     }
+
+                    if(GD.ratings[i].count <= 0){
+                        n = ""
+                    }
+                }
 
                     when (n) {
                         "exceptional" -> {
@@ -157,26 +162,38 @@ private val args: GameDetailsPageArgs by navArgs()
                             ivRating.setImageResource(R.drawable.forbidden)
                             tvNumOfRate.text = max.toString()
                         }
+                        "" -> {
+                            tvRatings.text = getString(R.string.GD_not_reated)
+                            ivRating.setImageResource(R.drawable.sleep)
+                            tvNumOfRate.visibility = View.GONE
+                            ivGdRcount.visibility = View.GONE
+                            tvGdRcount.visibility = View.GONE
+                            tvRcountGd.visibility = View.GONE
+
+                        }
                     }
-                }
+
 
                 tvGdRcount.text = GD.ratings_count.toString()
 
                 tvAbout.text = GD.description_raw
 
-                var f=""
-                if (GD.parent_platforms.indices.count() >=1) {
-                    f = GD.parent_platforms[0].platform.name
-                }
-                var s =""
-                for (i in GD.parent_platforms.indices){
-                    if(i <= GD.parent_platforms.lastIndex-1) {
-                        s += ", ${GD.parent_platforms[i + 1].platform.name}"
+                if (GD.parent_platforms.indices.count()>= 1) {
+                    var f = ""
+                    if (GD.parent_platforms.indices.count() >= 1) {
+                        f = GD.parent_platforms[0].platform.name
                     }
+                    var s = ""
+                    for (i in GD.parent_platforms.indices) {
+                        if (i <= GD.parent_platforms.lastIndex - 1) {
+                            s += ", ${GD.parent_platforms[i + 1].platform.name}"
+                        }
+                    }
+
+                    (f + s).also { tvPlatform.text = it }
+                }else{
+                    tvPlatform.text = getString(R.string.GD_not_available)
                 }
-
-                (f+s).also { tvPlatform.text = it }
-
 
                 when {
                     GD.metacritic>=75 -> {
@@ -212,12 +229,18 @@ private val args: GameDetailsPageArgs by navArgs()
 
                 tvTags.text= listItem(GD.tags)
 
-                tvWebsite.text = GD.website
+                when {
+                    GD.website.isNotEmpty() -> {
+                        tvWebsite.text = GD.website
+                    }
+                    else -> {
+                        tvWebsite.text = getString(R.string.GD_not_available)
+
+                    }
+                }
+
             }
 
-            /*val col = GD.dominant_color
-            binding.clDetails.setBackgroundColor(Color.parseColor("#$col"))
-*/
 
             binding.fabGdShare.setOnClickListener {
                 val title: String = tvGdTitle.text.toString()
@@ -239,17 +262,23 @@ private val args: GameDetailsPageArgs by navArgs()
     }
 
     private fun <T:Name>listItem(coll: List<T>):String{
-        var f=""
-        if (coll.indices.count() >=1) {
-            f = coll[0].name
-        }
-        var s =""
-        for (i in coll.indices){
-            if(i <= coll.lastIndex-1) {
-                s += ", ${coll[i + 1].name}"
+
+        if (coll.indices.count()>= 1) {
+
+            var f = ""
+            if (coll.indices.count() >= 1) {
+                f = coll[0].name
             }
+            var s = ""
+            for (i in coll.indices) {
+                if (i <= coll.lastIndex - 1) {
+                    s += ", ${coll[i + 1].name}"
+                }
+            }
+            return f + s
+        }else{
+            return getString(R.string.GD_not_available)
         }
-        return f+s
     }
 
     private fun favourite(onClick: Boolean, id: GameDetailsdata){
