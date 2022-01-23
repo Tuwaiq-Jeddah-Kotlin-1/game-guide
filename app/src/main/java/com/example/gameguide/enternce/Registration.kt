@@ -48,7 +48,8 @@ class Registration : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.ab_registration)
+        (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
+
 
 
         binding.ivRegisterVisiPass.setOnClickListener {
@@ -140,7 +141,6 @@ class Registration : Fragment() {
                         editor.putString("EMAIL",phone)
                         editor.apply()
 
-                        Toast.makeText(context, "registration successful", Toast.LENGTH_LONG).show()
                         Log.e("OK", "registration successful")
                     } else {
                         Toast.makeText(context, task.exception!!.message.toString(), Toast.LENGTH_LONG).show()
@@ -169,21 +169,18 @@ class Registration : Fragment() {
             userRef.document("$userId").set(user).addOnCompleteListener { it
                 when {
                     it.isSuccessful -> {
-                        Toast.makeText(context , "is Successful fire store", Toast.LENGTH_LONG).show()
+                        Toast.makeText(context , "registration successful", Toast.LENGTH_LONG).show()
                         Log.e("OK", "registration successful fire store")
                         findNavController().navigate(R.id.action_registration_to_homepage)
                     }
                     else -> {
-                        Toast.makeText(context, "is not Successful fire store ", Toast.LENGTH_LONG).show()
+                        Toast.makeText(context, "registration is not Successful", Toast.LENGTH_LONG).show()
                     }
                 }
             }
-            withContext(Dispatchers.Main) {
-                //Toast.makeText(coroutineContext.javaClass, "Welcome ${user.fullName.toString()}", Toast.LENGTH_LONG).show()
-            }
+
         } catch (e: Exception) {
             withContext(Dispatchers.Main) {
-                // Toast.makeText(coroutineContext,0,0, e.message, Toast.LENGTH_LONG).show()
                 Log.e("userFireStore", "${e.message}")
             }
         }

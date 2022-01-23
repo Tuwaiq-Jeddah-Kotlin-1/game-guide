@@ -16,7 +16,6 @@ class SettingUtil(private val context: Context) {
 
         config.locale = locale
 
-        //---------------------------------------------------------------
         context.resources?.updateConfiguration(config, context.resources.displayMetrics)
 
     }

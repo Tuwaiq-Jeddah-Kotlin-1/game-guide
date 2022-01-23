@@ -5,6 +5,5 @@ data class User(
     var userName : String="",
     var userEmail : String = "",
     var userPhone : String = "",
-    /*var userFavoriteItem : ArrayList<String> = ""*/
 )
 

@@ -17,9 +17,4 @@ interface GameApi {
     @GET("games?key=$key")
     suspend fun searchQuery(@Query("search")searchKeyWord: String/*, @Query("page")pageNumber: String*/) : Json4Kotlin_Base
 
-
-
-    /*  @GET("https://api.themoviedb.org/3/search/movie?api_key=97420aca6b2b6939360978069af38af1&language=en-US&page=1&include_adult=false")
-    suspend fun searchQuery(@Query("query") searchKeyWord: String): Json4Kotlin_Base
-    //word text is key and it will add &text=$searchKeyword to the url*/
 }

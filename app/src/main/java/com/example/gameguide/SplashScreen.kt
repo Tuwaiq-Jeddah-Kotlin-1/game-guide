@@ -17,18 +17,26 @@ class SplashScreen :  AppCompatActivity(){
     private lateinit var setting: SettingUtil
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        setting = SettingUtil(this)
-        sharedPreference = this.getSharedPreferences("Settings", Context.MODE_PRIVATE)
-        val localeToSet = sharedPreference.getString("LOCALE_TO_SET", "en")!!
-        setting.setLocate(localeToSet)
         sharedPreference = getSharedPreferences("Settings", Context.MODE_PRIVATE)
 
-        val darkMode = sharedPreference.getBoolean("DARK_MODE", false)
 
+        val darkMode = sharedPreference.getBoolean("DARK_MODE", false)
         if (darkMode) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            setting = SettingUtil(this)
+            sharedPreference = this.getSharedPreferences("Settings", Context.MODE_PRIVATE)
+            val localeToSet = sharedPreference.getString("LOCALE_TO_SET", "")!!
+            setting.setLocate(localeToSet)
+            sharedPreference = getSharedPreferences("Settings", Context.MODE_PRIVATE)
+
         } else {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            setting = SettingUtil(this)
+            sharedPreference = this.getSharedPreferences("Settings", Context.MODE_PRIVATE)
+            val localeToSet = sharedPreference.getString("LOCALE_TO_SET", "")!!
+            setting.setLocate(localeToSet)
+            sharedPreference = getSharedPreferences("Settings", Context.MODE_PRIVATE)
+
         }
 
         NotificationRepo().myNotification(MainActivity())
@@ -40,7 +48,8 @@ class SplashScreen :  AppCompatActivity(){
         splash.animate().setDuration(1500).alpha(1f).withEndAction {
             val i = Intent (  this, MainActivity::class.java)
             startActivity(i)
-            overridePendingTransition(android.R.anim. fade_in,android. R. anim. fade_out)
+
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
             finish()
         }
     }

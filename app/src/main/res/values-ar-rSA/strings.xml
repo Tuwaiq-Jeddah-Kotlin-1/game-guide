@@ -85,7 +85,7 @@
     <string name="pro_tv_setting">الاعدادات</string>
     <string name="GD_Hour">ساعة</string>
     <string name="GD_Hours">ساعة</string>
-    <string name="menu_search">البحث</string>
+    <string name="menu_explore">استكشف</string>
     <string name="GD_Hours2">ساعتين</string>
     <string name="GD_Hours310">ساعات</string>
     <string name="pro_chooseLang">اختر اللغة</string>
@@ -96,10 +96,12 @@
     <string name="ab_profile">ملف التعريف</string>
     <string name="ab_favourite">المفضلة</string>
     <string name="ab_game_details">"تفاصيل اللعبة "</string>
-    <string name="ab_search">البحث</string>
+    <string name="ab_explore">استكشف</string>
     <string name="prof_dialog_confirm">تأكيد</string>
     <string name="prof_dialog_cancel">الغاء</string>
     <string name="gd_not_rated">غير مصنف</string>
     <string name="GD_not_reated">غير مصنف</string>
+    <string name="ab_reset_password">اعادة تغيير كلمة المرور</string>
+    <string name="GD_not_available">غير متوفر</string>
 
 </resources>

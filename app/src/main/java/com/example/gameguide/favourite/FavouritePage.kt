@@ -33,6 +33,8 @@ class FavouritePage : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        (activity as AppCompatActivity?)!!.supportActionBar!!.show()
+
         (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.ab_favourite)
 
         binding.rvFgame.layoutManager = LinearLayoutManager(context)

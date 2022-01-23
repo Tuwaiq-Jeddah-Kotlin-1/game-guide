@@ -45,7 +45,7 @@ class SignIn : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.ab_sign)
+        (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
 
         sharedPreference = this.requireActivity().getSharedPreferences("prefence", Context.MODE_PRIVATE)
         isRemember = sharedPreference.getBoolean("CHECKBOX", false)
@@ -111,8 +111,6 @@ class SignIn : Fragment() {
                     editor.apply()
 
                     getUserInfo()
-
-                    Toast.makeText(context,"information saved!",Toast.LENGTH_LONG).show()
 
                     Log.e("OK", "registration is sucessfully done")
                     findNavController().navigate(R.id.action_signIn_to_homepage)

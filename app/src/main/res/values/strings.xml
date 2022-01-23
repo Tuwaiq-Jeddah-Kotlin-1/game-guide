@@ -68,7 +68,7 @@
     <string name="GD_tv_website">website</string>
     <string name="GD_tv_about">about</string>
     <string name="GD_tv_platforms">platforms</string>
-    <string name="GD_tv_geners">geners</string>
+    <string name="GD_tv_geners">genera</string>
     <string name="GD_tv_date">date</string>
     <string name="GD_tv_developers">developers</string>
     <string name="GD_tv_publishers">publishers</string>
@@ -78,12 +78,12 @@
     <string name="GD_recommended">recommended</string>
     <string name="GD_meh">meh</string>
     <string name="GD_skip">skip</string>
-    <string name="rvItem_tv_geners">Geners</string>
+    <string name="rvItem_tv_geners">Genera</string>
     <string name="rvItem_released_date">Released date</string>
     <string name="pro_tv_log_out">log Out</string>
     <string name="pro_tv_setting">setting</string>
     <string name="GD_Hour">1 hour</string>
-    <string name="menu_search">search</string>
+    <string name="menu_explore">explore</string>
     <string name="GD_Hours2">hours</string>
     <string name="GD_Hours310">hours</string>
     <string name="GD_Hours">hours</string>
@@ -95,10 +95,12 @@
     <string name="ab_profile">profile</string>
     <string name="ab_favourite">favourite</string>
     <string name="ab_game_details">game details</string>
-    <string name="ab_search">search</string>
-    <string name="prof_dialog_confirm">ok</string>
-    <string name="prof_dialog_cancel">cancel</string>
+    <string name="ab_explore">explore</string>
+    <string name="prof_dialog_confirm">OK</string>
+    <string name="prof_dialog_cancel">Cancel</string>
     <string name="gd_not_rated">not rated</string>
-    <string name="GD_not_reated">not reated yet</string>
+    <string name="GD_not_reated">not rated yet</string>
+    <string name="ab_reset_password">reset password</string>
+    <string name="GD_not_available">not available</string>
 
 </resources>

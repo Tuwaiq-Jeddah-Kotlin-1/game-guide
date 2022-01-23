@@ -22,6 +22,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.gameguide.R
 import com.example.gameguide.databinding.FragmentProfileBinding
 import com.example.gameguide.settingUtil.SettingUtil
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -42,12 +43,7 @@ class ProfilePage : Fragment() {
     private lateinit var binding: FragmentProfileBinding
     private lateinit var setting: SettingUtil
 
-
     private var state = 0
-    //private var savedText = ""
-
-
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -60,8 +56,9 @@ class ProfilePage : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-        (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.ab_profile)
-        //loadData()
+        (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
+
+
         getUserInfo()
         setting = SettingUtil(requireContext())
         sharedPreference = this.requireActivity().getSharedPreferences("userInfo", Context.MODE_PRIVATE)
@@ -109,45 +106,21 @@ class ProfilePage : Fragment() {
 
 
 
-        //binding.swchProfMode.text = savedText
         sharedPreference = this.requireActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE)
-        //val darkMode = sharedPreference.getBoolean("DARK_MODE",false)
+        editor= sharedPreference.edit()
 
         binding.swchProfMode.isChecked = sharedPreference.getBoolean("DARK_MODE",false)
-        //savedText = sharedPreference.getString("DARK_MODE_NAME",null)!!
 
 
         binding.swchProfMode.setOnCheckedChangeListener { _, isChecked ->
-            editor= sharedPreference.edit()
-            if (!isChecked){
-                AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO)
-            }else{
+            if (isChecked){
                 AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES)
+            }else{
+                AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO)
             }
-            editor.putBoolean("DARK_MODE",isChecked)
+            editor.putBoolean("DARK_MODE",binding.swchProfMode.isChecked)
             editor.apply()
         }
-
-
-        /*binding.btnProfMode.setOnClickListener {
-
-            sharedPreference = this.requireActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE)
-            editor= sharedPreference.edit()
-
-            val darkMode = sharedPreference.getBoolean("DARK_MODE",false)
-
-            if(darkMode) {
-                AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO)
-                editor.putBoolean("DARK_MODE",false)
-                editor.apply()
-                binding.btnProfMode.text = getString(R.string.proff_enable_dark_mode)
-            } else {
-                AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES)
-                editor.putBoolean("DARK_MODE",true)
-                editor.apply()
-                binding.btnProfMode.text = getString(R.string.proff_disable_dark_mode)
-            }
-        }*/
 
         binding.tvProLogOut.setOnClickListener {
             val langSelectorBuilder = AlertDialog.Builder(requireContext(), R.style.AppCompatAlertDialogStyle)
@@ -171,23 +144,6 @@ class ProfilePage : Fragment() {
         }
     }
 
-
-
-    /*private fun loadData() {
-        sharedPreference = this.requireActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE)
-        editor= sharedPreference.edit()
-
-        val darkMode = sharedPreference.getBoolean("DARK_MODE",swchProfMode.isChecked)
-        if(darkMode){
-            binding.swchProfMode.text= getString(R.string.proff_disable_dark_mode)
-            editor.putString("DARK_MODE_NAME",getString(R.string.proff_disable_dark_mode))
-
-        }else{
-            binding.swchProfMode.text= getString(R.string.proff_enable_dark_mode)
-            editor.putString("DARK_MODE_NAME",getString(R.string.proff_disable_dark_mode))
-        }
-    }*/
-
     private fun getUserInfo() = CoroutineScope(Dispatchers.IO).launch {
         sharedPreference = this@ProfilePage.requireActivity().getSharedPreferences("userInfo", Context.MODE_PRIVATE)
         editor= sharedPreference.edit()
@@ -199,7 +155,7 @@ class ProfilePage : Fragment() {
             db.collection("Users").document("$uId").get().addOnCompleteListener {
 
                 if (it.result?.exists()!!) {
-                    //+++++++++++++++++++++++++++++++++++++++++
+
                     val name = it.result!!.getString("userName")
                     val userPhone = it.result!!.getString("userPhone")
                     val userEmail = it.result!!.getString("userEmail")
@@ -225,6 +181,7 @@ class ProfilePage : Fragment() {
 
         val builder = BottomSheetDialog(requireContext())//requireView()?.context
         builder.setTitle("edit profile")
+        builder.behavior.state = BottomSheetBehavior.STATE_EXPANDED
 
         val usernameEt = view.findViewById<EditText>(R.id.etChangeProfUsername)
         val userPhoneEt = view.findViewById<EditText>(R.id.etChangeProfPhone)

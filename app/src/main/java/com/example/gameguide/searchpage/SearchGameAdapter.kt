@@ -49,26 +49,39 @@ class CustomHolder(private val binding: GameRvItemBinding) : RecyclerView.ViewHo
         var n = ""
         var max = 0
         for (i in game.ratings.indices){
+
+
+
+
+
             if (game.ratings[i].title == "exceptional"){
                 if(game.ratings[i].count >= max)
                     max = game.ratings[i].count
+                    n = game.ratings[i].title
             }
             if (game.ratings[i].title  == "recommended"){
                 if(game.ratings[i].count >= max)
                     max = game.ratings[i].count
+                    n = game.ratings[i].title
             }
             if (game.ratings[i].title  == "meh"){
                 if(game.ratings[i].count >= max)
                     max = game.ratings[i].count
+                    n = game.ratings[i].title
             }
             if (game.ratings[i].title  == "skip"){
                 if(game.ratings[i].count >= max)
                     max = game.ratings[i].count
+                    n = game.ratings[i].title
             }
 
-             if(max == game.ratings[i].count) {
-                n = game.ratings[i].title
+            if(game.ratings[i].count <= 0){
+                n = ""
             }
+
+             /*if(max == game.ratings[i].count) {
+                n = game.ratings[i].title
+            }*/
         }
 
             when (n) {
@@ -83,8 +96,11 @@ class CustomHolder(private val binding: GameRvItemBinding) : RecyclerView.ViewHo
                 }
                 "skip" -> {
                     binding.imageView13.setImageResource(R.drawable.forbidden)
-
                 }
+                "" ->{
+                    binding.imageView13.setImageResource(R.drawable.sleep)
+                }
+
             }
 
 
@@ -115,14 +131,18 @@ class CustomHolder(private val binding: GameRvItemBinding) : RecyclerView.ViewHo
             }
         }
 
-        if (game.metacritic>=75){
-            binding.tvItemMetacritic.text = game.metacritic.toString()
-            binding.tvItemMetacritic.setBackgroundResource(R.drawable.higher_75)
-            binding.tvItemMetacritic.setTextColor(Color.parseColor("#4CAF50"))
-        }else{
-            binding.tvItemMetacritic.text = game.metacritic.toString()
-            binding.tvItemMetacritic.setBackgroundResource(R.drawable.lower_75)
-            binding.tvItemMetacritic.setTextColor(Color.parseColor("#FF9800"))
+        when {
+            game.metacritic>=75 -> {
+                binding.tvItemMetacritic.text = game.metacritic.toString()
+                binding.tvItemMetacritic.setBackgroundResource(R.drawable.higher_75)
+                binding.tvItemMetacritic.setTextColor(Color.parseColor("#4CAF50"))
+            } game.metacritic in 1..74 -> {
+                binding.tvItemMetacritic.text = game.metacritic.toString()
+                binding.tvItemMetacritic.setBackgroundResource(R.drawable.lower_75)
+                binding.tvItemMetacritic.setTextColor(Color.parseColor("#FF9800"))
+            } else ->{
+                binding.tvItemMetacritic.text="N/A"
+            }
         }
 
         binding.tvItemRating.text = game.added.toString()
