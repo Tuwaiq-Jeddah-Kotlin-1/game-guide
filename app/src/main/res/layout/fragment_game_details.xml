@@ -79,7 +79,7 @@
                     android:id="@+id/ivPc"
                     android:layout_width="26dp"
                     android:layout_height="32dp"
-                    android:layout_marginEnd="12dp"
+                    android:layout_marginEnd="4dp"
                     android:visibility="gone"
                     app:layout_constraintBottom_toBottomOf="@+id/tvGdDate"
                     app:layout_constraintEnd_toStartOf="@+id/tvGdDate"
@@ -90,50 +90,55 @@
                     android:id="@+id/ivPS"
                     android:layout_width="26dp"
                     android:layout_height="32dp"
+                    android:layout_marginEnd="4dp"
                     android:visibility="gone"
-                    app:layout_constraintBottom_toBottomOf="@+id/ivPc"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvGdDate"
                     app:layout_constraintEnd_toStartOf="@+id/ivPc"
-                    app:layout_constraintTop_toTopOf="@+id/ivPc"
+                    app:layout_constraintTop_toTopOf="@+id/tvGdDate"
                     tools:srcCompat="@tools:sample/avatars" />
 
                 <ImageView
                     android:id="@+id/ivXb"
                     android:layout_width="26dp"
                     android:layout_height="32dp"
+                    android:layout_marginEnd="4dp"
                     android:visibility="gone"
-                    app:layout_constraintBottom_toBottomOf="@+id/ivPS"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvGdDate"
                     app:layout_constraintEnd_toStartOf="@+id/ivPS"
-                    app:layout_constraintTop_toTopOf="@+id/ivPS"
+                    app:layout_constraintTop_toTopOf="@+id/tvGdDate"
                     tools:srcCompat="@tools:sample/avatars" />
 
                 <ImageView
                     android:id="@+id/ivNs"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
+                    android:layout_marginEnd="4dp"
                     android:visibility="gone"
-                    app:layout_constraintBottom_toBottomOf="@+id/ivXb"
-                    app:layout_constraintEnd_toStartOf="@+id/ivXb"
-                    app:layout_constraintTop_toTopOf="@+id/ivXb"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvGdDate"
+                    app:layout_constraintEnd_toStartOf="@+id/ivAndroid"
+                    app:layout_constraintTop_toTopOf="@+id/tvGdDate"
                     tools:srcCompat="@tools:sample/avatars" />
 
                 <ImageView
                     android:id="@+id/ivIos"
                     android:layout_width="26dp"
                     android:layout_height="32dp"
+                    android:layout_marginEnd="4dp"
                     android:visibility="gone"
-                    app:layout_constraintBottom_toBottomOf="@+id/ivNs"
-                    app:layout_constraintEnd_toStartOf="@+id/ivNs"
-                    app:layout_constraintTop_toTopOf="@+id/ivNs"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvGdDate"
+                    app:layout_constraintEnd_toStartOf="@+id/ivXb"
+                    app:layout_constraintTop_toTopOf="@+id/tvGdDate"
                     tools:srcCompat="@tools:sample/avatars" />
 
                 <ImageView
                     android:id="@+id/ivAndroid"
                     android:layout_width="26dp"
                     android:layout_height="32dp"
+                    android:layout_marginEnd="4dp"
                     android:visibility="gone"
-                    app:layout_constraintBottom_toBottomOf="@+id/ivIos"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvGdDate"
                     app:layout_constraintEnd_toStartOf="@+id/ivIos"
-                    app:layout_constraintTop_toTopOf="@+id/ivIos"
+                    app:layout_constraintTop_toTopOf="@+id/tvGdDate"
                     tools:srcCompat="@tools:sample/avatars" />
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton

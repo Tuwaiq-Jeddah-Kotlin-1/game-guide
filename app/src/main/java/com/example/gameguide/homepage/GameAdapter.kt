@@ -50,29 +50,33 @@ class CustomHolder(private val binding: GameRvItemBinding) : RecyclerView.ViewHo
         var max = 0
 
         for (i in game.ratings.indices){
-            if (game.ratings[i].title == "exceptional"){
-                if(game.ratings[i].count >= max)
-                    max = game.ratings[i].count
-                n += game.ratings[i].title
-            }
-            if (game.ratings[i].title  == "recommended"){
-                if(game.ratings[i].count >= max)
-                    max = game.ratings[i].count
-                n += game.ratings[i].title
-            }
-            if (game.ratings[i].title  == "meh"){
-                if(game.ratings[i].count >= max)
-                    max = game.ratings[i].count
-                n += game.ratings[i].title
-            }
-            if (game.ratings[i].title  == "skip"){
-                if(game.ratings[i].count >= max)
-                    max = game.ratings[i].count
-                n += game.ratings[i].title
-            }
+            if(game.ratings[i].count != 0) {
 
-            if(game.ratings[i].count <= 0){
-                n = ""
+
+                if (game.ratings[i].title == "exceptional") {
+                    if (game.ratings[i].count >= max) {
+                        max = game.ratings[i].count
+                        n += game.ratings[i].title
+                    }
+                }
+                if (game.ratings[i].title == "recommended") {
+                    if (game.ratings[i].count >= max) {
+                        max = game.ratings[i].count
+                        n += game.ratings[i].title
+                    }
+                }
+                if (game.ratings[i].title == "meh") {
+                    if (game.ratings[i].count >= max) {
+                        max = game.ratings[i].count
+                        n += game.ratings[i].title
+                    }
+                }
+                if (game.ratings[i].title == "skip") {
+                    if (game.ratings[i].count >= max) {
+                        max = game.ratings[i].count
+                        n += game.ratings[i].title
+                    }
+                }
             }
         }
 

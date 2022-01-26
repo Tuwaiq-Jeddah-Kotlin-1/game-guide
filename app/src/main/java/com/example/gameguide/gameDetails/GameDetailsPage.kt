@@ -115,29 +115,31 @@ private val args: GameDetailsPageArgs by navArgs()
                 var n = ""
                 var max = 0
                 for (i in GD.ratings.indices){
-                    if (GD.ratings[i].title == "exceptional"){
-                        if(GD.ratings[i].count >= max)
-                            max = GD.ratings[i].count
-                        n += GD.ratings[i].title
-                    }
-                    if (GD.ratings[i].title  == "recommended"){
-                        if(GD.ratings[i].count >= max)
-                            max = GD.ratings[i].count
-                        n += GD.ratings[i].title
-                    }
-                    if (GD.ratings[i].title  == "meh"){
-                        if(GD.ratings[i].count >= max)
-                            max = GD.ratings[i].count
-                        n += GD.ratings[i].title
-                    }
-                    if (GD.ratings[i].title  == "skip"){
-                        if(GD.ratings[i].count >= max)
-                            max = GD.ratings[i].count
-                        n += GD.ratings[i].title
-                    }
-
-                    if(GD.ratings[i].count <= 0){
-                        n = ""
+                    if(GD.ratings[i].count != 0) {
+                        if (GD.ratings[i].title == "exceptional") {
+                            if (GD.ratings[i].count >= max) {
+                                max = GD.ratings[i].count
+                                n = GD.ratings[i].title
+                            }
+                        }
+                        if (GD.ratings[i].title == "recommended") {
+                            if (GD.ratings[i].count >= max) {
+                                max = GD.ratings[i].count
+                                n = GD.ratings[i].title
+                            }
+                        }
+                        if (GD.ratings[i].title == "meh") {
+                            if (GD.ratings[i].count >= max) {
+                                max = GD.ratings[i].count
+                                n = GD.ratings[i].title
+                            }
+                        }
+                        if (GD.ratings[i].title == "skip") {
+                            if (GD.ratings[i].count >= max) {
+                                max = GD.ratings[i].count
+                                n = GD.ratings[i].title
+                            }
+                        }
                     }
                 }
 
@@ -289,11 +291,11 @@ private val args: GameDetailsPageArgs by navArgs()
         try {
             //coroutine
             val fav = FavouriteGame(id.id,id.name,id.background_image,tvRatings.text.toString(),tvPlatform.text.toString(),id.metacritic,id.added,tvGeners.text.toString(),id.released,id.visibility)
-            val docRef = db.collection("Users").document("$uId").collection("favorite").document(id.name)
-            ref.document(id.name).get().addOnCompleteListener {
+            val docRef = db.collection("Users").document("$uId").collection("favorite").document(id.id.toString())
+            ref.document(id.id.toString()).get().addOnCompleteListener {
                 if (it.result!!.exists()){
                     if (onClick){
-                        ref.document(id.name).delete()
+                        ref.document(id.id.toString()).delete()
                         binding.fabGdFav.setImageResource(R.drawable.ic_baseline_favorite_border_24)
                     }else{
                         binding.fabGdFav.setImageResource(R.drawable.ic_baseline_favorite_24)
