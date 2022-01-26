@@ -13,10 +13,16 @@ import com.example.gameguide.R
 import com.example.gameguide.dataClasses.FavouriteGame
 import com.example.gameguide.databinding.GameRvItemBinding
 
-class FavouriteAdapter (private val gameData: List<FavouriteGame>) : RecyclerView.Adapter<CustomHolder>() {
+class FavouriteAdapter(private val gameData: List<FavouriteGame>) :
+    RecyclerView.Adapter<CustomHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomHolder {
-        val bind = DataBindingUtil.inflate<GameRvItemBinding>(LayoutInflater.from(parent.context), R.layout.game_rv_item,parent,false)
+        val bind = DataBindingUtil.inflate<GameRvItemBinding>(
+            LayoutInflater.from(parent.context),
+            R.layout.game_rv_item,
+            parent,
+            false
+        )
         return CustomHolder(bind)
     }
 
@@ -43,41 +49,43 @@ class CustomHolder(private val binding: GameRvItemBinding) : RecyclerView.ViewHo
 
         binding.tvItemRating.text = game.ratings
 
-        if (game.parent_platforms.contains("PC")){
+        if (game.parent_platforms.contains("PC")) {
             binding.imageView.setImageResource(R.drawable.windowss)
             binding.imageView.visibility = View.VISIBLE
         }
-        if(game.parent_platforms.contains("PlayStation")){
+        if (game.parent_platforms.contains("PlayStation")) {
             binding.imageView2.setImageResource(R.drawable.playstation)
             binding.imageView2.visibility = View.VISIBLE
         }
-        if(game.parent_platforms.contains("Xbox")){
+        if (game.parent_platforms.contains("Xbox")) {
             binding.imageView3.setImageResource(R.drawable.xbox)
             binding.imageView3.visibility = View.VISIBLE
         }
-        if(game.parent_platforms.contains("Nintendo")){
+        if (game.parent_platforms.contains("Nintendo")) {
             binding.imageView4.setImageResource(R.drawable.nintendo)
             binding.imageView4.visibility = View.VISIBLE
         }
-        if(game.parent_platforms.contains("iOS")){
+        if (game.parent_platforms.contains("iOS")) {
             binding.imageView5.setImageResource(R.drawable.apple)
             binding.imageView5.visibility = View.VISIBLE
         }
-        if(game.parent_platforms.contains("Android")){
+        if (game.parent_platforms.contains("Android")) {
             binding.imageView6.setImageResource(R.drawable.android)
             binding.imageView6.visibility = View.VISIBLE
         }
 
         when {
-            game.metacritic>=75 -> {
+            game.metacritic >= 75 -> {
                 binding.tvItemMetacritic.text = game.metacritic.toString()
                 binding.tvItemMetacritic.setBackgroundResource(R.drawable.higher_75)
                 binding.tvItemMetacritic.setTextColor(Color.parseColor("#4CAF50"))
-            }game.metacritic in 1..74 -> {
+            }
+            game.metacritic in 1..74 -> {
                 binding.tvItemMetacritic.text = game.metacritic.toString()
                 binding.tvItemMetacritic.setBackgroundResource(R.drawable.lower_75)
                 binding.tvItemMetacritic.setTextColor(Color.parseColor("#FF9800"))
-            }else -> {
+            }
+            else -> {
                 binding.tvItemMetacritic.text = "N/A"
             }
         }
@@ -97,30 +105,30 @@ class CustomHolder(private val binding: GameRvItemBinding) : RecyclerView.ViewHo
             "skip" -> {
                 binding.imageView13.setImageResource(R.drawable.forbidden)
             }
-            ""->{
+            "" -> {
                 binding.imageView13.setImageResource(R.drawable.sleep)
             }
         }
 
         binding.tvGenereItem.text = game.genres
 
-        binding.tvReleased.text=game.released
+        binding.tvReleased.text = game.released
 
-        val isVisible : Boolean = game.visibility
+        val isVisible: Boolean = game.visibility
 
         binding.expandableView.visibility = if (isVisible) View.VISIBLE else View.GONE
 
         binding.ivItemExpand.setOnClickListener {
             game.visibility = !game.visibility
             binding.expandableView.visibility = if (game.visibility) View.VISIBLE else View.GONE
-            if(game.visibility){
+            if (game.visibility) {
                 binding.ivItemExpand.setImageResource(R.drawable.ic_baseline_expand_less_24)
-            }else{
+            } else {
                 binding.ivItemExpand.setImageResource(R.drawable.ic_baseline_expand_more_24)
             }
         }
 
-        binding.root.setOnClickListener{
+        binding.root.setOnClickListener {
             val gameD = GameData(id)
             val action = FavouritePageDirections.actionFavouritePageToGameDetails(gameD)
             binding.root.findNavController().navigate(action)

@@ -5,11 +5,9 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
-import com.example.gameguide.notification.NotificationRepo
 import com.example.gameguide.settingUtil.SettingUtil
 import com.google.android.material.bottomnavigation.BottomNavigationView
 

@@ -14,10 +14,11 @@ import com.example.gameguide.databinding.FragmentHomepageBinding
 
 
 class Homepage : Fragment() {
-    private lateinit var binding:FragmentHomepageBinding
+    private lateinit var binding: FragmentHomepageBinding
     private val vm by lazy {
         ViewModelProvider(this)[HomeVM::class.java]
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -28,6 +29,7 @@ class Homepage : Fragment() {
         return binding.root
 
     }
+
     companion object {
         var i = 1
     }
@@ -37,93 +39,94 @@ class Homepage : Fragment() {
 
         (activity as AppCompatActivity?)!!.supportActionBar!!.show()
 
-        (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.ab_home)
+        (requireActivity() as AppCompatActivity).supportActionBar?.title =
+            getString(R.string.ab_home)
 
         binding.tvHomePnum.text = i.toString()
 
         loadMovieImages("$i")
         val minPage = 1
         val maxPage = 33076
-        visibilty(i,minPage,maxPage)
+        visibilty(i, minPage, maxPage)
 
         binding.ivHomeNext.setOnClickListener {
-            if (i<maxPage) {
+            if (i < maxPage) {
                 i++
                 loadMovieImages("$i")
                 binding.tvHomePnum.text = i.toString()
-                visibilty(i,minPage,maxPage)
-            }else{
+                visibilty(i, minPage, maxPage)
+            } else {
                 binding.tvHomePnum.text = i.toString()
-                visibilty(i,minPage,maxPage)
+                visibilty(i, minPage, maxPage)
                 binding.ivHomeNext.visibility = View.GONE
             }
         }
 
         binding.ivHome10Next.setOnClickListener {
-            if (i<maxPage-10) {
+            if (i < maxPage - 10) {
                 i += 10
                 loadMovieImages("$i")
                 binding.tvHomePnum.text = i.toString()
-                visibilty(i,minPage,maxPage)
-            }else{
+                visibilty(i, minPage, maxPage)
+            } else {
                 binding.tvHomePnum.text = i.toString()
-                visibilty(i,minPage,maxPage)
-                visibilty(i,minPage,maxPage)
+                visibilty(i, minPage, maxPage)
+                visibilty(i, minPage, maxPage)
                 binding.ivHome10Next.visibility = View.GONE
 
             }
         }
 
         binding.ivHomePrev.setOnClickListener {
-           if(i<=minPage){
-               visibilty(i,minPage,maxPage)
-               binding.ivHomePrev.visibility = View.GONE
-           }else{
-               i--
-               loadMovieImages("$i")
-               binding.tvHomePnum.text = i.toString()
-               visibilty(i,minPage,maxPage)
-           }
+            if (i <= minPage) {
+                visibilty(i, minPage, maxPage)
+                binding.ivHomePrev.visibility = View.GONE
+            } else {
+                i--
+                loadMovieImages("$i")
+                binding.tvHomePnum.text = i.toString()
+                visibilty(i, minPage, maxPage)
+            }
         }
 
         binding.ivHome10Prev.setOnClickListener {
-           if(i<minPage+10){
-               binding.tvHomePnum.text = i.toString()
-               visibilty(i,minPage,maxPage)
-               binding.ivHome10Prev.visibility = View.GONE
-           }else{
-               i -= 10
-               loadMovieImages("$i")
-               binding.tvHomePnum.text = i.toString()
-               visibilty(i, minPage, maxPage)
-           }
+            if (i < minPage + 10) {
+                binding.tvHomePnum.text = i.toString()
+                visibilty(i, minPage, maxPage)
+                binding.ivHome10Prev.visibility = View.GONE
+            } else {
+                i -= 10
+                loadMovieImages("$i")
+                binding.tvHomePnum.text = i.toString()
+                visibilty(i, minPage, maxPage)
+            }
         }
     }
 
     private fun visibilty(i: Int, minPage: Int, maxPage: Int) {
-        if(i>=minPage+10){
+        if (i >= minPage + 10) {
             binding.ivHome10Prev.visibility = View.VISIBLE
-        }else{
+        } else {
             binding.ivHome10Prev.visibility = View.GONE
         }
-        if(i>minPage){
+        if (i > minPage) {
             binding.ivHomePrev.visibility = View.VISIBLE
-        }else{
+        } else {
             binding.ivHomePrev.visibility = View.GONE
         }
-        if(i>maxPage-10){
+        if (i > maxPage - 10) {
             binding.ivHome10Next.visibility = View.GONE
-        }else{
+        } else {
             binding.ivHome10Next.visibility = View.VISIBLE
         }
-        if(i>maxPage){
+        if (i > maxPage) {
             binding.ivHomeNext.visibility = View.GONE
-        }else{
+        } else {
             binding.ivHomeNext.visibility = View.VISIBLE
         }
     }
 
-    private fun loadMovieImages(pageNumber:String) {
+    private fun loadMovieImages(pageNumber: String) {
         vm.fetchIntrestingList(pageNumber).observe(viewLifecycleOwner, {
             binding.rvGame.adapter = GameAdapter(it.results)
             Log.d("Movie Main Response", it.results.toString())

@@ -18,8 +18,8 @@ class FavouritePage : Fragment() {
 
     private var fireStore: FirebaseFirestore = FirebaseFirestore.getInstance()
     private lateinit var binding: FragmentFavouritePageBinding
-    private lateinit var FavouriteList :ArrayList<FavouriteGame>
-    private lateinit var FavouriteAdapter :FavouriteAdapter
+    private lateinit var FavouriteList: ArrayList<FavouriteGame>
+    private lateinit var FavouriteAdapter: FavouriteAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,7 +35,8 @@ class FavouritePage : Fragment() {
 
         (activity as AppCompatActivity?)!!.supportActionBar!!.show()
 
-        (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.ab_favourite)
+        (requireActivity() as AppCompatActivity).supportActionBar?.title =
+            getString(R.string.ab_favourite)
 
         binding.rvFgame.layoutManager = LinearLayoutManager(context)
         binding.rvFgame.setHasFixedSize(true)
@@ -47,21 +48,22 @@ class FavouritePage : Fragment() {
     }
 
 
-    private fun getFavGames(){
+    private fun getFavGames() {
         val uid = FirebaseAuth.getInstance().currentUser?.uid
-        fireStore.collection("Users").document(uid.toString()).collection("favorite").addSnapshotListener(object :EventListener<QuerySnapshot> {
-            override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?) {
-                if (error != null){
-                    Log.e("Firestore",error.message.toString())
-                    return
-                }
-                for (dc : DocumentChange in value?.documentChanges!!){
-                    if (dc.type == DocumentChange.Type.ADDED){
-                        FavouriteList.add(dc.document.toObject(FavouriteGame::class.java))
+        fireStore.collection("Users").document(uid.toString()).collection("favorite")
+            .addSnapshotListener(object : EventListener<QuerySnapshot> {
+                override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?) {
+                    if (error != null) {
+                        Log.e("Firestore", error.message.toString())
+                        return
                     }
+                    for (dc: DocumentChange in value?.documentChanges!!) {
+                        if (dc.type == DocumentChange.Type.ADDED) {
+                            FavouriteList.add(dc.document.toObject(FavouriteGame::class.java))
+                        }
+                    }
+                    binding.rvFgame.adapter?.notifyDataSetChanged()
                 }
-                binding.rvFgame.adapter?.notifyDataSetChanged()
-            }
-        })
+            })
     }
 }

@@ -1,5 +1,6 @@
 package com.example.gameguide
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -11,7 +12,8 @@ import com.example.gameguide.notification.NotificationRepo
 import com.example.gameguide.settingUtil.SettingUtil
 
 
-class SplashScreen :  AppCompatActivity(){
+@SuppressLint("CustomSplashScreen")
+class SplashScreen : AppCompatActivity() {
 
     private lateinit var sharedPreference: SharedPreferences
     private lateinit var setting: SettingUtil
@@ -44,9 +46,9 @@ class SplashScreen :  AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
         val splash = findViewById<ImageView>(R.id.splashLogo)
-        splash.alpha= 0f
+        splash.alpha = 0f
         splash.animate().setDuration(1500).alpha(1f).withEndAction {
-            val i = Intent (  this, MainActivity::class.java)
+            val i = Intent(this, MainActivity::class.java)
             startActivity(i)
 
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)

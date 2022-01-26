@@ -5,7 +5,7 @@ import android.content.res.Configuration
 import java.util.*
 
 class SettingUtil(private val context: Context) {
-     fun setLocate(s: String) {
+    fun setLocate(s: String) {
 
 
         val locale = Locale(s)

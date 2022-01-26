@@ -9,15 +9,15 @@ import com.example.gameguide.data.GDdata.GameDetailsdata
 import com.example.gameguide.network.GameRepo
 import kotlinx.coroutines.launch
 
-class DetilsVM : ViewModel(){
+class DetilsVM : ViewModel() {
     val repo = GameRepo()
     fun gamesDetails(GameId: Int): LiveData<GameDetailsdata> {
         val games = MutableLiveData<GameDetailsdata>()
         viewModelScope.launch {
             try {
                 games.postValue(repo.gamesDetails(GameId))
-            }catch (e: Throwable){
-                Log.e("game details","problem: ${e.localizedMessage}")
+            } catch (e: Throwable) {
+                Log.e("game details", "problem: ${e.localizedMessage}")
             }
         }
         return games

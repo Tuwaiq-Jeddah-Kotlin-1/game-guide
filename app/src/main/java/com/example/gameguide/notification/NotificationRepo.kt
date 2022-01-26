@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit
 class NotificationRepo {
     private val list = listOf("hello gamers check us out!!", "check latest games details").random()
 
-    fun myNotification(mainActivity: MainActivity){
+    fun myNotification(mainActivity: MainActivity) {
         val myWorkRequest = PeriodicWorkRequest.Builder(Worker::class.java, 48, TimeUnit.HOURS)
             .setInputData(workDataOf("title" to "Game Guide", "message" to list))
             .build()

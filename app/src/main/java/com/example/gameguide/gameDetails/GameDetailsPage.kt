@@ -26,8 +26,8 @@ import kotlinx.android.synthetic.main.fragment_game_details.*
 
 class GameDetailsPage : Fragment() {
 
-private lateinit var binding: FragmentGameDetailsBinding
-private val args: GameDetailsPageArgs by navArgs()
+    private lateinit var binding: FragmentGameDetailsBinding
+    private val args: GameDetailsPageArgs by navArgs()
     private val vm by lazy {
         ViewModelProvider(this)[DetilsVM::class.java]
     }
@@ -47,7 +47,8 @@ private val args: GameDetailsPageArgs by navArgs()
 
         (activity as AppCompatActivity?)!!.supportActionBar!!.show()
 
-        (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.ab_game_details)
+        (requireActivity() as AppCompatActivity).supportActionBar?.title =
+            getString(R.string.ab_game_details)
 
         val id = args.currentGame.id
         loadGameDetails(id)
@@ -55,31 +56,31 @@ private val args: GameDetailsPageArgs by navArgs()
 
     private fun loadGameDetails(id: Int) {
         vm.gamesDetails(id).observe(viewLifecycleOwner, { GD ->
-            with(binding){
+            with(binding) {
                 ivGdPoster.load(GD.background_image)
 
-                for (i in GD.parent_platforms.indices){
-                    if (GD.parent_platforms[i].platform.name == "PC"){
+                for (i in GD.parent_platforms.indices) {
+                    if (GD.parent_platforms[i].platform.name == "PC") {
                         ivPc.setImageResource(R.drawable.windowss)
                         ivPc.visibility = View.VISIBLE
                     }
-                    if (GD.parent_platforms[i].platform.name == "PlayStation"){
+                    if (GD.parent_platforms[i].platform.name == "PlayStation") {
                         ivPS.setImageResource(R.drawable.playstation)
                         ivPS.visibility = View.VISIBLE
                     }
-                    if (GD.parent_platforms[i].platform.name == "Xbox"){
+                    if (GD.parent_platforms[i].platform.name == "Xbox") {
                         ivXb.setImageResource(R.drawable.xbox)
                         ivXb.visibility = View.VISIBLE
                     }
-                    if (GD.parent_platforms[i].platform.name == "Nintendo"){
+                    if (GD.parent_platforms[i].platform.name == "Nintendo") {
                         ivNs.setImageResource(R.drawable.nintendo)
                         ivNs.visibility = View.VISIBLE
                     }
-                    if (GD.parent_platforms[i].platform.name == "iOS"){
+                    if (GD.parent_platforms[i].platform.name == "iOS") {
                         ivIos.setImageResource(R.drawable.apple)
                         ivIos.visibility = View.VISIBLE
                     }
-                    if (GD.parent_platforms[i].platform.name == "Android"){
+                    if (GD.parent_platforms[i].platform.name == "Android") {
                         ivAndroid.setImageResource(R.drawable.android)
                         ivAndroid.visibility = View.VISIBLE
                     }
@@ -89,19 +90,18 @@ private val args: GameDetailsPageArgs by navArgs()
 
                 when {
                     GD.playtime == 1 -> {
-                        (getString(R.string.GD_Hour)+"").also { tvGdPt.text = it }
+                        (getString(R.string.GD_Hour) + "").also { tvGdPt.text = it }
                     }
                     GD.playtime == 2 -> {
-                        //(GD.playtime.toString() + "" + getString(R.string.GD_Hours2)+"").also { tvGdPt.text = it }
-                        "${GD.playtime.toString()} ${getString(R.string.GD_Hours2)}".also { tvGdPt.text = it }
+                        "${GD.playtime} ${getString(R.string.GD_Hours2)}".also { tvGdPt.text = it }
                     }
                     GD.playtime in 3..10 -> {
-                        //(GD.playtime.toString() + "" + getString(R.string.GD_Hours310)+"").also { tvGdPt.text = it }
-                        "${GD.playtime.toString()} ${getString(R.string.GD_Hours310)}".also { tvGdPt.text = it }
+                        "${GD.playtime} ${getString(R.string.GD_Hours310)}".also {
+                            tvGdPt.text = it
+                        }
                     }
                     GD.playtime >= 11 -> {
-                        //(GD.playtime.toString() + "" + getString(R.string.GD_Hours)+"").also { tvGdPt.text = it }
-                        "${GD.playtime.toString()} ${getString(R.string.GD_Hours)}".also { tvGdPt.text = it }
+                        "${GD.playtime} ${getString(R.string.GD_Hours)}".also { tvGdPt.text = it }
                     }
                     else -> tvGdPt.text = "N/A"
                 }
@@ -114,8 +114,8 @@ private val args: GameDetailsPageArgs by navArgs()
 
                 var n = ""
                 var max = 0
-                for (i in GD.ratings.indices){
-                    if(GD.ratings[i].count != 0) {
+                for (i in GD.ratings.indices) {
+                    if (GD.ratings[i].count != 0) {
                         if (GD.ratings[i].title == "exceptional") {
                             if (GD.ratings[i].count >= max) {
                                 max = GD.ratings[i].count
@@ -143,44 +143,44 @@ private val args: GameDetailsPageArgs by navArgs()
                     }
                 }
 
-                    when (n) {
-                        "exceptional" -> {
-                            tvRatings.text = getString(R.string.GD_exceptional)
-                            ivRating.setImageResource(R.drawable.target)
-                            tvNumOfRate.text = max.toString()
-                        }
-                        "recommended" -> {
-                            tvRatings.text = getString(R.string.GD_recommended)
-                            ivRating.setImageResource(R.drawable.like)
-                            tvNumOfRate.text = max.toString()
-                        }
-                        "meh" -> {
-                            tvRatings.text = getString(R.string.GD_meh)
-                            ivRating.setImageResource(R.drawable.meh)
-                            tvNumOfRate.text = max.toString()
-                        }
-                        "skip" -> {
-                            tvRatings.text = getString(R.string.GD_skip)
-                            ivRating.setImageResource(R.drawable.forbidden)
-                            tvNumOfRate.text = max.toString()
-                        }
-                        "" -> {
-                            tvRatings.text = getString(R.string.GD_not_reated)
-                            ivRating.setImageResource(R.drawable.sleep)
-                            tvNumOfRate.visibility = View.GONE
-                            ivGdRcount.visibility = View.GONE
-                            tvGdRcount.visibility = View.GONE
-                            tvRcountGd.visibility = View.GONE
-
-                        }
+                when (n) {
+                    "exceptional" -> {
+                        tvRatings.text = getString(R.string.GD_exceptional)
+                        ivRating.setImageResource(R.drawable.target)
+                        tvNumOfRate.text = max.toString()
                     }
+                    "recommended" -> {
+                        tvRatings.text = getString(R.string.GD_recommended)
+                        ivRating.setImageResource(R.drawable.like)
+                        tvNumOfRate.text = max.toString()
+                    }
+                    "meh" -> {
+                        tvRatings.text = getString(R.string.GD_meh)
+                        ivRating.setImageResource(R.drawable.meh)
+                        tvNumOfRate.text = max.toString()
+                    }
+                    "skip" -> {
+                        tvRatings.text = getString(R.string.GD_skip)
+                        ivRating.setImageResource(R.drawable.forbidden)
+                        tvNumOfRate.text = max.toString()
+                    }
+                    "" -> {
+                        tvRatings.text = getString(R.string.GD_not_reated)
+                        ivRating.setImageResource(R.drawable.sleep)
+                        tvNumOfRate.visibility = View.GONE
+                        ivGdRcount.visibility = View.GONE
+                        tvGdRcount.visibility = View.GONE
+                        tvRcountGd.visibility = View.GONE
+
+                    }
+                }
 
 
                 tvGdRcount.text = GD.ratings_count.toString()
 
                 tvAbout.text = GD.description_raw
 
-                if (GD.parent_platforms.indices.count()>= 1) {
+                if (GD.parent_platforms.indices.count() >= 1) {
                     var f = ""
                     if (GD.parent_platforms.indices.count() >= 1) {
                         f = GD.parent_platforms[0].platform.name
@@ -193,12 +193,12 @@ private val args: GameDetailsPageArgs by navArgs()
                     }
 
                     (f + s).also { tvPlatform.text = it }
-                }else{
+                } else {
                     tvPlatform.text = getString(R.string.GD_not_available)
                 }
 
                 when {
-                    GD.metacritic>=75 -> {
+                    GD.metacritic >= 75 -> {
                         tvGdMeta.text = GD.metacritic.toString()
                         tvGdMeta.setBackgroundResource(R.drawable.higher_75)
                         tvGdMeta.setTextColor(Color.parseColor("#4CAF50"))
@@ -219,17 +219,17 @@ private val args: GameDetailsPageArgs by navArgs()
 
                 tvDate.text = GD.released
 
-                 tvDevelopers.text = listItem(GD.developers)
+                tvDevelopers.text = listItem(GD.developers)
 
                 tvPublishers.text = listItem(GD.publishers)
 
-                if(GD.esrb_rating?.name?.isNotEmpty() == true){
+                if (GD.esrb_rating?.name?.isNotEmpty() == true) {
                     tvAgeRating.text = GD.esrb_rating.name
-                }else{
+                } else {
                     tvAgeRating.text = getString(R.string.gd_not_rated)
                 }
 
-                tvTags.text= listItem(GD.tags)
+                tvTags.text = listItem(GD.tags)
 
                 when {
                     GD.website.isNotEmpty() -> {
@@ -247,25 +247,26 @@ private val args: GameDetailsPageArgs by navArgs()
             binding.fabGdShare.setOnClickListener {
                 val title: String = tvGdTitle.text.toString()
                 val rating: String = tvGdRate.text.toString()
-                val message=  "game name: $title\n game rating: $rating\n\n download Game Guide to see latest game details"
+                val message =
+                    "game name: $title\n game rating: $rating\n\n download Game Guide to see latest game details"
 
                 val intent = Intent()
                 intent.action = Intent.ACTION_SEND
                 intent.putExtra(Intent.EXTRA_TEXT, message)
                 intent.type = "text/plain"
-                startActivity(Intent.createChooser(intent,"share to : "))
+                startActivity(Intent.createChooser(intent, "share to : "))
             }
 
             binding.fabGdFav.setOnClickListener {
-                favourite(true,GD)
+                favourite(true, GD)
             }
-            favourite(false,GD)
+            favourite(false, GD)
         })
     }
 
-    private fun <T:Name>listItem(coll: List<T>):String{
+    private fun <T : Name> listItem(coll: List<T>): String {
 
-        if (coll.indices.count()>= 1) {
+        if (coll.indices.count() >= 1) {
 
             var f = ""
             if (coll.indices.count() >= 1) {
@@ -278,40 +279,52 @@ private val args: GameDetailsPageArgs by navArgs()
                 }
             }
             return f + s
-        }else{
+        } else {
             return getString(R.string.GD_not_available)
         }
     }
 
-    private fun favourite(onClick: Boolean, id: GameDetailsdata){
+    private fun favourite(onClick: Boolean, id: GameDetailsdata) {
 
         val uId = FirebaseAuth.getInstance().currentUser?.uid
         val db = FirebaseFirestore.getInstance()
         val ref = db.collection("Users").document("$uId").collection("favorite")
         try {
             //coroutine
-            val fav = FavouriteGame(id.id,id.name,id.background_image,tvRatings.text.toString(),tvPlatform.text.toString(),id.metacritic,id.added,tvGeners.text.toString(),id.released,id.visibility)
-            val docRef = db.collection("Users").document("$uId").collection("favorite").document(id.id.toString())
+            val fav = FavouriteGame(
+                id.id,
+                id.name,
+                id.background_image,
+                tvRatings.text.toString(),
+                tvPlatform.text.toString(),
+                id.metacritic,
+                id.added,
+                tvGeners.text.toString(),
+                id.released,
+                id.visibility
+            )
+            val docRef = db.collection("Users").document("$uId").collection("favorite")
+                .document(id.id.toString())
             ref.document(id.id.toString()).get().addOnCompleteListener {
-                if (it.result!!.exists()){
-                    if (onClick){
+                if (it.result!!.exists()) {
+                    if (onClick) {
                         ref.document(id.id.toString()).delete()
                         binding.fabGdFav.setImageResource(R.drawable.ic_baseline_favorite_border_24)
-                    }else{
+                    } else {
                         binding.fabGdFav.setImageResource(R.drawable.ic_baseline_favorite_24)
                     }
-                }else{
+                } else {
                     if (onClick) {
                         docRef.set(fav)
                         binding.fabGdFav.setImageResource(R.drawable.ic_baseline_favorite_24)
-                    }else {
+                    } else {
                         binding.fabGdFav.setImageResource(R.drawable.ic_baseline_favorite_border_24)
                     }
                 }
             }
         } catch (e: Exception) {
-                Toast.makeText(context, e.message, Toast.LENGTH_LONG).show()
-                Log.e("FUNCTION createUserFirestore", "${e.message}")
+            Toast.makeText(context, e.message, Toast.LENGTH_LONG).show()
+            Log.e("FUNCTION createUserFirestore", "${e.message}")
         }
     }
 }

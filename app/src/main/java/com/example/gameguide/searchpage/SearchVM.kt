@@ -9,12 +9,12 @@ import com.example.gameguide.data.Json4Kotlin_Base
 import com.example.gameguide.network.GameRepo
 import kotlinx.coroutines.launch
 
-class SearchVM: ViewModel() {
+class SearchVM : ViewModel() {
 
-    val repo = GameRepo()
-    var i = 1
-    var min = 1
-    var max = 33076
+    private val repo = GameRepo()
+    private var i = 1
+    private var min = 1
+    private var max = 33076
 
     /*var j = 1*/
 
@@ -23,14 +23,14 @@ class SearchVM: ViewModel() {
         i = (min..max).random()
         viewModelScope.launch {
             try {
-                if (searchKeyWord.isNullOrBlank()){
+                if (searchKeyWord.isNullOrBlank()) {
                     game.postValue(repo.fetchInterestingList("$i"))
-                } else{
+                } else {
                     game.postValue(repo.searchGames(searchKeyWord/*,"$j"*/))
                 }
 
-            } catch (e: Throwable){
-                Log.e("game data","issue in game data: ${e.localizedMessage}")
+            } catch (e: Throwable) {
+                Log.e("game data", "issue in game data: ${e.localizedMessage}")
             }
         }
         return game

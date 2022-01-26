@@ -28,7 +28,7 @@ class SignIn : Fragment() {
 
     private var mIsShowPass = false
     private var isRemember = true
-    private lateinit var sharedPreference:SharedPreferences
+    private lateinit var sharedPreference: SharedPreferences
     private lateinit var editor: SharedPreferences.Editor
     private lateinit var binding: FragmentSignInBinding
 
@@ -47,7 +47,9 @@ class SignIn : Fragment() {
 
         (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
 
-        sharedPreference = this.requireActivity().getSharedPreferences("prefence", Context.MODE_PRIVATE)
+
+        sharedPreference =
+            this.requireActivity().getSharedPreferences("prefence", Context.MODE_PRIVATE)
         isRemember = sharedPreference.getBoolean("CHECKBOX", false)
 
         binding.ivSignInVisible.setOnClickListener {
@@ -66,7 +68,7 @@ class SignIn : Fragment() {
             view.findNavController().navigate(SignInDirections.actionSignInToForgetPassword())
         }
 
-        if (isRemember){
+        if (isRemember) {
             findNavController().navigate(R.id.action_signIn_to_homepage)
         }
 
@@ -78,11 +80,13 @@ class SignIn : Fragment() {
     private fun showPassword(isShow: Boolean) {
         if (isShow) {
             // To show the password
-            binding.etSignInPassword.transformationMethod = HideReturnsTransformationMethod.getInstance()
+            binding.etSignInPassword.transformationMethod =
+                HideReturnsTransformationMethod.getInstance()
             binding.ivSignInVisible.setImageResource(R.drawable.ic_baseline_visibility_off)
         } else {
             // To hide the pass
-            binding.etSignInPassword.transformationMethod = PasswordTransformationMethod.getInstance()
+            binding.etSignInPassword.transformationMethod =
+                PasswordTransformationMethod.getInstance()
             binding.ivSignInVisible.setImageResource(R.drawable.ic_baseline_visibility)
         }
         // This line of code to put the pointer at the end of the password string
@@ -95,39 +99,45 @@ class SignIn : Fragment() {
         val logEmail: String = sEmail.trim { it <= ' ' }
         val logPassword: String = sPassword.trim { it <= ' ' }
 
-        if (logEmail.isNotEmpty() && logPassword.isNotEmpty()){
+        if (logEmail.isNotEmpty() && logPassword.isNotEmpty()) {
             //sing in
-            FirebaseAuth.getInstance().signInWithEmailAndPassword(logEmail, logPassword).addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    //firebase register user
-                    val email = binding.etSignInEmail.text.toString()
-                    val password = binding.etSignInPassword.text.toString()
-                    val checked = binding.cbSignInRememberMe.isChecked
+            FirebaseAuth.getInstance().signInWithEmailAndPassword(logEmail, logPassword)
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        //firebase register user
+                        val email = binding.etSignInEmail.text.toString()
+                        val password = binding.etSignInPassword.text.toString()
+                        val checked = binding.cbSignInRememberMe.isChecked
 
-                    editor = sharedPreference.edit()
-                    editor.putString("EMAIL", email)
-                    editor.putString("PASSWORD", password)
-                    editor.putBoolean("CHECKBOX", checked)
-                    editor.apply()
+                        editor = sharedPreference.edit()
+                        editor.putString("EMAIL", email)
+                        editor.putString("PASSWORD", password)
+                        editor.putBoolean("CHECKBOX", checked)
+                        editor.apply()
 
-                    getUserInfo()
+                        getUserInfo()
 
-                    Log.e("OK", "registration is sucessfully done")
-                    findNavController().navigate(R.id.action_signIn_to_homepage)
-                } else {
-                    Toast.makeText(context, task.exception!!.message.toString(), Toast.LENGTH_LONG).show()
-                }
-            }.addOnCompleteListener {
+                        Log.e("OK", "registration is successfully done")
+                        findNavController().navigate(R.id.action_signIn_to_homepage)
+                    } else {
+                        Toast.makeText(
+                            context,
+                            task.exception!!.message.toString(),
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+                }.addOnCompleteListener {
 
             }
-        }else{
+        } else {
             Toast.makeText(context, "email field or password is empty", Toast.LENGTH_LONG).show()
         }
     }
 
     private fun getUserInfo() = CoroutineScope(Dispatchers.IO).launch {
 
-        sharedPreference = this@SignIn.requireActivity().getSharedPreferences("userInfo", Context.MODE_PRIVATE)
+        sharedPreference =
+            this@SignIn.requireActivity().getSharedPreferences("userInfo", Context.MODE_PRIVATE)
         editor = sharedPreference.edit()
 
         val uId = FirebaseAuth.getInstance().currentUser?.uid
@@ -140,9 +150,9 @@ class SignIn : Fragment() {
                     val userPhone = it.result!!.getString("userPhone")
                     val userEmail = it.result!!.getString("userEmail")
 
-                    editor.putString("NAME",name)
-                    editor.putString("PHONE",userPhone)
-                    editor.putString("EMAIL",userEmail)
+                    editor.putString("NAME", name)
+                    editor.putString("PHONE", userPhone)
+                    editor.putString("EMAIL", userEmail)
                     editor.apply()
 
                 } else {

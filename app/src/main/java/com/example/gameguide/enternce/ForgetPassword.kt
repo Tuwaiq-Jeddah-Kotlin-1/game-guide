@@ -15,9 +15,6 @@ import com.google.firebase.auth.FirebaseAuth
 import androidx.appcompat.app.AppCompatActivity
 
 
-
-
-
 class ForgetPassword : Fragment() {
 
 
@@ -38,29 +35,31 @@ class ForgetPassword : Fragment() {
         (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
 
 
-
-
-        binding.tvResetBackToSignIn.setOnClickListener{
-            view.findNavController().navigate(ForgetPasswordDirections.actionForgetPasswordToSignIn())
+        binding.tvResetBackToSignIn.setOnClickListener {
+            view.findNavController()
+                .navigate(ForgetPasswordDirections.actionForgetPasswordToSignIn())
         }
 
-        binding.btnResetPassword.setOnClickListener{
+        binding.btnResetPassword.setOnClickListener {
             restPass(binding.etResetPasswordEmail.text.toString())
         }
     }
+
+
     private fun restPass(fEmail: String) {
         val email: String = fEmail.trim { it <= ' ' }
 
-        if (email.isEmpty()){
+        if (email.isEmpty()) {
             Toast.makeText(context, "email field is empty", Toast.LENGTH_LONG).show()
 
-        }else{
+        } else {
             FirebaseAuth.getInstance().sendPasswordResetEmail(email).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     Log.e("OK", "registration is successfully done")
                     findNavController().navigate(R.id.action_forgetPassword_to_signIn)
                 } else {
-                    Toast.makeText(context, task.exception!!.message.toString(), Toast.LENGTH_LONG).show()
+                    Toast.makeText(context, task.exception!!.message.toString(), Toast.LENGTH_LONG)
+                        .show()
                 }
             }.addOnCompleteListener {
 

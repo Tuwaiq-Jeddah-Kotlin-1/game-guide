@@ -20,32 +20,32 @@ class SearchPage : Fragment() {
     }
 
 
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         binding = FragmentSearchPageBinding.inflate(inflater, container, false)
         return binding.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity?)!!.supportActionBar!!.show()
 
-        (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.ab_explore)
+        (requireActivity() as AppCompatActivity).supportActionBar?.title =
+            getString(R.string.ab_explore)
 
         setHasOptionsMenu(true)
         binding.rvSgame.layoutManager = StaggeredGridLayoutManager(
             1,
             StaggeredGridLayoutManager.VERTICAL
         )
-        loadgames()
+        loadGames()
 
     }
 
-    private fun loadgames(query: String? = null/*,pageNumber:String*/) {
+    private fun loadGames(query: String? = null/*,pageNumber:String*/) {
         vm.searchGames(query/*,"3"*/).observe(viewLifecycleOwner, {
             if (query.isNullOrEmpty()) {
                 binding.rvSgame.adapter = SearchGameAdapter(it.results)
@@ -59,24 +59,24 @@ class SearchPage : Fragment() {
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.search_menu, menu)
         val searchIcon: MenuItem = menu.findItem(R.id.app_bar_search)
-        val TAG = "searchView"
+        val tag = "searchView"
         val searchView = searchIcon.actionView as SearchView
-        searchView.imeOptions= searchView.imeOptions or EditorInfo.IME_FLAG_NO_EXTRACT_UI
+        searchView.imeOptions = searchView.imeOptions or EditorInfo.IME_FLAG_NO_EXTRACT_UI
 
         searchView.apply {
             setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String?): Boolean {
-                    Log.d(TAG, "Query text submit: $query")
-                    loadgames(query?.trim())
+                    Log.d(tag, "Query text submit: $query")
+                    loadGames(query?.trim())
                     return true
                 }
 
                 override fun onQueryTextChange(newText: String?): Boolean {
-                    Log.d(TAG, "QueryTextChange:  $$newText")
+                    Log.d(tag, "QueryTextChange:  $$newText")
                     return false
                 }
             })
         }
-        return super.onCreateOptionsMenu(menu,inflater)
+        return super.onCreateOptionsMenu(menu, inflater)
     }
 }
